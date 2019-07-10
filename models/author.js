@@ -18,8 +18,26 @@ const authorSchema = new Schema({
   description: {
     type: String,
     trim: true,
-  }
+  },
+  authorAdded: {
+      type: Date,
+      default: Date.now
+  },
+  fullName: String,
+  lastUpdated: Date
 });
+
+// Custom Instance Methods
+
+UserSchema.methods.setFullName = function() {
+    this.fullName = this.firstName + " " + this.lastName;
+    return this.fullName;
+};
+
+UserSchema.methods.lastUpdatedDate = function() {
+    this.lastUpdated = Date.now();
+    return this.lastUpdated;
+};
 
 const Author = mongoose.model("Author", authorSchema);
 
