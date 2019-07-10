@@ -22,8 +22,20 @@ const bookSchema = new Schema({
   },
   year: {
     type: Number,
-  }
+  },
+  bookAdded: {
+    type: Date,
+    default: Date.now
+  },
+  lastUpdated: Date
 });
+
+// Custom Instance Methods
+
+UserSchema.methods.lastUpdatedDate = function() {
+  this.lastUpdated = Date.now();
+  return this.lastUpdated;
+};
 
 const Book = mongoose.model("Book", bookSchema);
 
