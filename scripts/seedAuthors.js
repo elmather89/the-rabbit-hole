@@ -51,3 +51,16 @@ const authorSeed = [
     },
 
 ];
+
+db.Author
+.then(() => db.Author.collection.insertMany(authorSeed))
+.then(data => {
+    console.log(data.result.n + " author added!");
+    process.exit(0);
+})
+.catch(err => {
+    console.error(err);
+    process.exit(1);
+});
+
+
