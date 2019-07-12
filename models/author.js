@@ -12,9 +12,9 @@ const authorSchema = new Schema({
     trim: true,
     required: "Last Name is Required"
   },
-  birthdate: {
-    type: Date,
-  },
+  // birthdate: {
+  //   type: Date,
+  // },
   description: {
     type: String,
     trim: true,
