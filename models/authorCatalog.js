@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-const AuthorCatalog = new Schema({
+const AuthorCatalogSchema = new Schema({
     name: {
         type: String,
         unique: true
@@ -14,6 +14,6 @@ const AuthorCatalog = new Schema({
     ]
 });
 
-const AuthorCatalog = mongoose.model("AuthorCatalog", AuthorCatalog);
+const AuthorCatalog = mongoose.model("AuthorCatalog", AuthorCatalogSchema);
 
 module.exports = AuthorCatalog

@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-const BookCatalog = new Schema({
+const BookCatalogSchema = new Schema({
     name: {
         type: String,
         unique: true
@@ -14,6 +14,6 @@ const BookCatalog = new Schema({
     ]
 });
 
-const BookCatalog = mongoose.model("BookCatalog", BookCatalog);
+const BookCatalog = mongoose.model("BookCatalog", BookCatalogSchema);
 
 module.exports = BookCatalog

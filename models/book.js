@@ -32,7 +32,7 @@ const bookSchema = new Schema({
 
 // Custom Instance Methods
 
-UserSchema.methods.lastUpdatedDate = function() {
+bookSchema.methods.lastUpdatedDate = function() {
   this.lastUpdated = Date.now();
   return this.lastUpdated;
 };

@@ -35,12 +35,12 @@ const authorSchema = new Schema({
 
 // Custom Instance Methods
 
-UserSchema.methods.setFullName = function() {
+authorSchema.methods.setFullName = function() {
     this.fullName = this.firstName + " " + this.lastName;
     return this.fullName;
 };
 
-UserSchema.methods.lastUpdatedDate = function() {
+authorSchema.methods.lastUpdatedDate = function() {
     this.lastUpdated = Date.now();
     return this.lastUpdated;
 };
