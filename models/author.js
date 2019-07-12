@@ -24,7 +24,13 @@ const authorSchema = new Schema({
       default: Date.now
   },
   fullName: String,
-  lastUpdated: Date
+  lastUpdated: Date,
+  // books: [
+  //   {
+  //     type: Schema.Types.ObjectId,
+  //     ref: "Book"
+  //   }
+  // ]
 });
 
 // Custom Instance Methods
