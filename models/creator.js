@@ -12,12 +12,31 @@ const creatorSchema = new Schema({
     trim: true,
     required: "Last Name is Required"
   },
-  // birthdate: {
-  //   type: Date,
-  // },
-  description: {
+  birthdate: {
+    type: Date,
+  },
+  dateOfDeath: {
+    type: Date,
+  },
+  biography: {
     type: String,
     trim: true,
+    required: true,
+  },
+  legacy: {
+    type: String,
+    trim: true,
+  },
+  ownWords: {
+    type: String,
+    trim: true,
+  },
+  tags: {
+    type: String,
+    trim: true,
+  },
+  image: {
+    type: String,
   },
   creatorAdded: {
       type: Date,
