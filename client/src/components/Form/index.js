@@ -8,6 +8,14 @@ export function Input(props) {
     );
 }
 
+export function CheckBox(props) {
+    return (
+        <div className="form-check">
+            <input className="form-check-input" type="checkbox" {...props} />
+        </div>
+    );
+}
+
 export function TextArea(props) {
     return (
         <div className="form-group">
