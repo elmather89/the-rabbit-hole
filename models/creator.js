@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-const authorSchema = new Schema({
+const creatorSchema = new Schema({
   firstName: {
     type: String,
     trim: true,
@@ -19,7 +19,7 @@ const authorSchema = new Schema({
     type: String,
     trim: true,
   },
-  authorAdded: {
+  creatorAdded: {
       type: Date,
       default: Date.now
   },
@@ -35,16 +35,16 @@ const authorSchema = new Schema({
 
 // Custom Instance Methods
 
-authorSchema.methods.setFullName = function() {
+creatorSchema.methods.setFullName = function() {
     this.fullName = this.firstName + " " + this.lastName;
     return this.fullName;
 };
 
-authorSchema.methods.lastUpdatedDate = function() {
+creatorSchema.methods.lastUpdatedDate = function() {
     this.lastUpdated = Date.now();
     return this.lastUpdated;
 };
 
-const Author = mongoose.model("Author", authorSchema);
+const Creator = mongoose.model("Creator", creatorSchema);
 
-module.exports = Author;
+module.exports = Creator;

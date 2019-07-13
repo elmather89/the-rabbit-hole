@@ -1,19 +1,19 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
-const AuthorCatalogSchema = new Schema({
+const CreatorCatalogSchema = new Schema({
     name: {
         type: String,
         unique: true
     },
-    authors: [
+    creators: [
       {
         type: Schema.Types.ObjectId,
-        ref: "Author"
+        ref: "Creator"
       }
     ]
 });
 
-const AuthorCatalog = mongoose.model("AuthorCatalog", AuthorCatalogSchema);
+const CreatorCatalog = mongoose.model("CreatorCatalog", CreatorCatalogSchema);
 
-module.exports = AuthorCatalog
+module.exports = CreatorCatalog

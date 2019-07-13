@@ -6,7 +6,7 @@ mongoose.connect(
     "mongodb://localhost/rabbitholedb"
 );
 
-const authorSeed = [
+const creatorSeed = [
     {
         firstName: "Maurice",
         lastName: "Sendak",
@@ -52,10 +52,10 @@ const authorSeed = [
 
 ];
 
-db.Author
-.then(() => db.Author.collection.insertMany(authorSeed))
+db.Creator
+.then(() => db.Creator.collection.insertMany(creatorSeed))
 .then(data => {
-    console.log(data.result.n + " author added!");
+    console.log(data.result.n + " creator added!");
     process.exit(0);
 })
 .catch(err => {

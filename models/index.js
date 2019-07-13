@@ -2,7 +2,7 @@
 
 module.exports = {
     Book: require("./Book"),
-    Author: require("./Author"),
-    AuthorCatalog: require("./AuthorCatalog"),
+    Creator: require("./Creator"),
+    CreatorCatalog: require("./CreatorCatalog"),
     BookCatalog: require("./BookCatalog")
   };
