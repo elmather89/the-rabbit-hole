@@ -12,16 +12,26 @@ const bookSchema = new Schema({
     trim: true,
     required: "Creator is Required"
   },
-  description: {
+  synopsis: {
     type: String,
     trim: true,
   },
-  publisher: {
+  originalPublisher: {
     type: String,
     trim: true,
   },
-  year: {
+  currentPublisher: {
+    type: String,
+    trim: true,
+  },
+  yearPublished: {
     type: Number,
+  },
+  quote: {
+    type: String,
+  },
+  image: {
+    type: String,
   },
   bookAdded: {
     type: Date,
