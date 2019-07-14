@@ -37,7 +37,7 @@ const bookSchema = new Schema({
   quote: {
     type: String,
   },
-  // image: {
+  // bookImage: {
   //   type: String,
   // },
   bookAdded: {
@@ -59,7 +59,7 @@ bookSchema.methods.lastUpdatedDate = function() {
 bookSchema.plugin(thumbnailPlugin, {
   name: "bookImage",
   format: "jpg",
-  size: 80,
+  // size: 80,
   inline: false,
   save: true,
   upload_to: make_upload_to_model(uploads, 'bookImage'),
