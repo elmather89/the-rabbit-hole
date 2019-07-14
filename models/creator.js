@@ -39,6 +39,7 @@ const creatorSchema = new Schema({
   },
   image: {
     type: String,
+    data: Buffer
   },
   creatorAdded: {
       type: Date,
@@ -55,7 +56,6 @@ const creatorSchema = new Schema({
 });
 
 // Custom Instance Methods
-
 creatorSchema.methods.setFullName = function() {
     this.fullName = this.firstName + " " + this.lastName;
     return this.fullName;

@@ -33,6 +33,7 @@ const bookSchema = new Schema({
   },
   image: {
     type: String,
+    data: Buffer
   },
   bookAdded: {
     type: Date,
