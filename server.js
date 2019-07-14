@@ -33,11 +33,12 @@ if (process.env.NODE_ENV === 'production') {
 // var Book = require("./book.js");
 // var Author = require("./author.js");
 
-// Connect to the Mongo DB
-mongoose.connect("mongodb://localhost/rabbitholedb", { useNewUrlParser: true });
-
 // Add routes, both API and view
 app.use(routes);
+
+// Connect to the Mongo DB
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/rabbitholedb", { useNewUrlParser: true });
+
 
 // The "catchall" handler: for any request that doesn't
 // match one above, send back React's index.html file.
@@ -49,11 +50,7 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 // Mongo Routes
-
-
-
-
-
+//.
 
 // Start the server
 app.listen(PORT, () => {

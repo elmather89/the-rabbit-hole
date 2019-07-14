@@ -7,11 +7,12 @@ const bookSchema = new Schema({
     trim: true,
     required: "Title is Required"
   },
-  creator: {
-    type: String,
+  creator: [{
+    type: Schema.Types.ObjectId,
+    ref: "Creator",
     trim: true,
     required: "Creator is Required"
-  },
+  }],
   synopsis: {
     type: String,
     trim: true,

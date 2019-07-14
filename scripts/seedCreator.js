@@ -88,6 +88,7 @@ const creatorSeed = [
 ];
 
 db.Creator
+.remove({})
 .then(() => db.Creator.collection.insertMany(creatorSeed))
 .then(data => {
     console.log(data.result.n + " creator added!");

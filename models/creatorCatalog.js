@@ -2,11 +2,12 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const CreatorCatalogSchema = new Schema({
-    name: {
+  firstName: {
         type: String,
-        unique: true
+        unique: true,
+        required: true
     },
-    creators: [
+    books: [
       {
         type: Schema.Types.ObjectId,
         ref: "Creator"
