@@ -1,4 +1,5 @@
 import React from "react";
+import Jumbotron from "components/Jumbotron";
 
 
 render() {
@@ -6,17 +7,33 @@ render() {
         <Container>
             <Row>
                 <Col size="md-9">
-                <Card
-                        heading="Slobodkina, Esphyr (1908-2002)"
-                   > </Card>
+                <Jumbotron heading="Creator Name">
+
+                   <div>
+                       <h1>Slobodkina, Esphyr (1908-2002)</h1>
+                   </div>
+
+                   </Jumbotron>
                    </Col>
 
                    <Col size="md-3">
                        <Card>
-                           <img class="authorImage" src="./images/Esphyr Slobodkina.jpg" alt="Esphyr Slobodkina" style="width:100px;height:100px;"></img>
+                           <div>
+                          <img class="authorImage" src="./images/Esphyr Slobodkina.jpg" alt="Esphyr Slobodkina" style="width:100px;height:100px;"></img>
+                        </div>
                        </Card>
                    </Col>
                    </Row>
+            <Row>
+                <Col size="md-9">
+                    <Card heading="tags">
+                       <div>
+                           <h3>author / illustrator / painter / sculptor</h3>
+                           </div>     
+                    </Card>
+                </Col>
+            </Row>
+
                 <Row>
                 <Col size="md-12">
                     
@@ -71,4 +88,4 @@ render() {
                 </Col>
             </Row>
         </Container>
-    )}
+    )};
