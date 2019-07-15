@@ -15,7 +15,7 @@ const bookSeed = [
         currentPublisher: " ",
         yearPublished: 1963,
         quote: " ",
-        image: " ",
+        image: " "
     },
     {
         title: "The Very Hungry Caterpillar",
@@ -25,7 +25,7 @@ const bookSeed = [
         currentPublisher: " ",
         yearPublished: 1969,
         quote: " ",
-        image: " ",
+        image: " "
     },
     {
         title: "Charlotte's Web",
@@ -35,7 +35,7 @@ const bookSeed = [
         currentPublisher: " ",
         yearPublished: 1952,
         quote: " ",
-        image: " ",
+        image: " "
     },
     {
         title: "The Trumpet of the Swan",
@@ -45,7 +45,7 @@ const bookSeed = [
         currentPublisher: " ",
         yearPublished: 1970,
         quote: " ",
-        image: " ",
+        image: " "
     },
     {
         title: "Stuart Little",
@@ -55,7 +55,7 @@ const bookSeed = [
         currentPublisher: " ",
         yearPublished: 1945,
         quote: " ",
-        image: " ",
+        image: " "
     },
     {
         title: "The Giving Tree",
@@ -65,7 +65,7 @@ const bookSeed = [
         currentPublisher: " ",
         yearPublished: 1964,
         quote: " ",
-        image: " ",
+        image: " "
     },
     {
         title: "Madeline",
@@ -75,7 +75,7 @@ const bookSeed = [
         currentPublisher: " ",
         yearPublished: 1939,
         quote: " ",
-        image: " ",
+        image: " "
     },
     {
         title: "Curious George",
@@ -85,7 +85,7 @@ const bookSeed = [
         currentPublisher: " ",
         yearPublished: 1941,
         quote: " ",
-        image: " ",
+        image: " "
     },
     {
         title: "Corduroy",
@@ -95,7 +95,7 @@ const bookSeed = [
         currentPublisher: " ",
         yearPublished: 1968,
         quote: " ",
-        image: " ",
+        image: " "
     },
     {
         title: "Caps for Sale",
@@ -105,8 +105,18 @@ const bookSeed = [
         currentPublisher: " ",
         yearPublished: 1940,
         quote: " ",
-        image: " ",
+        image: " "
     },
+    {
+        title: "The Wonderful Feast",
+        creator: "Esphyr Slobodkina",
+        synopsis: "Farmer Jones thought there was just enough food to make a feast for Spotty, his horse. But he was mistaken. For after Spotty had eaten his fill, there was enough left over to feed all the animals in the barnyard. A wonderful feast indeed!",
+        originalPublisher: "Lothrop",
+        currentPublisher: " ",
+        yearPublished: 1967,
+        quote: " ",
+        image: " "
+    }
     
 ];
 

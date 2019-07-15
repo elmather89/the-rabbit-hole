@@ -5,8 +5,8 @@ const cors = require('cors');
 const session = require('express-session');
 const logger = require("morgan");
 const mongoose = require("mongoose");
-const fs = require("fs");
-const multer = require("multer");
+// const fs = require("fs");
+// const multer = require("multer");
 
 const db = require('./models');
 const routes = require('./routes');
