@@ -4,7 +4,7 @@ import Jumbotron from "components/Jumbotron";
 
 render() {
     return (
-        <Container>
+        <Container fluid>
             <Row>
                 <Col size="md-9">
                 <Jumbotron heading="Creator Name">
