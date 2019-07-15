@@ -3,8 +3,11 @@ import DeleteBtn from "../components/DeleteBtn";
 import Jumbotron from "../components/Jumbotron";
 import API from "../utils/API";
 import { Link } from "react-router-dom";
-import { Col, Row, Container } from "../components/List";
+import { Col, Row, Container } from "../components/Grid";
+import { List, ListItem } from "../components/List";
 import { Input, TextArea, CheckBox, FormBtn } from "../components/Form";
+import Button from "../components/Button";
+import "../assets/style/style.css";
 
 class Books extends Component {
     state = {
@@ -26,17 +29,17 @@ class Books extends Component {
     }
 
     loadBooks = () => {
-        API.getBooks()
-        .then(res =>
-            this.setState({ books: res.data, title: "", creator: "", tags: "", accomplishments: "", quote: "", synopsis: "", originalPublisher: "", currentPublisher: "", yearPublished: "", image: "" })
-            )
-            .catch(err => console.log(err));
+        // API.getBooks()
+        // .then(res =>
+        //     this.setState({ books: res.data, title: "", creator: "", tags: "", accomplishments: "", quote: "", synopsis: "", originalPublisher: "", currentPublisher: "", yearPublished: "", image: "" })
+        //     )
+        //     .catch(err => console.log(err));
     };
 
     deleteBook = id => {
         API.deleteBook(id)
-        .then(res => this.loadBooks())
-        .catch(err => console.log(err));
+            .then(res => this.loadBooks())
+            .catch(err => console.log(err));
     };
 
     handleInputChange = event => {
@@ -61,8 +64,8 @@ class Books extends Component {
                 yearPublished: this.state.yearPublished,
                 image: this.state.image
             })
-            .then(res => this.loadBooks())
-            .catch(err => console.log(err));
+                .then(res => this.loadBooks())
+                .catch(err => console.log(err));
         }
     };
 
@@ -70,13 +73,24 @@ class Books extends Component {
         return (
             <Container fluid>
                 <Row>
-                    <Col size="md-6">
-                        <Jumbotron>
-                            <h1>Book Submission Form </h1>
+                    <Col size="md-6 sm-12">
+                        <Jumbotron className="creator">
+                            <h1>Creators</h1>
                         </Jumbotron>
+                        <Button>
+                            Add Creator
+                        </Button>
+                    </Col>
+                    <Col size="md-6 sm-12">
+                        <Jumbotron>
+                            <h1>Books</h1>
+                        </Jumbotron>
+
                     </Col>
                 </Row>
             </Container>
         )
     }
 }
+
+export default Books;
