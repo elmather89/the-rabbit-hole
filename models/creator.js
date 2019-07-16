@@ -20,11 +20,13 @@ const creatorSchema = new Schema({
   },
   biography: {
     type: String,
+    required: true,
     trim: true,
     required: true,
   },
   legacy: {
     type: String,
+    required: true,
     trim: true,
   },
   ownWords: {
@@ -37,6 +39,7 @@ const creatorSchema = new Schema({
   },
   image: {
     type: String,
+    data: Buffer
   },
   creatorAdded: {
       type: Date,
@@ -44,16 +47,15 @@ const creatorSchema = new Schema({
   },
   fullName: String,
   lastUpdated: Date,
-  // books: [
-  //   {
-  //     type: Schema.Types.ObjectId,
-  //     ref: "Book"
-  //   }
-  // ]
+  books: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: "Book"
+    }
+  ]
 });
 
 // Custom Instance Methods
-
 creatorSchema.methods.setFullName = function() {
     this.fullName = this.firstName + " " + this.lastName;
     return this.fullName;
