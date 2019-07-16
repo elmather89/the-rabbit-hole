@@ -2,5 +2,5 @@
 
 module.exports = {
     Book: require("./book"),
-    Creator: require("./creator"),
+    Creator: require("./creator")
   };
