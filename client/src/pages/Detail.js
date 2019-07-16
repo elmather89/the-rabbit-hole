@@ -9,6 +9,20 @@ import { Input, TextArea, CheckBox, FormBtn } from "../components/Form";
 import Button from "../components/Button";
 import "../assets/style/style.css";
 
+class Detail extends Component {
+    state = {
+        firstName: "";
+        lastName: "";
+        birthdate: "",
+        dateOfDeath: "",
+        biography: "",
+        legacy: "",
+        ownWords: "",
+        tags: "",
+        image: ""
+    };
+
+
 render() {
     return (
         <Container fluid>
@@ -96,3 +110,5 @@ render() {
             </Row>
         </Container>
     )};
+
+}
