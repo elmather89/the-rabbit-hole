@@ -22,6 +22,10 @@ class Detail extends Component {
         image: ""
     };
 
+    componentDidMount() {
+        this.loadDetail();
+    };
+
 
 render() {
     return (
