@@ -1,8 +1,8 @@
 // Exporting an object containing all of our models
 
 module.exports = {
-    Book: require("./book"),
-    Creator: require("./creator"),
-    CreatorCatalog: require("./creatorCatalog"),
-    BookCatalog: require("./bookCatalog")
+    Book: require("./Book"),
+    Creator: require("./Creator"),
+    CreatorCatalog: require("./CreatorCatalog"),
+    BookCatalog: require("./BookCatalog")
   };

@@ -5,6 +5,8 @@ const cors = require('cors');
 const session = require('express-session');
 const logger = require("morgan");
 const mongoose = require("mongoose");
+// const fs = require("fs");
+// const multer = require("multer");
 
 const db = require('./models');
 const routes = require('./routes');
@@ -33,11 +35,12 @@ if (process.env.NODE_ENV === 'production') {
 // var Book = require("./book.js");
 // var Author = require("./author.js");
 
-// Connect to the Mongo DB
-mongoose.connect("mongodb://localhost/rabbitholedb", { useNewUrlParser: true });
-
 // Add routes, both API and view
 app.use(routes);
+
+// Connect to the Mongo DB
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/rabbitholedb", { useNewUrlParser: true });
+
 
 // The "catchall" handler: for any request that doesn't
 // match one above, send back React's index.html file.
@@ -49,11 +52,7 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 // Mongo Routes
-
-
-
-
-
+//.
 
 // Start the server
 app.listen(PORT, () => {

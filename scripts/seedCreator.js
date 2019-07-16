@@ -16,7 +16,7 @@ const creatorSeed = [
         legacy: " ",
         ownWords: " ",
         tags: " ",
-        image: " ",
+        image: " "
     },
     {
         firstName: "Eric",
@@ -27,7 +27,7 @@ const creatorSeed = [
         legacy: " ",
         ownWords: " ",
         tags: " ",
-        image: " ",
+        image: " "
     },
     {
         firstName: "E. B.",
@@ -38,7 +38,7 @@ const creatorSeed = [
         legacy: " ",
         ownWords: " ",
         tags: " ",
-        image: " ",
+        image: " "
     },
     {
         firstName: "Shel",
@@ -49,7 +49,7 @@ const creatorSeed = [
         legacy: " ",
         ownWords: " ",
         tags: " ",
-        image: " ",
+        image: " "
     },
     {
         firstName: "Ludwig",
@@ -60,7 +60,7 @@ const creatorSeed = [
         legacy: " ",
         ownWords: " ",
         tags: " ",
-        image: " ",
+        image: " "
     },
     {
         firstName: "Don",
@@ -71,7 +71,7 @@ const creatorSeed = [
         legacy: " ",
         ownWords: " ",
         tags: " ",
-        image: " ",
+        image: " "
     },
     {
         firstName: "Esphyr",
@@ -82,12 +82,13 @@ const creatorSeed = [
         legacy: " ",
         ownWords: " ",
         tags: " ",
-        image: " ",
-    },
+        image: " "
+    }
 
 ];
 
 db.Creator
+.remove({})
 .then(() => db.Creator.collection.insertMany(creatorSeed))
 .then(data => {
     console.log(data.result.n + " creator added!");
