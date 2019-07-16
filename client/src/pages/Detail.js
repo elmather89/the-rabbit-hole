@@ -8,7 +8,7 @@ import { List, ListItem } from "../components/List";
 import { Input, TextArea, CheckBox, FormBtn } from "../components/Form";
 //import Button from "../components/Button";
 import Card from "../components/Card";
-import logo from "../assets/images "
+import logo from "../assets/images/EsphyrSlobodkina.jpg"
 //import "../assets/style/style.css";
 
 class Detail extends Component {
@@ -33,7 +33,7 @@ render() {
     return (
         <Container fluid>
             <Row>
-                <Col size="md-9">
+                <Col size="md-9 sm-12">
                 <Jumbotron heading="Creator Name">
 
                    <div>
@@ -43,16 +43,16 @@ render() {
                    </Jumbotron>
                    </Col>
 
-                   <Col size="md-3">
+                   <Col size="md-3 sm-12">
                        <Card>
                            <div>
-                          <img class="authorImage" src="./images/Esphyr Slobodkina.jpg" alt="Esphyr Slobodkina" style="width:100px;height:100px;"></img>
+                          <img src= {logo} alt="Esphyr Slobodkina" style="width:100px;height:100px;"></img>
                         </div>
                        </Card>
                    </Col>
                    </Row>
             <Row>
-                <Col size="md-9">
+                <Col size="md-9 sm-12">
                     <Card heading="tags">
                        <div>
                            <h3>author / illustrator / painter / sculptor</h3>
@@ -62,7 +62,7 @@ render() {
             </Row>
 
                 <Row>
-                <Col size="md-12">
+                <Col size="md-12 sm-12">
                     
                     <Card heading="Creator Biography">
                      <div>
@@ -84,7 +84,7 @@ render() {
                 </Row>
                 
                 <Row>
-                <Col size="md-6">
+                <Col size="md-6 sm-12">
                     <Card heading="Legacy">
 
                         <div>
@@ -98,7 +98,7 @@ render() {
                        
                      </Card>
                 </Col>
-                <Col size="md-6">
+                <Col size="md-6 sm-12">
                     <Card heading="Own Words">
 
                         <div>
