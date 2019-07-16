@@ -11,7 +11,7 @@ import Card from "../components/Card";
 import logo from "../assets/images/EsphyrSlobodkina.jpg"
 //import "../assets/style/style.css";
 
-class Detail extends Component {
+class creatorDetails extends Component {
     state = {
         firstName: "",
         lastName: "",
@@ -25,7 +25,7 @@ class Detail extends Component {
     };
 
     componentDidMount() {
-        this.loadDetail();
+    //    this.loadDetail();
     };
 
 
@@ -46,7 +46,7 @@ render() {
                    <Col size="md-3 sm-12">
                        <Card>
                            <div>
-                          <img src= {logo} alt="Esphyr Slobodkina" style="width:100px;height:100px;"></img>
+                          <img src= {logo} alt="Esphyr Slobodkina"></img>
                         </div>
                        </Card>
                    </Col>
@@ -118,4 +118,4 @@ render() {
     )};
 
 }
-export default Detail;
+export default creatorDetails;
