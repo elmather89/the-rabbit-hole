@@ -3,3 +3,6 @@
 /tests
 /migrations
 /seeders
+/scripts
+/models
+/controllers
