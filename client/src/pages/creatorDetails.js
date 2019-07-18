@@ -36,7 +36,7 @@ class creatorDetails extends Component {
                     <Col size="md-6 sm-12">
 
                         <div >
-                            <h1 className="creator">Slobodkina, Esphyr</h1>
+                            <h1 className="creatorOne">Slobodkina, Esphyr</h1>
                         </div>
 
                     </Col>
