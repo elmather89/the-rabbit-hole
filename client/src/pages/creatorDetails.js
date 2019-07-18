@@ -82,9 +82,10 @@ class creatorDetails extends Component {
                     </Col>
                 </Row>
 
-                <Row>
+                <Row >
+                    
                     <Col size="md-6 sm-12">
-                        <Card heading="Legacy">
+                        <Card heading="Legacy" className="legacy">
 
                             <div>
                                 <p>First to use collage in children's books.
@@ -98,7 +99,7 @@ class creatorDetails extends Component {
                         </Card>
                     </Col>
                     <Col size="md-6 sm-12">
-                        <Card heading="Own Words">
+                        <Card heading="Own Words" className="ownWords">
 
                             <div>
                                 <p>"The verbal patterns and the patterns
@@ -112,6 +113,7 @@ class creatorDetails extends Component {
                             </div>
                         </Card>
                     </Col>
+                    
                 </Row>
             </Container>
         )
