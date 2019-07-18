@@ -1,13 +1,11 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import Nav from "./components/Nav";
 import Books from "./pages/Books";
-import Detail from "./pages/creatorDetails";
+import Detail from "./pages/Detail";
 import NoMatch from "./pages/NoMatch";
+import Nav from "./components/Nav";
 
-import './App.css';
-
-function App() {
+export function App() {
   return (
     <Router>
       <div>

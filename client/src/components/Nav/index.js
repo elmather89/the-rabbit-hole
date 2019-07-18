@@ -4,7 +4,7 @@ function Nav() {
     return (
         <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
             <a className="navbar-brand" href="/">
-                The Rabbit hOle
+                <h1>The Rabbit hOle Creator Collection</h1>
             </a>
         </nav>
     );

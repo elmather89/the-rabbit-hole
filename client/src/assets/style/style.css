@@ -5,3 +5,7 @@
 }
 
 
+    background-image: url(../images/create.jpg);
+    background-size: contain;
+    background: cover;
+}
