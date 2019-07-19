@@ -61,7 +61,40 @@ class bookDetails extends Component {
               <Row>
                 <Col size="md-12">
                   <BookCard>
-                    
+                    <Row>
+                      <Col size="sm-7">
+                        <div className="card-body">
+                          <p><small>Text of Interest</small></p>
+                          <h4 className="card-title">"{this.state.book.quote}"</h4><hr></hr>
+                          <p className="card-text">{this.state.book.synopsis}</p>
+                        </div>
+                        <hr></hr>
+                        <Row>
+                          <Col size="sm-12 md-4">
+                            <p className="card-text" style={{textAlign: "center"}}><small>Original Publisher</small></p>
+                            <h5 className="card-text" style={{textAlign: "center"}}>{this.state.book.originalPublisher}</h5>
+                          </Col>
+                          <Col size="sm-12 md-4">
+                            <p className="card-text" style={{textAlign: "center"}}><small>Current Publisher</small></p>
+                            <h5 className="card-text" style={{textAlign: "center"}}>{this.state.book.currentPublisher}</h5>
+                          </Col>
+                          <Col size="sm-12 md-4">
+                            <p className="card-text" style={{textAlign: "center"}}><small>Year Published</small></p>
+                            <h5 className="card-text" style={{textAlign: "center"}}>{this.state.book.yearPublished}</h5>
+                          </Col>
+                        </Row>
+                      </Col>
+                      <Col size="sm-5">
+                        <div className="card-body">
+                          <p style={{textAlign: "center"}}><small>Cover Art</small></p>
+                          <div>
+                          <img className="card-img" src={this.state.book.bookImage} alt="book-cover"
+                            style={{height: "auto"}}>
+                          </img>
+                          </div>
+                        </div>
+                      </Col>
+                    </Row>
                   </BookCard>
                 </Col>
               </Row>
