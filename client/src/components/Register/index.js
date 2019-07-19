@@ -14,6 +14,7 @@ class Register extends Component {
             email: '',
             password: '',
             password_confirm: '',
+            avatar: '',
             errors: {}
         }
         this.handleInputChange = this.handleInputChange.bind(this);
@@ -32,7 +33,8 @@ class Register extends Component {
             name: this.state.name,
             email: this.state.email,
             password: this.state.password,
-            password_confirm: this.state.password_confirm
+            password_confirm: this.state.password_confirm,
+            avatar: this.state.avatar
         }
         this.props.registerUser(user, this.props.history);
     }
@@ -111,6 +113,19 @@ class Register extends Component {
                     value={ this.state.password_confirm }
                     />
                     {errors.password_confirm && (<div className="invalid-feedback">{errors.password_confirm}</div>)}
+                </div>
+                <div className="form-group">
+                    <input
+                    type="avatar"
+                    placeholder="Confirm avatar"
+                    className={classnames('form-control form-control-lg', {
+                        'is-invalid': errors.avatar
+                    })}
+                    name="avatar"
+                    onChange={ this.handleInputChange }
+                    value={ this.state.avatar }
+                    />
+                    {errors.avatar && (<div className="invalid-feedback">{errors.avatar}</div>)}
                 </div>
                 <div className="form-group">
                     <button type="submit" className="btn btn-primary">

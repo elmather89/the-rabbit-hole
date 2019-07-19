@@ -19,7 +19,7 @@
     "start:dev": "yarn kill && concurrently \"nodemon\" \"yarn client\"",
     "server": "yarn kill && nodemon",
     "client": "cd client && yarn start",
-    "seed": "node \"scripts/seedBooks.js\" & node \"scripts/seedCreator.js\"",
+    "seed": "node \"scripts/seedBooks.js\" & node \"scripts/seedCreator.js\" & node \"scripts/seedUsers.js\"",
     "install": "cd client && yarn install",
     "build": "cd client && yarn build",
     "heroku-postbuild": "yarn build",
