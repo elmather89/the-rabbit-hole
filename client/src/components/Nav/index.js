@@ -1,11 +1,16 @@
 import React from "react";
+import RHLogo from "assets/images/RHlogo.png";
+import "./style.css";
 
 function Nav() {
     return (
-        <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
-            <a className="navbar-brand" href="/">
-                <h1>The Rabbit hOle Creator Collection</h1>
-            </a>
+        <nav className="navbar navbar-expand-lg">
+            <h3>
+              <a className="navbar-brand" href="/">
+                <img src={RHLogo} alt="Rabbit hOle logo"></img>
+                The Rabbit hOle Creator Collection
+              </a>
+            </h3>
         </nav>
     );
 }
