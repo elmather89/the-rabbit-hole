@@ -128,12 +128,11 @@ class Books extends Component {
                                     <ListItem key={creator._id}>
                                         <Link to={"/creator/" + creator._id}>
                                             <strong>
-                                                {creator.firstName}
+                                                {creator.firstName} {creator.lastName}
 
                                             </strong>
                                         </Link>
-                                        <UpdateBtn onClick={() => this.updateCreator(creator.id)} />
-                                        <br></br>
+                                        <UpdateBtn onClick={() => this.updateCreator(creator._id)} />
                                         <DeleteBtn onClick={() => this.deleteCreator(creator._id)} />
                                     </ListItem>
                                 ))}
