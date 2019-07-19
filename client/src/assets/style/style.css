@@ -9,3 +9,13 @@
     background-size: contain;
     background: cover;
 }
+
+.bookTitle, .smallCaption {
+    text-transform: uppercase;
+}
+
+.tagHeader {
+    margin: 20px;
+    background-color: transparent;
+    border: none;
+}
