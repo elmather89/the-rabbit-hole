@@ -14,8 +14,7 @@ export function App() {
           <Route exact path="/" component={Books} />
           <Route exact path="/books" component={Books} />
           <Route exact path="/books/:id" component={creatorDetails} />
-          <Route exact path="/creatorDetails" component={creatorDetails} />
-          
+          <Route exact path="/creator/:id" component={creatorDetails} />
           <Route component={NoMatch} /> 
         </Switch>
       </div>
