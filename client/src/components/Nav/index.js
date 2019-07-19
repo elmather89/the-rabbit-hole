@@ -4,6 +4,8 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { logoutUser } from '.../../actions/authentication';
 import { withRouter } from 'react-router-dom';
+import RHLogo from "assets/images/RHlogo.png";
+import "./style.css";
 
 class Nav extends Component {
 
@@ -35,8 +37,10 @@ class Nav extends Component {
         </ul>
       )
         return(
-            <nav className="navbar navbar-expand-lg navbar-light bg-light">
-                <Link className="navbar-brand" to="/">The Rabbit hOle Creator Collection</Link>
+            <nav className="navbar navbar-expand-lg">
+                <h3>
+                <Link className="navbar-brand" to="/"><img src={RHLogo} alt="Rabbit hOle logo"></img> The Rabbit hOle Creator Collection</Link>
+                </h3>
                 <div className="collapse navbar-collapse" id="navbarSupportedContent">
                     {isAuthenticated ? authLinks : guestLinks}
                 </div>
@@ -44,6 +48,7 @@ class Nav extends Component {
         )
     }
 }
+
 Nav.propTypes = {
     logoutUser: PropTypes.func.isRequired,
     auth: PropTypes.object.isRequired

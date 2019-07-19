@@ -1,12 +1,15 @@
 import React from "react";
 
-function Jumbotron({ children }) {
+function Jumbotron(props) {
     return (
         <div
-            style={{ height: 300, clear: "both", paddingTop: 120, textAlign: "center" }}
+            {...props} style={{
+                height: 300, clear: "both", paddingTop: 120, textAlign: "center",
+                backgroundSize: "cover", overflow: "hidden", backgroundImage: "url(" + props.bgimg + ")"
+            }}
             className="jumbotron"
         >
-            {children}
+            {props.children}
         </div>
     );
 }
