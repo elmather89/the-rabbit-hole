@@ -13,20 +13,21 @@ import "../assets/style/style.css";
 
 class creatorDetails extends Component {
     state = {
-        firstName: "",
-        lastName: "",
-        birthdate: "",
-        dateOfDeath: "",
-        biography: "",
-        legacy: "",
-        ownWords: "",
-        tags: "",
-        image: ""
+        book: {},
+        creator: {}
     };
 
     componentDidMount() {
-        //    this.loadDetail();
+        this.loadcreatorDetails();
     };
+
+    loadcreatorDetails = () => {
+        API.getCreator(this.props.match.params.id)
+            .then(res =>
+                this.setState({ creator: res.data, }))
+             .catch(err => console.log(err));
+    };
+
 
 
     render() {
@@ -36,7 +37,8 @@ class creatorDetails extends Component {
                     <Col size="md-6 sm-12">
 
                         <div >
-                            <h1 className="creatorOne">Slobodkina, Esphyr</h1>
+                            <h1 className="creatorOne">{this.state.creator.firstName}</h1>
+                            <h1 className="creatorTwo">{this.state.creator.lastName}</h1>
                         </div>
 
                     </Col>
@@ -58,8 +60,7 @@ class creatorDetails extends Component {
 
                     </Col>
                 </Row>
-
-
+                
                 <Row>
                     <Col size="md-12 sm-12">
 
@@ -83,7 +84,7 @@ class creatorDetails extends Component {
                 </Row>
 
                 <Row >
-                    
+
                     <Col size="md-6 sm-12">
                         <Card heading="Legacy" className="legacy">
 
@@ -113,7 +114,7 @@ class creatorDetails extends Component {
                             </div>
                         </Card>
                     </Col>
-                    
+
                 </Row>
             </Container>
         )

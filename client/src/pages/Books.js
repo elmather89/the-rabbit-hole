@@ -26,17 +26,37 @@ class Books extends Component {
         originalPublisher: "",
         currentPublisher: "",
         yearPublished: "",
+        bookImage: "",
+        firstName: "",
+        lastName: "",
+        biography: "",
+        birthdate: "",
+        dateOfDeath: "",
+        legacy: "",
+        ownWords: "",
+        tags: "",
         image: "",
+        fullName: ""
+        
     };
 
     componentDidMount() {
         this.loadBooks();
+        this.loadCreators();
     }
 
     loadBooks = () => {
         API.getBooks()
             .then(res =>
                 this.setState({ books: res.data, title: "", creator: "", tags: "", accomplishments: "", quote: "", synopsis: "", originalPublisher: "", currentPublisher: "", yearPublished: "", image: "" })
+            )
+            .catch(err => console.log(err));
+    };
+
+    loadCreators = () => {
+        API.getCreators()
+            .then(res =>
+                this.setState({ creator: res.data, firstName: "", lastName: "", biography: "", birthdate: "", dateOfDeath: "", legacy: ""})
             )
             .catch(err => console.log(err));
     };
@@ -109,7 +129,8 @@ class Books extends Component {
                                     <ListItem key={creator._id}>
                                         <Link to={"/creator/" + creator._id}>
                                             <strong>
-                                                {creator.fullName}
+                                                {creator.firstName}
+                                               
                                             </strong>
                                         </Link>
                                         <UpdateBtn onClick={() => this.updateCreator(creator.id)} />
