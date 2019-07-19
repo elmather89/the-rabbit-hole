@@ -1,0 +1,15 @@
+.header {
+    min-height: 400;
+    clear: both;
+    padding: 120px 70px;
+    text-align: left;
+}
+
+.header h1 {
+    font-size: 4rem;
+}
+
+.header img {
+    width: 200px;
+    height: 100px;
+}
