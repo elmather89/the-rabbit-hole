@@ -21,7 +21,7 @@ class Nav extends Component {
                 <a href="/" className="nav-link" onClick={this.onLogout.bind(this)}>
                     <img src={user.avatar} alt={user.name} title={user.name}
                         className="rounded-circle"
-                        style={{ width: '25px', marginRight: '5px'}} />
+                        style={{ width: '60px', marginRight: '5px'}} />
                             Logout
                 </a>
             </ul>

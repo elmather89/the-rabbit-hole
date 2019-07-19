@@ -11,6 +11,7 @@ class Login extends Component {
         this.state = {
             email: '',
             password: '',
+            password: '',
             errors: {}
         }
         this.handleInputChange = this.handleInputChange.bind(this);
@@ -28,6 +29,7 @@ class Login extends Component {
         const user = {
             email: this.state.email,
             password: this.state.password,
+            avatar: this.state.avatar
         }
         this.props.loginUser(user);
     }

@@ -5,6 +5,7 @@ module.exports = function validateLoginInput(data) {
     let errors = {};
     data.email = !isEmpty(data.email) ? data.email : '';
     data.password = !isEmpty(data.password) ? data.password : '';
+    data.avatar = !isEmpty(data.avatar) ? data.avatar : '';
 
     if(!Validator.isEmail(data.email)) {
         errors.email = 'Email is invalid';
