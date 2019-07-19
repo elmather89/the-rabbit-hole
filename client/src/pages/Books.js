@@ -48,7 +48,7 @@ class Books extends Component {
     loadBooks = () => {
         API.getBooks()
             .then(res =>
-                this.setState({ books: res.data, title: "", creator: "", tags: "", accomplishments: "", quote: "", synopsis: "", originalPublisher: "", currentPublisher: "", yearPublished: "", image: "" })
+                this.setState({ books: res.data, title: "", creator: "", tags: "", accomplishments: "", quote: "", synopsis: "", originalPublisher: "", currentPublisher: "", yearPublished: "", bookImage: "" })
             )
             .catch(err => console.log(err));
     };
@@ -56,7 +56,7 @@ class Books extends Component {
     loadCreators = () => {
         API.getCreators()
             .then(res =>
-                this.setState({ creator: res.data, firstName: "", lastName: "", biography: "", birthdate: "", dateOfDeath: "", legacy: ""})
+                this.setState({ creator: res.data, firstName: "", lastName: "", biography: "", birthdate: "", dateOfDeath: "", legacy: "", ownWords: "", tags: "", image: "" })
             )
             .catch(err => console.log(err));
     };
@@ -129,11 +129,11 @@ class Books extends Component {
                                     <ListItem key={creator._id}>
                                         <Link to={"/creator/" + creator._id}>
                                             <strong>
-                                                {creator.firstName}
+                                                {creator.firstName} {creator.lastName}
                                                
                                             </strong>
                                         </Link>
-                                        <UpdateBtn onClick={() => this.updateCreator(creator.id)} />
+                                        <UpdateBtn onClick={() => this.updateCreator(creator._id)} />
                                         <DeleteBtn onClick={() => this.deleteCreator(creator._id)} />
                                     </ListItem>
                                 ))}
