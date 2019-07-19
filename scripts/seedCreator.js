@@ -83,85 +83,8 @@ const creatorSeed = [
         ownWords: "The verbal patterns and the patterns of behavior we present to children in these lighthearted confections are likely to influence them for the rest of their lives. These aesthetic impressions, just like the moral teachings of early childhood, remain indelible.",
         tags: [Artist, Author, Illustrator],
         image: "https://upload.wikimedia.org/wikipedia/en/c/c7/Photo_of_Esphyr_Slobodkina.jpg"
-    },
-    {
-        firstName: "Esphyr",
-        lastName: "Slobodkina",
-        birthdate: " ",
-        dateOfDeath: " ",
-        biography: "Esphyr Slobodkina, internationally renowned artist and author of the children's classic Caps for Sale, was among the first female American artists to explore abstraction and the first to use collage in American storybooks. She studied art in Russia and China before immigrating to the United States in 1928. She was a founding member of the American Abstract Artists group, and her work is represented in prominent museum collections across the country.",
-        legacy: " ",
-        ownWords: " ",
-        tags: " ",
-        image: " "
-    },
-    {
-        firstName: "Esphyr",
-        lastName: "Slobodkina",
-        birthdate: " ",
-        dateOfDeath: " ",
-        biography: "Esphyr Slobodkina, internationally renowned artist and author of the children's classic Caps for Sale, was among the first female American artists to explore abstraction and the first to use collage in American storybooks. She studied art in Russia and China before immigrating to the United States in 1928. She was a founding member of the American Abstract Artists group, and her work is represented in prominent museum collections across the country.",
-        legacy: " ",
-        ownWords: " ",
-        tags: " ",
-        image: " "
-    },
-    {
-        firstName: "Esphyr",
-        lastName: "Slobodkina",
-        birthdate: " ",
-        dateOfDeath: " ",
-        biography: "Esphyr Slobodkina, internationally renowned artist and author of the children's classic Caps for Sale, was among the first female American artists to explore abstraction and the first to use collage in American storybooks. She studied art in Russia and China before immigrating to the United States in 1928. She was a founding member of the American Abstract Artists group, and her work is represented in prominent museum collections across the country.",
-        legacy: " ",
-        ownWords: " ",
-        tags: " ",
-        image: " "
-    },
-    {
-        firstName: "Esphyr",
-        lastName: "Slobodkina",
-        birthdate: " ",
-        dateOfDeath: " ",
-        biography: "Esphyr Slobodkina, internationally renowned artist and author of the children's classic Caps for Sale, was among the first female American artists to explore abstraction and the first to use collage in American storybooks. She studied art in Russia and China before immigrating to the United States in 1928. She was a founding member of the American Abstract Artists group, and her work is represented in prominent museum collections across the country.",
-        legacy: " ",
-        ownWords: " ",
-        tags: " ",
-        image: " "
-    },
-    {
-        firstName: "Esphyr",
-        lastName: "Slobodkina",
-        birthdate: " ",
-        dateOfDeath: " ",
-        biography: "Esphyr Slobodkina, internationally renowned artist and author of the children's classic Caps for Sale, was among the first female American artists to explore abstraction and the first to use collage in American storybooks. She studied art in Russia and China before immigrating to the United States in 1928. She was a founding member of the American Abstract Artists group, and her work is represented in prominent museum collections across the country.",
-        legacy: " ",
-        ownWords: " ",
-        tags: " ",
-        image: " "
-    },
-    {
-        firstName: "Esphyr",
-        lastName: "Slobodkina",
-        birthdate: " ",
-        dateOfDeath: " ",
-        biography: "Esphyr Slobodkina, internationally renowned artist and author of the children's classic Caps for Sale, was among the first female American artists to explore abstraction and the first to use collage in American storybooks. She studied art in Russia and China before immigrating to the United States in 1928. She was a founding member of the American Abstract Artists group, and her work is represented in prominent museum collections across the country.",
-        legacy: " ",
-        ownWords: " ",
-        tags: " ",
-        image: " "
-    },
-    {
-        firstName: "Esphyr",
-        lastName: "Slobodkina",
-        birthdate: " ",
-        dateOfDeath: " ",
-        biography: "Esphyr Slobodkina, internationally renowned artist and author of the children's classic Caps for Sale, was among the first female American artists to explore abstraction and the first to use collage in American storybooks. She studied art in Russia and China before immigrating to the United States in 1928. She was a founding member of the American Abstract Artists group, and her work is represented in prominent museum collections across the country.",
-        legacy: " ",
-        ownWords: " ",
-        tags: " ",
-        image: " "
     }
-
+    
 ];
 
 db.Creator
