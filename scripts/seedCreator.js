@@ -63,6 +63,17 @@ const creatorSeed = [
         image: "https://upload.wikimedia.org/wikipedia/en/b/b3/Ludwig_Bemelmans.jpg"
     },
     {
+        firstName: "H.A.",
+        lastName: "Rey",
+        birthdate: 1898,
+        dateOfDeath: 1977,
+        biography: "Hans Augusto Rey was a German-born American illustrator and author, known best for the Curious George series of children's picture books that he and his wife Margret Rey created from 1939 to 1966.",
+        legacy: "70 years after his creation, Curious George remains very much alive, an icon for generations of children, with more than 30 million copies of the books sold throughout the world.",
+        ownWords: "I know what I liked as a child, and I don’t do any book that I, as a child, wouldn’t have liked.",
+        tags: ["Author", "Illustrator"],
+        image: "https://www.diogenes.ch/dam/Diogenes/Autorenportraits/rey_ha_700068643_beschnitten.jpg"
+    },
+    {
         firstName: "Don",
         lastName: "Freeman",
         birthdate: 1908,
