@@ -44,6 +44,7 @@ export function App() {
         </div>
       </Router>
     </Provider>
-  )};
+  )
+};
 
 export default App;
