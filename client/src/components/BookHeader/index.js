@@ -1,9 +1,9 @@
 import React from "react";
 import "./style.css";
 
-function BookHeader({ children }) {
+function BookHeader(props) {
   return (
-    <div className="header">{children}</div>
+    <div className="header">{props.children}</div>
   );
 }
 
