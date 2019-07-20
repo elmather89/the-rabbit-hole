@@ -8,7 +8,7 @@
 }
 
 .modal-header {
-    background: #263238;
+    background:  rgba(242, 153, 75, 1);
     height: 40px;
     line-height: 40px;
     padding: 5px 20px;
@@ -28,8 +28,8 @@
 }
 
 .modal-footer {
-    background: #263238;
-    height: 35px;
+    background:  rgba(242, 153, 75, 1);
+    height: 45px;
     padding: 15px;
 }
 
@@ -56,14 +56,14 @@
 }
 
 .btn-cancel {
-    background-color: #b71c1c;
+    background-color: #AD343E;
     float: left;
 }
 
-.btn-continue {
+/* .btn-continue {
     background-color: #1b5e20;
     float: right;
-}
+} */
 
 .back-drop {
     background-color: rgba(48, 49, 48, 0.42);
@@ -73,8 +73,8 @@
     width: 100%;
 }
 
-.open-modal-btn {
+/* .open-modal-btn {
     margin: 15px;
     padding: 10px;
     font-weight: bold;
-}
+} */

@@ -1,7 +1,7 @@
 import React from 'react';
 import './Modal.css';
 
-const modal = (props) => {
+const CreatorModal = (props) => {
     return (
         <div>
             <div className="modal-wrapper"
@@ -10,8 +10,8 @@ const modal = (props) => {
                     opacity: props.show ? '1' : '0'
                 }}>
                 <div className="modal-header">
-                    <h3>Modal Header</h3>
-                    <span className="close-modal-btn" onClick={props.close}>×</span>
+                    <h3>Form Submission:</h3>
+                    <span className="close-modal-btn" onClick={props.close}>X</span>
                 </div>
                 <div className="modal-body">
                     <p>
@@ -20,11 +20,10 @@ const modal = (props) => {
                 </div>
                 <div className="modal-footer">
                     <button className="btn-cancel" onClick={props.close}>CLOSE</button>
-                    <button className="btn-continue">CONTINUE</button>
                 </div>
             </div>
         </div>
     )
 }
 
-export default modal;
+export default CreatorModal;

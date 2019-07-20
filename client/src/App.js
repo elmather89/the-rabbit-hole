@@ -5,7 +5,6 @@ import store from './store';
 import jwt_decode from 'jwt-decode';
 import setAuthToken from './setAuthToken';
 import { setCurrentUser, logoutUser } from './actions/authentication';
-
 import Nav from './components/Nav';
 import Books from "./pages/Books";
 import bookDetails from "./pages/bookDetails";
