@@ -1,13 +1,9 @@
 import React from "react";
+import "./style.css";
 
 function BookHeader({ children }) {
   return (
-    <div
-      style={{ height: 300, clear: "both", paddingTop: 120, textAlign: "center" }}
-      className="header"
-    >
-      {children}
-    </div>
+    <div className="header">{children}</div>
   );
 }
 

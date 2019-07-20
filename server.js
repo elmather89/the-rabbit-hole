@@ -5,6 +5,7 @@ const cors = require('cors');
 const session = require('express-session');
 const logger = require("morgan");
 const mongoose = require("mongoose");
+const bodyParser = require('body-parser');
 // const fs = require("fs");
 // const multer = require("multer");
 
@@ -25,6 +26,9 @@ app.use(session({ secret: 'TBD', resave: true, saveUninitialized: true }));
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(cors(corsOptions));
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
+
 
 // Serve up static assets (usually on heroku)
 if (process.env.NODE_ENV === 'production') {

@@ -1,0 +1,13 @@
+nav {
+    background-color: rgba(242, 153, 75, 1);
+}
+
+nav img {
+    margin-right: 10px;
+    width: 60px;
+    height: 60px
+}
+
+nav a {
+    color: white;
+}
