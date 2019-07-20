@@ -10,24 +10,20 @@ import { Input, TextArea, CheckBox, FormBtn } from "../components/Form";
 import Card from "../components/Card";
 import logo from "../assets/images/EsphyrSlobodkina.jpg"
 import "../assets/style/style.css";
-
 class creatorDetails extends Component {
     state = {
         book: {},
         creator: {}
     };
-
     componentDidMount() {
         this.loadcreatorDetails();
     };
-
     loadcreatorDetails = () => {
         API.getCreator(this.props.match.params.id)
             .then(res =>
-                this.setState({ creator: res.data, }))
+                this.setState({ creator: res.data }))
              .catch(err => console.log(err));
     };
-
 
 
     render() {
@@ -35,71 +31,51 @@ class creatorDetails extends Component {
             <Container fluid>
                 <Row>
                     <Col size="md-6 sm-12">
-
                         <div >
                             <h1 className="creatorOne">{this.state.creator.firstName}</h1>
-                            <h1 className="creatorTwo">{this.state.creator.lastName}</h1>
+                            <h1 className="creatorOne">{this.state.creator.lastName}</h1>
                         </div>
-
+                    </Col>
+                    <Col size="md-3 sm-12">
+                        <div>
+                            <h1 className="creatorOne">{this.state.creator.birthdate} - {this.state.creator.dateOfDeath}</h1>
+                        </div>
                     </Col>
 
                     <Col size="md-3 sm-12">
-
                         <div>
-                            <h1>(1908-2002)</h1>
+                            <img src={this.state.creator.image} alt={this.state.creator.lastName}></img>
                         </div>
-
-                    </Col>
-
-
-                    <Col size="md-3 sm-12">
-
-                        <div>
-                            <img src={logo} alt="Esphyr Slobodkina"></img>
-                        </div>
-
                     </Col>
                 </Row>
-                
                 <Row>
                     <Col size="md-12 sm-12">
-
 
                         <div>
                             <p>
                                 {this.state.creator.biography}
-                         </p>
+                            </p>
                         </div>
-
                     </Col>
                 </Row>
-
                 <Row >
-
                     <Col size="md-6 sm-12">
                         <Card heading="Legacy" className="legacy">
-
                             <div>
                                 <p>{this.state.creator.legacy}</p>
-
                             </div>
-
                         </Card>
                     </Col>
                     <Col size="md-6 sm-12">
                         <Card heading="Own Words" className="ownWords">
-
                             <div>
                                 <p>{this.state.creator.ownWords} </p>
-
                             </div>
                         </Card>
                     </Col>
-
                 </Row>
             </Container>
         )
     };
-
 }
 export default creatorDetails;

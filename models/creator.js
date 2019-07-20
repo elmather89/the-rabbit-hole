@@ -13,33 +13,33 @@ const creatorSchema = new Schema({
     required: "Last Name is Required"
   },
   birthdate: {
-    type: Date,
+    type: Number
   },
   dateOfDeath: {
-    type: Date,
+    type: Number
   },
   biography: {
     type: String,
     required: true,
     trim: true,
-    required: true,
+    required: true
   },
   legacy: {
     type: String,
     required: true,
-    trim: true,
+    trim: true
   },
   ownWords: {
     type: String,
-    trim: true,
+    trim: true
   },
   tags: {
     type: String,
-    trim: true,
+    trim: true
   },
   image: {
-    type: String,
-    data: Buffer
+    type: String
+    // data: Buffer
   },
   creatorAdded: {
       type: Date,
