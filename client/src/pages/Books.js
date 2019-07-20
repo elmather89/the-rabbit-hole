@@ -6,6 +6,8 @@ import { Link } from "react-router-dom";
 import { Col, Row, Container } from "../components/Grid";
 import { List, ListItem } from "../components/List";
 import { Input, TextArea, CheckBox, FormBtn } from "../components/Form";
+import CreatorModal from "../components/Modal/creatorModal";
+import BookModal from "../components/Modal/bookModal";
 import Button from "../components/Button";
 import UpdateBtn from "../components/UpdateBtn";
 import "../assets/style/style.css";
@@ -37,12 +39,47 @@ class Books extends Component {
         tags: "",
         image: "",
         fullName: ""
-        
     };
 
     componentDidMount() {
         this.loadBooks();
         this.loadCreators();
+
+        this.state = {
+            isShowingCreator: false,
+            isShowingBook: false
+        }
+        this.setState({ modalDivClass: false });
+    }
+
+    openCreatorModalHandler = () => {
+        this.setState({
+            isShowingCreator: true,
+            isShowingBook: false,
+            modalDivClass: true
+        });
+    }
+
+    openBookModalHandler = () => {
+        this.setState({
+            isShowingBook: true,
+            isShowingCreator: false,
+            modalDivClass: true
+        });
+    }
+
+    closeCreatorModalHandler = () => {
+        this.setState({
+            isShowingCreator: false,
+            modalDivClass: false
+        });
+    }
+
+    closeBookModalHandler = () => {
+        this.setState({
+            isShowingBook: false,
+            modalDivClass: false
+        });
     }
 
     loadBooks = () => {
@@ -69,13 +106,19 @@ class Books extends Component {
 
     deleteCreator = id => {
         API.deleteCreator(id)
-            .then(res => this.loadCreator())
+            .then(res => this.loadCreators())
             .catch(err => console.log(err));
     };
 
     updateCreator = id => {
         API.updateCreator(id)
-            .then(res => this.loadCreator())
+            .then(res => this.loadCreators())
+            .catch(err => console.log(err));
+    };
+
+    updateBook = id => {
+        API.updateBook(id)
+            .then(res => this.loadBooks())
             .catch(err => console.log(err));
     };
 
@@ -86,7 +129,7 @@ class Books extends Component {
         });
     };
 
-    handleFormSubmit = event => {
+    handleBookFormSubmit = event => {
         event.preventDefault();
         if (this.state.title && this.state.creator) {
             API.saveBook({
@@ -106,6 +149,23 @@ class Books extends Component {
         }
     };
 
+    handleCreatorFormSubmit = event => {
+        event.preventDefault();
+        if (this.state.firstName && this.state.lastName) {
+            API.saveCreator({
+                firstName: this.state.firstName,
+                lastName: this.state.lastName,
+                birthdate: this.state.birthdate,
+                dateOfDeath: this.state.dateOfDeath,
+                biography: this.state.biography,
+            })
+                .then(res => this.loadCreators())
+                .catch(err => console.log(err));
+        }
+    };
+
+
+
     render() {
         return (
             <Container fluid>
@@ -113,6 +173,137 @@ class Books extends Component {
                     <Col size="lg-12 md-12 sm-12">
                         <Jumbotron bgimg={brand}>
                         </Jumbotron>
+                        <div className={!this.state.isShowingCreator ? "hideModalDiv" : 'showModalDiv'}>
+                            <CreatorModal
+                                className="modal"
+                                show={this.state.isShowingCreator}
+                                close={this.closeCreatorModalHandler}>
+                                <form>
+                                    <Input
+                                        value={this.state.firstName}
+                                        onChange={this.handleInputChange}
+                                        name="firstName"
+                                        placeholder="First Name (required)"
+                                    />
+                                    <Input
+                                        value={this.state.lastName}
+                                        onChange={this.handleInputChange}
+                                        name="lastName"
+                                        placeholder="Last Name (required)"
+                                    />
+                                    <Input
+                                        value={this.state.birthdate}
+                                        onChange={this.handleInputChange}
+                                        name="birthdate"
+                                        placeholder="Birthdate"
+                                    />
+                                    <Input
+                                        value={this.state.dateOfDeath}
+                                        onChange={this.handleInputChange}
+                                        name="dateOfDeath"
+                                        placeholder="Date of Death"
+                                    />
+                                    <TextArea
+                                        value={this.state.biography}
+                                        onChange={this.handleInputChange}
+                                        name="biography"
+                                        placeholder="Biography"
+                                    />
+                                    <TextArea
+                                        value={this.state.legacy}
+                                        onChange={this.handleInputChange}
+                                        name="legacy"
+                                        placeholder="Legacy"
+                                    />
+                                    <TextArea
+                                        value={this.state.ownWords}
+                                        onChange={this.handleInputChange}
+                                        name="ownWords"
+                                        placeholder="Own Words"
+                                    />
+                                    <label>
+                                        <CheckBox
+                                            checked={this.state.checked}
+                                            onChange={this.state.handleInputChange}
+                                        />
+                                        {/* <span>Author</span> */}
+                                    </label>
+                                    <Input
+                                        value={this.state.image}
+                                        onChange={this.handleInputChange}
+                                        name="image"
+                                        placeholder="Image URL"
+                                    />
+                                    <FormBtn
+                                        disabled={!(this.state.firstName && this.state.lastName)}
+                                        onClick={this.handleCreatorFormSubmit}>
+                                        SUBMIT
+                                    </FormBtn>
+                                </form>
+                            </CreatorModal>
+                        </div>
+                        <div className={!this.state.isShowingBook ? "hideModalDiv" : 'showModalDiv'}>
+                            <BookModal
+                                className="modal"
+                                show={this.state.isShowingBook}
+                                close={this.closeBookModalHandler}>
+                                <form>
+                                    <Input
+                                        value={this.state.creator}
+                                        onChange={this.handleInputChange}
+                                        name="creator"
+                                        placeholder="Creator (required)"
+                                    />
+                                    <Input
+                                        value={this.state.title}
+                                        onChange={this.handleInputChange}
+                                        name="title"
+                                        placeholder="Book Title (required)"
+                                    />
+                                    <TextArea
+                                        value={this.state.synopsis}
+                                        onChange={this.handleInputChange}
+                                        name="synopsis"
+                                        placeholder="Synopsis"
+                                    />
+                                    <Input
+                                        value={this.state.originalPublisher}
+                                        onChange={this.handleInputChange}
+                                        name="originalPublisher"
+                                        placeholder="Original Publisher"
+                                    />
+                                    <Input
+                                        value={this.state.currentPublisher}
+                                        onChange={this.handleInputChange}
+                                        name="currentPublisher"
+                                        placeholder="Current Publisher"
+                                    />
+                                    <Input
+                                        value={this.state.yearPublished}
+                                        onChange={this.handleInputChange}
+                                        name="yearPublished"
+                                        placeholder="Year Published"
+                                    />
+                                    <TextArea
+                                        value={this.state.quote}
+                                        onChange={this.handleInputChange}
+                                        name="quote"
+                                        placeholder="Quote"
+                                    />
+                                    <Input
+                                        value={this.state.bookImage}
+                                        onChange={this.handleInputChange}
+                                        name="bookImage"
+                                        placeholder="Book Image URL"
+                                    />
+                                    <FormBtn
+                                        disabled={!(this.state.creator && this.state.title)}
+                                        onClick={this.handleCreatorFormSubmit}>
+                                        SUBMIT
+                                    </FormBtn>
+                                </form>
+                            </BookModal>
+                        </div>
                     </Col>
                 </Row>
                 <Row>
@@ -120,7 +311,7 @@ class Books extends Component {
                         <Jumbotron bgimg={creator}>
                             <h1>Creators</h1>
                         </Jumbotron>
-                        <Button>
+                        <Button className="open-modal-btn" onClick={this.openCreatorModalHandler}>
                             Add Creator
                         </Button>
                         {this.state.creator.length ? (
@@ -130,7 +321,7 @@ class Books extends Component {
                                         <Link to={"/creator/" + creator._id}>
                                             <strong>
                                                 {creator.firstName} {creator.lastName}
-                                               
+
                                             </strong>
                                         </Link>
                                         <UpdateBtn onClick={() => this.updateCreator(creator._id)} />
@@ -142,11 +333,12 @@ class Books extends Component {
                                 <h3>No Results to Display</h3>
                             )}
                     </Col>
+
                     <Col size="md-6 sm-12">
                         <Jumbotron bgimg={books}>
                             <h1>Books</h1>
                         </Jumbotron>
-                        <Button>
+                        <Button className="open-modal-btn" onClick={this.openBookModalHandler}>
                             Add Book
                         </Button>
                         {this.state.books.length ? (
@@ -168,6 +360,7 @@ class Books extends Component {
                             )}
                     </Col>
                 </Row>
+
             </Container >
         )
     }

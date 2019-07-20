@@ -10,17 +10,14 @@ import { Input, TextArea, CheckBox, FormBtn } from "../components/Form";
 import Card from "../components/Card";
 import logo from "../assets/images/EsphyrSlobodkina.jpg"
 import "../assets/style/style.css";
-
 class creatorDetails extends Component {
     state = {
         book: {},
         creator: {}
     };
-
     componentDidMount() {
         this.loadcreatorDetails();
     };
-
     loadcreatorDetails = () => {
         API.getCreator(this.props.match.params.id)
             .then(res =>
@@ -29,87 +26,56 @@ class creatorDetails extends Component {
     };
 
 
-
     render() {
         return (
             <Container fluid>
                 <Row>
                     <Col size="md-6 sm-12">
-
                         <div >
                             <h1 className="creatorOne">{this.state.creator.firstName}</h1>
                             <h1 className="creatorOne">{this.state.creator.lastName}</h1>
                         </div>
-
                     </Col>
-
                     <Col size="md-3 sm-12">
-
                         <div>
                             <h1 className="creatorOne">{this.state.creator.birthdate} - {this.state.creator.dateOfDeath}</h1>
                         </div>
-
                     </Col>
 
-
                     <Col size="md-3 sm-12">
-
                         <div>
                             <img src={this.state.creator.image} alt={this.state.creator.lastName}></img>
                         </div>
-
                     </Col>
                 </Row>
-                
                 <Row>
                     <Col size="md-12 sm-12">
-
 
                         <div>
                             <p>
                                 {this.state.creator.biography}
                             </p>
                         </div>
-
                     </Col>
                 </Row>
-
                 <Row >
-
                     <Col size="md-6 sm-12">
                         <Card heading="Legacy" className="legacy">
-
                             <div>
-                                <p>First to use collage in children's books.
-                                     Pioneer of early of American abstraction.
-                                     At age 91, established the Slobodkina
-                                     Foundation, dedicated to the consservation,
-                                    preservation, and exhibition of art.</p>
-
+                                <p>{this.state.creator.legacy}</p>
                             </div>
-
                         </Card>
                     </Col>
                     <Col size="md-6 sm-12">
                         <Card heading="Own Words" className="ownWords">
-
                             <div>
-                                <p>"The verbal patterns and the patterns
-                                    of behavior we present to children in
-                                    these lighthearted confections are
-                                    likely to influence them for the rest
-                                    of their lives. These asthetic impressions,
-                                    just like the moral teachings of early
-                                childhood, remain indelible." </p>
-
+                                <p>{this.state.creator.ownWords} </p>
                             </div>
                         </Card>
                     </Col>
-
                 </Row>
             </Container>
         )
     };
-
 }
 export default creatorDetails;
