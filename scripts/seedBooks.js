@@ -15,7 +15,11 @@ const bookSeed = [
         currentPublisher: "Red Fox",
         yearPublished: 1963,
         quote: "Let the wild rumpus start!",
-        bookImage: "https://i.harperapps.com/covers/9780060254926/y648.jpg"
+        bookImage: "https://i.harperapps.com/covers/9780060254926/y648.jpg",
+        birthdate: 1928,
+        dateOfDeath: 2012,
+        biography: "Maurice Sendak received the Caldecott Medal for Where the Wild Things Are. He has also received the Hans Christian Andersen Medal, the Laura Ingalls Wilder Award, the National Medal of Arts, and the Astrid Lindgren Memorial Award.",
+        tags: "Author / Illustrator / Artist"
     },
     {
         title: "The Very Hungry Caterpillar",
@@ -25,7 +29,11 @@ const bookSeed = [
         currentPublisher: "Puffin Books",
         yearPublished: 1969,
         quote: "In the light of the moon a little egg lay on a leaf.",
-        bookImage: "https://images-na.ssl-images-amazon.com/images/I/81Tfdl%2Bvm3L.jpg"
+        bookImage: "https://images-na.ssl-images-amazon.com/images/I/81Tfdl%2Bvm3L.jpg",
+        birthdate: 1929,
+        dateOfDeath: "",
+        biography: "Eric Carle is acclaimed and beloved as the creator of brilliantly illustrated and innovatively designed picture books for very young children. His best-known work, The Very Hungry Caterpillar, has eaten its way into the hearts of literally millions of children all over the world and has been translated into more than 25 languages and sold over twelve million copies.",
+        tags: "Illustrator / Author / Designer"
     },
     {
         title: "Charlotte's Web",
@@ -35,7 +43,11 @@ const bookSeed = [
         currentPublisher: "HarperCollins Publishers",
         yearPublished: 1952,
         quote: "If I can fool a bug... I can surely fool a man. People are not as smart as bugs.",
-        bookImage: "https://i.harperapps.com/covers/9780060263867/x510.jpg"
+        bookImage: "https://i.harperapps.com/covers/9780060263867/x510.jpg",
+        birthdate: 1899,
+        dateOfDeath: 1985,
+        biography: "E. B. White, the author of such beloved classics as Charlotte's Web, Stuart Little, and The Trumpet of the Swan, was born in Mount Vernon, New York. He graduated from Cornell University in 1921 and, five or six years later, joined the staff of The New Yorker magazine, then in its infancy. He died on October 1, 1985, and was survived by his son and three grandchildren.",
+        tags: "Author"
     },
     {
         title: "The Trumpet of the Swan",
@@ -45,7 +57,11 @@ const bookSeed = [
         currentPublisher: "HarperCollins",
         yearPublished: 1970,
         quote: "Safety is all well and good: I prefer freedom.",
-        bookImage: "https://images-na.ssl-images-amazon.com/images/I/51NUyaqOcjL._SX328_BO1,204,203,200_.jpg"
+        bookImage: "https://images-na.ssl-images-amazon.com/images/I/51NUyaqOcjL._SX328_BO1,204,203,200_.jpg",
+        birthdate: 1899,
+        dateOfDeath: 1985,
+        biography: "E. B. White, the author of such beloved classics as Charlotte's Web, Stuart Little, and The Trumpet of the Swan, was born in Mount Vernon, New York. He graduated from Cornell University in 1921 and, five or six years later, joined the staff of The New Yorker magazine, then in its infancy. He died on October 1, 1985, and was survived by his son and three grandchildren.",
+        tags: "Author"
     },
     {
         title: "Stuart Little",
@@ -55,7 +71,11 @@ const bookSeed = [
         currentPublisher: "HarperCollins",
         yearPublished: 1945,
         quote: "Not every doctor can look into a mouse's ear without laughing.",
-        bookImage: "https://images-na.ssl-images-amazon.com/images/I/61Dvo5DcSEL._SX333_BO1,204,203,200_.jpg"
+        bookImage: "https://images-na.ssl-images-amazon.com/images/I/61Dvo5DcSEL._SX333_BO1,204,203,200_.jpg",
+        birthdate: 1899,
+        dateOfDeath: 1985,
+        biography: "E. B. White, the author of such beloved classics as Charlotte's Web, Stuart Little, and The Trumpet of the Swan, was born in Mount Vernon, New York. He graduated from Cornell University in 1921 and, five or six years later, joined the staff of The New Yorker magazine, then in its infancy. He died on October 1, 1985, and was survived by his son and three grandchildren.",
+        tags: "Author"
     },
     {
         title: "The Giving Tree",
@@ -65,7 +85,11 @@ const bookSeed = [
         currentPublisher: "HarperCollins Publishers",
         yearPublished: 1964,
         quote: "And the boy loved the tree...very much. And the tree was happy.",
-        bookImage: "https://static.wixstatic.com/media/fa39c3_c6c3b1266239468fa0c4fc352e1d17cd~mv2.jpg"
+        bookImage: "https://static.wixstatic.com/media/fa39c3_c6c3b1266239468fa0c4fc352e1d17cd~mv2.jpg",
+        birthdate: 1930,
+        dateOfDeath: 1999,
+        biography: "Shel Silverstein's incomparable career as a bestselling children's book author and illustrator began with Lafcadio, the Lion Who Shot Back. He is also the creator of picture books including A Giraffe and a Half, Who Wants a Cheap Rhinoceros?, The Missing Piece, The Missing Piece Meets the Big O, and the perennial favorite The Giving Tree, as well as classic poetry collections such as Where the Sidewalk Ends, A Light in the Attic, Every Thing On It, Don't Bump the Glump!, and Runny Babbit.",
+        tags: "Author / Poet / Cartoonist / Songwriter / Playwright"
     },
     {
         title: "Madeline",
@@ -75,7 +99,11 @@ const bookSeed = [
         currentPublisher: "London: Hippo",
         yearPublished: 1939,
         quote: "The smallest one was Madeline.",
-        bookImage: "https://s26162.pcdn.co/wp-content/uploads/2018/03/9780590089074_mres.jpg"
+        bookImage: "https://s26162.pcdn.co/wp-content/uploads/2018/03/9780590089074_mres.jpg",
+        birthdate: 1898,
+        dateOfDeath: 1962,
+        biography: "Ludwig Bemelmans was a painter, illustrator, and writer of more than three dozen books for both adults and children. Born in 1898 in a part of Tirol now known as Merano, Italy, he came to the United States in 1914 and, after spending Christmas Eve on Ellis Island, set up residence in New York City. Before finding his voice as a writer, he worked in a hotel and ran his own restaurant. Later Bemelmans became a novelist and a nonfiction writer, as well as a frequent contributor to The New Yorker (for which he drew many covers), Town and Country, Holiday, and Vogue; and he also wrote a screenplay in Hollywood. He penned the first draft of Madeline on the backs of menus in Pete's Tavern. He is best known for his Madeline books, which rank among the most honored children's books ever. Madeline was named a Caldecott Honor Book; and the first of its five sequels, Madeline's Rescue, won the Caldecott Medal and was a New York Times Outstanding Book of the Year. A world traveler, Bemelmans was renowned as a true cosmopolite, an irreverent and droll chronicler of the incongruous, an elegant man-about-town, a merry observer of the improbable and the absurd. He died in 1962 after completing the sixth story about Madeline, Madeline's Christmas.",
+        tags: "Author / Illustrator / Painter"
     },
     {
         title: "Curious George",
@@ -85,7 +113,11 @@ const bookSeed = [
         currentPublisher: "Houghton Mifflin Co",
         yearPublished: 1941,
         quote: "What a nice little monkey. I would like to take him home with me.",
-        bookImage: "https://images-na.ssl-images-amazon.com/images/I/513NAjhmZjL._SX258_BO1,204,203,200_.jpg"
+        bookImage: "https://images-na.ssl-images-amazon.com/images/I/513NAjhmZjL._SX258_BO1,204,203,200_.jpg",
+        birthdate: 1898,
+        dateOfDeath: 1977,
+        biography: "Hans Augusto Rey was a German-born American illustrator and author, known best for the Curious George series of children's picture books that he and his wife Margret Rey created from 1939 to 1966.",
+        tags: "Author / Illustrator"
     },
     {
         title: "Corduroy",
@@ -95,7 +127,11 @@ const bookSeed = [
         currentPublisher: "Viking Books for Young Readers",
         yearPublished: 1968,
         quote: "Look! There's the very bear I've always wanted.",
-        bookImage: "https://images.penguinrandomhouse.com/cover/9781101631386"
+        bookImage: "https://images.penguinrandomhouse.com/cover/9781101631386",
+        birthdate: 1908,
+        dateOfDeath: 1978,
+        biography: "Don Freeman was a painter, printmaker, cartoonist, children's book author, and illustrator. He was born in San Diego, California, attended high school in Missouri, and later moved to New York City where he studied etching with John Sloan. Frequent subjects included Broadway theatre, politics, and the circus. He was also a jazz musician, and the brother of circus entrepreneur Randy Freeman.",
+        tags: "Cartoonist / Penciller / Painter / Printmaker / Author / Illustrator"
     },
     {
         title: "Caps for Sale",
@@ -105,7 +141,11 @@ const bookSeed = [
         currentPublisher: "HarperCollinsPublishers",
         yearPublished: 1940,
         quote: "You monkeys, you! Give me back my caps!",
-        bookImage: "https://i.harperapps.com/covers/9780062134479/y648.jpg"
+        bookImage: "https://i.harperapps.com/covers/9780062134479/y648.jpg",
+        birthdate: 1908,
+        dateOfDeath: 2002,
+        biography: "Esphyr Slobodkina, internationally renowned artist and author of the children's classic Caps for Sale, was among the first female American artists to explore abstraction and the first to use collage in American storybooks. She studied art in Russia and China before immigrating to the United States in 1928. She was a founding member of the American Abstract Artists group, and her work is represented in prominent museum collections across the country.",
+        tags: "Artist / Author / Illustrator"
     },
     
 ];

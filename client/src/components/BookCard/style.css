@@ -1,0 +1,8 @@
+.bookCard {
+    border-left: 70px solid lightblue;
+    border-bottom: 70px solid rgba(242, 153, 75, 1);
+    background-color: rgb(235, 231, 231);
+    border-top-color: transparent;
+    border-right-color: transparent;
+    margin: 20px
+}

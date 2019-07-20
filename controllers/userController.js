@@ -1,35 +1,34 @@
 const db = require("../models");
 
-// Defining methods for the creatorController
+// Defining methods for the UsersController
 module.exports = {
-  findAll: function (req, res) {
-    db.Creator
+  findAll: function(req, res) {
+    db.User
       .find(req.query)
-      .sort({ firstName: 1 })
+      .sort({ title: 1 })
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
-  findById: function (req, res) {
-    db.Creator
+  findById: function(req, res) {
+    db.User
       .findById(req.params.id)
-      .populate("books")
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
-  create: function (req, res) {
-    db.Creator
+  create: function(req, res) {
+    db.User
       .create(req.body)
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
-  update: function (req, res) {
-    db.Creator
+  update: function(req, res) {
+    db.User
       .findOneAndUpdate({ _id: req.params.id }, req.body)
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
-  remove: function (req, res) {
-    db.Creator
+  remove: function(req, res) {
+    db.User
       .findById({ _id: req.params.id })
       .then(dbModel => dbModel.remove())
       .then(dbModel => res.json(dbModel))
