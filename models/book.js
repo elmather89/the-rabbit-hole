@@ -43,7 +43,23 @@ const bookSchema = new Schema({
       type: Schema.Types.ObjectId,
       ref: "Creator"
     }
-  ]
+  ],
+  birthdate: {
+    type: Number,
+  },
+  dateOfDeath: {
+    type: Number,
+  },
+  biography: {
+    type: String,
+    required: true,
+    trim: true,
+    required: true,
+  },
+  tags: {
+    type: String,
+    trim: true,
+  },
 });
 
 // Custom Instance Methods

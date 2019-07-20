@@ -1,12 +1,13 @@
 import React, { Component } from "react";
 import BookCard from "../components/BookCard";
-import Card from "../components/Card";
 import BookHeader from "../components/BookHeader";
+import CreatorHeader from "../components/CreatorHeader";
 import { Link } from "react-router-dom";
 import { Col, Row, Container } from "../components/Grid";
 import API from "../utils/API";
 import headerLogo from "../assets/images/100year.jpg";
 import "../assets/style/style.css";
+
 
 class bookDetails extends Component {
     state = {
@@ -26,11 +27,10 @@ class bookDetails extends Component {
           .catch(err => console.log(err));
     };
 
-
     // loadCreatorDetails = () => {
-    //   API.getCreator(this.props.match.params.id)
+    //   API.getCreator()
     //       .then(res =>
-    //           this.setState({ creator: res.data, }))
+    //           this.setState({ creator: res.data, birthdate: "", dateOfDeath: "" }))
     //        .catch(err => console.log(err));
     // };
 
@@ -42,13 +42,12 @@ class bookDetails extends Component {
                   <BookHeader>
                     <Row className="headerRow">
                     <Col size="sm-9">
-                      <h1 className="bookTitle">
-                          {this.state.book.title}
-                      </h1>
-                      <h3>
-                          By {this.state.book.creator}
-                      </h3>
-                      <p>({this.state.creator.birthdate} - {this.state.creator.dateOfDeath})</p>
+                      <h1 className="bookTitle">{this.state.book.title}</h1>
+                      <h3>By {this.state.book.creator}</h3>
+                      <p>({this.state.book.birthdate} - {this.state.book.dateOfDeath})</p>
+                      <hr></hr>
+                      <p>{this.state.book.tags}</p>
+                      <p>{this.state.book.biography}</p>
                     </Col>
                     <Col size="sm-3">
                       <div>
@@ -56,7 +55,6 @@ class bookDetails extends Component {
                       </div>
                     </Col>
                     </Row>
-                    <hr></hr>
                   </BookHeader>
                 </Col>
               </Row>
