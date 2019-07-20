@@ -24,7 +24,7 @@ class creatorDetails extends Component {
     loadcreatorDetails = () => {
         API.getCreator(this.props.match.params.id)
             .then(res =>
-                this.setState({ creator: res.data, }))
+                this.setState({ creator: res.data }))
              .catch(err => console.log(err));
     };
 
@@ -38,7 +38,7 @@ class creatorDetails extends Component {
 
                         <div >
                             <h1 className="creatorOne">{this.state.creator.firstName}</h1>
-                            <h1 className="creatorTwo">{this.state.creator.lastName}</h1>
+                            <h1 className="creatorOne">{this.state.creator.lastName}</h1>
                         </div>
 
                     </Col>
@@ -46,7 +46,7 @@ class creatorDetails extends Component {
                     <Col size="md-3 sm-12">
 
                         <div>
-                            <h1>(1908-2002)</h1>
+                            <h1 className="creatorOne">{this.state.creator.birthdate}</h1>
                         </div>
 
                     </Col>
