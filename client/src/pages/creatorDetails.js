@@ -21,8 +21,8 @@ class creatorDetails extends Component {
     loadcreatorDetails = () => {
         API.getCreator(this.props.match.params.id)
             .then(res =>
-                this.setState({ creator: res.data, }))
-            .catch(err => console.log(err));
+                this.setState({ creator: res.data }))
+             .catch(err => console.log(err));
     };
 
 
@@ -33,18 +33,18 @@ class creatorDetails extends Component {
                     <Col size="md-6 sm-12">
                         <div >
                             <h1 className="creatorOne">{this.state.creator.firstName}</h1>
-                            <h1 className="creatorTwo">{this.state.creator.lastName}</h1>
+                            <h1 className="creatorOne">{this.state.creator.lastName}</h1>
                         </div>
                     </Col>
                     <Col size="md-3 sm-12">
                         <div>
-                            <h1>(1908-2002)</h1>
+                            <h1 className="creatorOne">{this.state.creator.birthdate} - {this.state.creator.dateOfDeath}</h1>
                         </div>
                     </Col>
 
                     <Col size="md-3 sm-12">
                         <div>
-                            <img src={logo} alt="Esphyr Slobodkina"></img>
+                            <img src={this.state.creator.image} alt={this.state.creator.lastName}></img>
                         </div>
                     </Col>
                 </Row>
