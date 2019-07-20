@@ -55,7 +55,7 @@ class creatorDetails extends Component {
                     <Col size="md-3 sm-12">
 
                         <div>
-                            <img src={logo} alt="Esphyr Slobodkina"></img>
+                            <img src={this.state.creator.image} alt=""></img>
                         </div>
 
                     </Col>
