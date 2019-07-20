@@ -46,7 +46,7 @@ class creatorDetails extends Component {
                     <Col size="md-3 sm-12">
 
                         <div>
-                            <h1 className="creatorOne">{this.state.creator.birthdate}</h1>
+                            <h1 className="creatorOne">{this.state.creator.birthdate} - {this.state.creator.dateOfDeath}</h1>
                         </div>
 
                     </Col>
@@ -55,7 +55,7 @@ class creatorDetails extends Component {
                     <Col size="md-3 sm-12">
 
                         <div>
-                            <img src={this.state.creator.image} alt=""></img>
+                            <img src={this.state.creator.image} alt={this.state.creator.lastName}></img>
                         </div>
 
                     </Col>
@@ -67,17 +67,8 @@ class creatorDetails extends Component {
 
                         <div>
                             <p>
-                                Esphyr Slobodkina is a celebrated abstract
-                                and author of the children's classic Caps
-                                for Sale. A founding member of the influential
-                                American Abstract Artists group in 1936,
-                                Slobodkina helped pave the way for the
-                                acceptance of abstract art in the United
-                                States. She was also a childrens' book author,
-                                illustrator, first collaborating with Margaret
-                                Wise Brown on several stories before publishing
-                                Caps for Sale in 1940.
-                         </p>
+                                {this.state.creator.biography}
+                            </p>
                         </div>
 
                     </Col>
