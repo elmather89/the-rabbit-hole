@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import BookCard from "../components/BookCard";
 import BookHeader from "../components/BookHeader";
-import CreatorHeader from "../components/CreatorHeader";
 import { Link } from "react-router-dom";
 import { Col, Row, Container } from "../components/Grid";
 import API from "../utils/API";
