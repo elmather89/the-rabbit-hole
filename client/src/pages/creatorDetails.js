@@ -10,24 +10,20 @@ import { Input, TextArea, CheckBox, FormBtn } from "../components/Form";
 import Card from "../components/Card";
 import logo from "../assets/images/EsphyrSlobodkina.jpg"
 import "../assets/style/style.css";
-
 class creatorDetails extends Component {
     state = {
         book: {},
         creator: {}
     };
-
     componentDidMount() {
         this.loadcreatorDetails();
     };
-
     loadcreatorDetails = () => {
         API.getCreator(this.props.match.params.id)
             .then(res =>
                 this.setState({ creator: res.data, }))
-             .catch(err => console.log(err));
+            .catch(err => console.log(err));
     };
-
 
 
     render() {
@@ -35,90 +31,51 @@ class creatorDetails extends Component {
             <Container fluid>
                 <Row>
                     <Col size="md-6 sm-12">
-
                         <div >
                             <h1 className="creatorOne">{this.state.creator.firstName}</h1>
                             <h1 className="creatorTwo">{this.state.creator.lastName}</h1>
                         </div>
-
                     </Col>
-
                     <Col size="md-3 sm-12">
-
                         <div>
                             <h1>(1908-2002)</h1>
                         </div>
-
                     </Col>
 
-
                     <Col size="md-3 sm-12">
-
                         <div>
                             <img src={logo} alt="Esphyr Slobodkina"></img>
                         </div>
-
                     </Col>
                 </Row>
-                
                 <Row>
                     <Col size="md-12 sm-12">
 
-
                         <div>
                             <p>
-                                Esphyr Slobodkina is a celebrated abstract
-                                and author of the children's classic Caps
-                                for Sale. A founding member of the influential
-                                American Abstract Artists group in 1936,
-                                Slobodkina helped pave the way for the
-                                acceptance of abstract art in the United
-                                States. She was also a childrens' book author,
-                                illustrator, first collaborating with Margaret
-                                Wise Brown on several stories before publishing
-                                Caps for Sale in 1940.
-                         </p>
+                                {this.state.creator.biography}
+                            </p>
                         </div>
-
                     </Col>
                 </Row>
-
                 <Row >
-
                     <Col size="md-6 sm-12">
                         <Card heading="Legacy" className="legacy">
-
                             <div>
-                                <p>First to use collage in children's books.
-                                     Pioneer of early of American abstraction.
-                                     At age 91, established the Slobodkina
-                                     Foundation, dedicated to the consservation,
-                                    preservation, and exhibition of art.</p>
-
+                                <p>{this.state.creator.legacy}</p>
                             </div>
-
                         </Card>
                     </Col>
                     <Col size="md-6 sm-12">
                         <Card heading="Own Words" className="ownWords">
-
                             <div>
-                                <p>"The verbal patterns and the patterns
-                                    of behavior we present to children in
-                                    these lighthearted confections are
-                                    likely to influence them for the rest
-                                    of their lives. These asthetic impressions,
-                                    just like the moral teachings of early
-                                childhood, remain indelible." </p>
-
+                                <p>{this.state.creator.ownWords} </p>
                             </div>
                         </Card>
                     </Col>
-
                 </Row>
             </Container>
         )
     };
-
 }
 export default creatorDetails;
