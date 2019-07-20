@@ -19,3 +19,16 @@
     background-color: transparent;
     border: none;
 }
+
+.hideModalDiv {
+    display: none;
+}
+
+.showModalDiv {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000000000000000000000;
+}
