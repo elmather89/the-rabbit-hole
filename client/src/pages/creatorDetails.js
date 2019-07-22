@@ -74,6 +74,11 @@ class creatorDetails extends Component {
                         </Card>
                     </Col>
                 </Row>
+                 <Row>
+                <Col size="md-2">
+                  <Link to="/">← Back to Homepage</Link>
+                </Col>
+              </Row>
             </Container>
         )
     };
