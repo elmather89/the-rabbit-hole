@@ -5,9 +5,8 @@ import { Link } from "react-router-dom";
 import { Col, Row, Container } from "../components/Grid";
 import API from "../utils/API";
 import headerLogo from "../assets/images/100year.jpg";
-// import EditBtn from "../components/EditBtn";
-import BookEditModal from "../components/BookDetailsEdit";
-import { Input, TextArea, CheckBox, FormBtn } from "../components/Form";
+import EditForm from "../components/EditForm";
+import { Input, TextArea } from "../components/Form";
 import Button from "../components/Button";
 import "../assets/style/style.css";
 
@@ -52,8 +51,8 @@ class bookDetails extends Component {
       });
     }
 
-    updateBook = id => {
-      API.updateBook(id)
+    updateBook = () => {
+      API.updateBook(this.props.match.params.id)
           .then(res => this.loadBookDetails())
           .catch(err => console.log(err));
     };
@@ -65,16 +64,16 @@ class bookDetails extends Component {
         });
     };
 
-    handleBookEditSubmit = event => {
+    handleBookEdit = event => {
         event.preventDefault();
-        if (this.state.title) {
+        // if (this.state.title) {
             API.updateBook({
                 title: this.state.title,
                 creator: this.state.creator,
                 birthdate: this.state.birthdate,
                 dateOfDeath: this.state.dateOfDeath,
                 tags: this.state.tags,
-                accomplishments: this.state.accomplishments,
+                // accomplishments: this.state.accomplishments,
                 biography: this.state.biography,
                 quote: this.state.quote,
                 synopsis: this.state.synopsis,
@@ -85,7 +84,7 @@ class bookDetails extends Component {
             })
                 .then(res => this.loadBookDetails())
                 .catch(err => console.log(err));
-        }
+        // }
     };
 
     render() {
@@ -100,8 +99,7 @@ class bookDetails extends Component {
                       <h3>By {this.state.book.creator}</h3>
                       <p>({this.state.book.birthdate} - {this.state.book.dateOfDeath})</p>
                       <hr></hr>
-                      {/* <small><EditBtn onClick={() => this.updateBook(this.state.book._id)} /></small> */}
-                      <Button className="open-modal-btn" onClick={this.openBookEditModalHandler}>
+                      <Button className="open-modal-btn edit-btn" onClick={this.openBookEditModalHandler}>
                             Edit Details
                       </Button>
                       <p>{this.state.book.tags}</p>
@@ -113,14 +111,6 @@ class bookDetails extends Component {
                       </div>
                     </Col>
                     </Row>
-                    {/* <Row className="headerRow">
-                    <Col size="sm-12">
-                      <small><EditBtn onClick={() => this.updateBook(this.state.book._id)} /></small>
-                      <hr></hr>
-                      <p>{this.state.book.tags}</p>
-                      <p>{this.state.book.biography}</p>
-                    </Col>
-                    </Row> */}
                   </BookHeader>
                 </Col>
               </Row>
@@ -139,15 +129,15 @@ class bookDetails extends Component {
                         <Row>
                           <Col size="sm-12 md-4">
                             <p className="card-text smallCaption" style={{textAlign: "center"}}><small>Original Publisher</small></p>
-                            <h5 className="card-text" style={{textAlign: "center"}}>{this.state.book.originalPublisher}</h5>
+                            <h5 className="card-text publish-info" style={{textAlign: "center"}}>{this.state.book.originalPublisher}</h5>
                           </Col>
                           <Col size="sm-12 md-4">
                             <p className="card-text smallCaption" style={{textAlign: "center"}}><small>Current Publisher</small></p>
-                            <h5 className="card-text" style={{textAlign: "center"}}>{this.state.book.currentPublisher}</h5>
+                            <h5 className="card-text publish-info" style={{textAlign: "center"}}>{this.state.book.currentPublisher}</h5>
                           </Col>
                           <Col size="sm-12 md-4">
                             <p className="card-text smallCaption" style={{textAlign: "center"}}><small>Year Published</small></p>
-                            <h5 className="card-text" style={{textAlign: "center"}}>{this.state.book.yearPublished}</h5>
+                            <h5 className="card-text publish-info" style={{textAlign: "center"}}>{this.state.book.yearPublished}</h5>
                           </Col>
                         </Row>
                       </Col>
@@ -168,21 +158,21 @@ class bookDetails extends Component {
 
               <Row>
                 <div className={!this.state.isShowingBook ? "hideModalDiv" : 'showModalDiv'}>
-                  <BookEditModal
-                      className="modal"
+                  <EditForm
+                      className="modal book-edit-form"
                       show={this.state.isShowingBook}
                       close={this.closeBookEditModalHandler}>
                       <form>
                           <p className="form-label"><small>Title</small></p>
                           <Input
-                              value={this.state.book.title}
+                              value={this.state.title}
                               onChange={this.handleInputChange}
                               name="title"
                               placeholder="Book Title (required)"
                           />
                           <p className="form-label"><small>Creator Name</small></p>
                           <Input
-                              value={this.state.book.creator}
+                              value={this.state.creator}
                               onChange={this.handleInputChange}
                               name="creator"
                               placeholder="Creator (required)"
@@ -257,20 +247,21 @@ class bookDetails extends Component {
                               name="bookImage"
                               placeholder="Enter book image URL"
                           />
-                          <button type="button" className="btn btn-success"
-                            onClick={this.handleFormSubmit}
+                          <button type="submit" className="btn btn-success"
+                            onSubmit={this.handleBookEdit}
+                            // onClick={this.handleBookEdit}
                             // onClick={() => this.updateBook(this.state.book._id)}
                           >
                             Update Book
                           </button>
                       </form>
-                  </BookEditModal>
+                  </EditForm>
                 </div>
               </Row>
 
               <Row>
-                <Col size="md-2">
-                  <Link to="/">← Back to Homepage</Link>
+                <Col size="md-3">
+                  <Link className="homepage-link" to="/">← Back to Homepage</Link>
                 </Col>
               </Row>
           </Container>
