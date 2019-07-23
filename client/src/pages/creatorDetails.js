@@ -46,7 +46,7 @@ class creatorDetails extends Component {
                                 </Col>
                                 <Col size="md-3">
                                     <div>
-                                        <Image src={this.state.creator.image} alt={this.state.creator.lastName} roundedCircle/>
+                                        <Image id="imageCircle" src={this.state.creator.image} alt={this.state.creator.lastName} roundedCircle/>
                                     </div>
                                 </Col>
                                 <Row>
@@ -70,9 +70,11 @@ class creatorDetails extends Component {
                     </Col>
                 </Row>
                 <Row>
+                    <hr></hr>
                     <Col size="md-12 sm-12">
                         <img className="bookImage" src={this.state.book.bookImage} alt="book image"></img>
                     </Col>
+                    <hr></hr>
                  </Row>       
                 <Row>
                     
