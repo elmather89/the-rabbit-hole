@@ -32,3 +32,8 @@
     width: 100%;
     z-index: 1000000000000000000000;
 }
+
+.form-label {
+    text-align: left;
+    margin: 0
+}
