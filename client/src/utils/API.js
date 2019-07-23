@@ -14,6 +14,10 @@ export default {
     deleteBook: function (id) {
         return axios.delete("/api/books/" + id);
     },
+    // Updates the book with the given id
+    updateBook: function (id) {
+        return axios.put("/api/books/" + id);
+    },
     // Saves a book to the database
     saveBook: function (bookData) {
         return axios.post("/api/books", bookData);
@@ -27,6 +31,9 @@ export default {
     },
     deleteCreator: function(id) {
         return axios.delete("/api/creators/" + id);
+    },
+    updateCreator: function (id) {
+        return axios.put("/api/creators/" + id);
     },
     saveCreator: function(creatorData) {
         return axios.post("/api/creators", creatorData);
