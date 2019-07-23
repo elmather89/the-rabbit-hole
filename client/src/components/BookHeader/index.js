@@ -3,7 +3,7 @@ import "./style.css";
 
 function BookHeader(props) {
   return (
-    <div className="header">{props.children}</div>
+    <div className="book-header">{props.children}</div>
   );
 }
 

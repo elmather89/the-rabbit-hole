@@ -6,3 +6,8 @@
     border-right-color: transparent;
     margin: 20px
 }
+
+.smallCaption {
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
