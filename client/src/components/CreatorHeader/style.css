@@ -1,0 +1,27 @@
+.header {
+    padding-top: 5px;
+    padding-left: 5px;
+    min-height: 400;
+    clear: both;
+    text-align: left;
+    overflow: auto;
+}
+
+h1.creatorOne {
+    font-size: 3em;
+}
+
+h3.dates {
+    font-size: 2em;
+    padding-top: 5px;
+   
+}
+
+img.rounded-circle {
+    width: 300px;
+    height: 300px;
+    position: relative;
+    right: 5px;
+    top: px;
+}
+
