@@ -106,3 +106,21 @@
 .item-h {
     grid-area: words;
 }
+
+.imageCol {
+    border-left: 5px solid black;
+}
+
+.tags {
+    background-color: lightgray;
+}
+
+.bio {
+    font-size: 30px;
+    position: relative;
+    top: 100px;
+}
+
+.creatorTitle {
+    font-size: 75px;
+}
