@@ -113,6 +113,8 @@
 
 .tags {
     background-color: lightgray;
+    position: relative;
+    top: 30px;
 }
 
 .bio {
@@ -124,3 +126,11 @@
 .creatorTitle {
     font-size: 75px;
 }
+
+.birthDeath {
+    font-size: 30px;
+    position: relative;
+    right: 100px;
+    top: 40px;
+}
+
