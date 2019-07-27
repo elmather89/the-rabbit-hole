@@ -63,8 +63,6 @@ class EditForm extends Component {
     };
 
     handleBookEdit = (event) => {
-        console.log(event);
-        event.preventDefault();
         API.updateBook(this.props.match.params.id, {
             title: this.state.title,
             creator: this.state.creator,
@@ -79,9 +77,13 @@ class EditForm extends Component {
             yearPublished: this.state.yearPublished,
             bookImage: this.state.bookImage
         })
-            .then(res => console.log(res.data))
+            .then(res => {
+                console.log(res.data)
+                this.props.history.push("/books/")
+            }) 
             .catch(err => console.log(err));
-            this.props.history.push("/books/" + this.state.book._id )
+            
+            // this.props.history.push("/books/")
     }
 
     render() {
@@ -174,7 +176,7 @@ class EditForm extends Component {
             />
             <br></br>
             <button type="submit" className="btn btn-success"
-              onSubmit={this.handleBookEdit}
+              onClick={this.handleBookEdit}
             >
               Update Book
             </button>
