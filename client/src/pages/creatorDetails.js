@@ -34,74 +34,79 @@ class creatorDetails extends Component {
         return (
             <Container fluid>
 
-                <Row>
-                    <Col size="sm-12">
-                        <CreatorHeader>
-                            <Row className="creatorRow">
-                                <Col size="sm-6">
-                                    <h1 className="creatorOne">{this.state.creator.firstName} , {this.state.creator.lastName}</h1>
-                               </Col>
-                                <Col size="sm-2">
-                                    <h3 className="dates">{this.state.creator.birthdate} - {this.state.creator.dateOfDeath}</h3>
-                                </Col>
-                                <Col size="md-3">
-                                    <div>
-                                        <Image id="imageCircle" src={this.state.creator.image} alt={this.state.creator.lastName} roundedCircle/>
-                                    </div>
-                                </Col>
-                                <Row>
-                                
-                                    <Col size="sm-12">
-                                    <h3 className="tags"> Tags: {this.state.creator.tags}</h3>
-                                    </Col>
-                                    </Row>
-                            </Row>
-                        </CreatorHeader>
-                    </Col>
-                </Row>
-                <Row>
-                    <Col size="md-12 sm-12">
+                <section className="container">
 
-                        <Card heading="Biography">
-                            <p className="biography"> 
+                    <div className="item-a">{this.state.creator.firstName} , {this.state.creator.lastName}</div>
+
+
+                    <div className="item-b">{this.state.creator.birthdate} - {this.state.creator.dateOfDeath}</div>
+
+                    <div className="item-c">
+                        <Image src={this.state.creator.image} alt={this.state.creator.lastName} roundedCircle />
+                    </div>
+
+                    <div className="item-d"> Tags: {this.state.creator.tags}</div>
+
+                    <div className="item-e">
+                        
+                            <p className="biography">
                                 {this.state.creator.biography}
                             </p>
+                        
+                    </div>
+
+                    {/* <div className="item-f">
+                        <img className="bookImage" src={this.state.book.bookImage} alt="book image">
+                        </img>
+                    </div>
+
+                    <div className="item-g">
+                        <Card heading="Legacy" className="legacy">
+                                <p>{this.state.creator.legacy}</p>
                         </Card>
-                    </Col>
-                </Row>
-                <Row>
-                    <hr></hr>
-                    <Col size="md-12 sm-12">
-                        <img className="bookImage" src={this.state.book.bookImage} alt="book image"></img>
-                    </Col>
-                    <hr></hr>
-                 </Row>       
+                        </div>
+
+                        <div className="item-h">
+                        <Card heading="Own Words" className="ownWords"> 
+                          <p>{this.state.creator.ownWords} </p> 
+                        </Card>
+                        </div> */}
+                
+                </section>
+                <Card>
+                    <div className="coverart">
+                    <Row>
+                        <Col size="md-12 sm-12">
+                            <img className="bookImage" src={this.state.book.bookImage} alt="book image"></img>
+                        </Col>
+                    </Row>
+                </div>
                 <Row>
                     
                     <Col size="md-6 sm-12">
-                        <Card heading="Legacy" className="legacy">
+                        <Card  className="legacy">
                             <div>
                                 <p>{this.state.creator.legacy}</p>
                             </div>
                         </Card>
-                        </Col>
-                        <Col size="md-6 sm-12">
+                    </Col>
+                    <Col size="md-6 sm-12">
                         <Card heading="Own Words" className="ownWords">
                             <div>
                                 <p>{this.state.creator.ownWords} </p>
                             </div>
                         </Card>
                     </Col>
-                    
-                    
+            
+
                 </Row>
-
-
+            </Card>
                 <Row>
                     <Col size="md-2">
                         <Link to="/">← Back to Homepage</Link>
                     </Col>
                 </Row>
+
 
             </Container>
         )

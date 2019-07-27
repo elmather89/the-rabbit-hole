@@ -22,6 +22,10 @@ h3.dates {
     height: 300px;
     position: relative;
     right: 5px;
-    top: px;
+    top: 5px;
+}
+
+h3.tags {
+    padding-left: 10px;
 }
 
