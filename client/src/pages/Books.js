@@ -346,11 +346,12 @@ class Books extends Component {
                                 {this.state.books.map(book => (
                                     <ListItem key={book._id}>
                                         <Link to={"/books/" + book._id}>
+                                        <img src={book.bookImage} alt="book-cover" style={{width: 70, height: "auto", marginRight: 10}}></img>
                                             <strong>
                                                 {book.title} by {book.creator}
                                             </strong>
                                         </Link>
-                                        <UpdateBtn onClick={() => this.updateBook(book._id)} />
+                                        {/* <UpdateBtn onClick={() => this.updateBook(book._id)} /> */}
                                         <DeleteBtn onClick={() => this.deleteBook(book._id)} />
                                     </ListItem>
                                 ))}

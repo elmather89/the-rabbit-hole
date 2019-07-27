@@ -29,6 +29,10 @@
     z-index: 1000000000000000000000;
 }
 
+.form-label {
+    text-align: left;
+    margin: 0
+}
 .biography {
     font-size: 25px;
 }
