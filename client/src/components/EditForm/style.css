@@ -1,3 +1,7 @@
+form {
+    margin: 50px 100px
+}
+
 .modal-wrapper {
     background: white;
     border: 1px solid #d0cccc;
@@ -24,7 +28,7 @@
 
 .modal-body {
     padding: 10px 15px;
-    text-align: center;
+    text-align: left;
 }
 
 .modal-footer {
@@ -78,3 +82,4 @@
     padding: 10px;
     font-weight: bold;
 } */
+
