@@ -1,4 +1,4 @@
-.header {
+.book-header {
     min-height: 400;
     clear: both;
     padding: 120px 70px;
@@ -6,11 +6,21 @@
     text-align: left;
 }
 
-.header h1 {
+.book-header h1 {
     font-size: 4rem;
 }
 
-.header img {
-    width: 200px;
-    height: 100px;
+.book-header img {
+    width: 300px;
+    height: auto;
 }
+
+.homepage-link {
+    font-size: 20px;
+    color: #AD343E;
+}
+
+.edit-btn, a {
+    color: white;
+}
+
