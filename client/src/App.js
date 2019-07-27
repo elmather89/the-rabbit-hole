@@ -11,6 +11,7 @@ import bookDetails from "./pages/bookDetails";
 import creatorDetails from "./pages/creatorDetails";
 import Register from './components/Register';
 import Login from './components/Login';
+import EditBook from './components/EditForm/index';
 import NoMatch from "./pages/NoMatch";
 
 if (localStorage.jwtToken) {
@@ -38,6 +39,7 @@ export function App() {
             <Route exact path="/creator/:id" component={creatorDetails} />
             <Route exact path="/register" component={Register} />
             <Route exact path="/login" component={Login} />
+            <Route exact path="/edit/:id" component={EditBook} />
             <Route component={NoMatch} />
           </Switch>
         </div>
