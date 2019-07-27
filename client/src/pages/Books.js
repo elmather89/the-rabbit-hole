@@ -19,9 +19,13 @@ import books from "../assets/images/books.jpg";
 class Books extends Component {
     state = {
         books: [],
+        creator:[],
         title: "",
-        creator: "",
-        tags: "",
+        creatorName: "",
+        dob: "",
+        dod: "",
+        bio: "",
+        creatorTags: "",
         accomplishments: "",
         quote: "",
         synopsis: "",
@@ -85,7 +89,7 @@ class Books extends Component {
     loadBooks = () => {
         API.getBooks()
             .then(res =>
-                this.setState({ books: res.data, title: "", creator: "", tags: "", accomplishments: "", quote: "", synopsis: "", originalPublisher: "", currentPublisher: "", yearPublished: "", bookImage: "" })
+                this.setState({ books: res.data, title: "", creatorName: "", creatorTags: "", accomplishments: "", quote: "", synopsis: "", originalPublisher: "", currentPublisher: "", yearPublished: "", bookImage: "", dob: "", dod: "", bio: "" })
             )
             .catch(err => console.log(err));
     };
@@ -132,18 +136,21 @@ class Books extends Component {
 
     handleBookFormSubmit = event => {
         event.preventDefault();
-        if (this.state.title && this.state.creator) {
+        if (this.state.title && this.state.creatorName) {
             API.saveBook({
                 title: this.state.title,
-                creator: this.state.creator,
-                tags: this.state.tags,
+                creatorName: this.state.creatorName,
+                dob: this.state.dob,
+                dod: this.state.dod,
+                bio: this.state.bio,
+                creatorTags: this.state.creatorTags,
                 accomplishments: this.state.accomplishments,
                 quote: this.state.quote,
                 synopsis: this.state.synopsis,
                 originalPublisher: this.state.originalPublisher,
                 currentPublisher: this.state.currentPublisher,
                 yearPublished: this.state.yearPublished,
-                image: this.state.image
+                bookImage: this.state.bookImage
             })
                 .then(res => this.loadBooks())
                 .catch(err => console.log(err));
@@ -159,9 +166,16 @@ class Books extends Component {
                 birthdate: this.state.birthdate,
                 dateOfDeath: this.state.dateOfDeath,
                 biography: this.state.biography,
+                legacy: this.state.legacy,
+                ownWords: this.state.ownWords,
+                tags: this.state.tags,
+                image: this.state.image
             })
-                .then(res => this.loadCreators())
-                .catch(err => console.log(err));
+                .then(res => {
+                    console.log(res.data)
+                    this.loadCreators()
+                })
+                .catch(err => console.log(JSON.stringify(err, null, 2)));
         }
     };
 
@@ -222,13 +236,12 @@ class Books extends Component {
                                         name="ownWords"
                                         placeholder="Own Words"
                                     />
-                                    <label>
-                                        <CheckBox
-                                            checked={this.state.checked}
-                                            onChange={this.state.handleInputChange}
-                                        />
-                                        {/* <span>Author</span> */}
-                                    </label>
+                                    <Input
+                                        value={this.state.tags}
+                                        onChange={this.handleInputChange}
+                                        name="tags"
+                                        placeholder="Tags"
+                                    />
                                     <Input
                                         value={this.state.image}
                                         onChange={this.handleInputChange}
@@ -250,9 +263,9 @@ class Books extends Component {
                                 close={this.closeBookModalHandler}>
                                 <form>
                                     <Input
-                                        value={this.state.creator}
+                                        value={this.state.creatorName}
                                         onChange={this.handleInputChange}
-                                        name="creator"
+                                        name="creatorName"
                                         placeholder="Creator (required)"
                                     />
                                     <Input
@@ -260,6 +273,30 @@ class Books extends Component {
                                         onChange={this.handleInputChange}
                                         name="title"
                                         placeholder="Book Title (required)"
+                                    />
+                                    <Input
+                                        value={this.state.dob}
+                                        onChange={this.handleInputChange}
+                                        name="dob"
+                                        placeholder="Year of Birth"
+                                    />
+                                    <Input
+                                        value={this.state.dod}
+                                        onChange={this.handleInputChange}
+                                        name="dod"
+                                        placeholder="Year of Death"
+                                    />
+                                    <Input
+                                        value={this.state.creatorTags}
+                                        onChange={this.handleInputChange}
+                                        name="creatorTags"
+                                        placeholder="Author / Illustrator / Painter"
+                                    />
+                                    <Input
+                                        value={this.state.bio}
+                                        onChange={this.handleInputChange}
+                                        name="bio"
+                                        placeholder="Biography"
                                     />
                                     <TextArea
                                         value={this.state.synopsis}
@@ -298,8 +335,8 @@ class Books extends Component {
                                         placeholder="Book Image URL"
                                     />
                                     <FormBtn
-                                        disabled={!(this.state.creator && this.state.title)}
-                                        onClick={this.handleCreatorFormSubmit}>
+                                        disabled={!(this.state.creatorName && this.state.title)}
+                                        onClick={this.handleBookFormSubmit}>
                                         SUBMIT
                                     </FormBtn>
                                 </form>
@@ -349,7 +386,7 @@ class Books extends Component {
                                         <Link to={"/books/" + book._id}>
                                         <img src={book.bookImage} alt="book-cover" style={{width: 70, height: "auto", marginRight: 10}}></img>
                                             <strong>
-                                                {book.title} by {book.creator}
+                                                {book.title} by {book.creatorName}
                                             </strong>
                                         </Link>
                                         {/* <UpdateBtn onClick={() => this.updateBook(book._id)} /> */}

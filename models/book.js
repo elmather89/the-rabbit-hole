@@ -7,7 +7,7 @@ const bookSchema = new Schema({
     trim: true,
     required: "Title is Required"
   },
-  creator: {
+  creatorName: {
     type: String,
     trim: true,
     required: "Creator is Required"
@@ -44,19 +44,16 @@ const bookSchema = new Schema({
       ref: "Creator"
     }
   ],
-  birthdate: {
+  dob: {
     type: Number,
   },
-  dateOfDeath: {
+  dod: {
     type: Number,
   },
-  biography: {
+  bio: {
     type: String,
-    required: true,
-    trim: true,
-    required: true,
   },
-  tags: {
+  creatorTags: {
     type: String,
     trim: true,
   },
