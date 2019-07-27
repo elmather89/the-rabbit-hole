@@ -3,7 +3,7 @@ import "./style.css";
 
 function CreatorHeader(props) {
   return (
-    <div className="header">{props.children}</div>
+    <div className="creator-header">{props.children}</div>
   );
 }
 
