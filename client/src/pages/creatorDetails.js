@@ -59,8 +59,23 @@ class creatorDetails extends Component {
                     </Col>
                 </Row>
                 <Row>
-                    <Col size="sm-12">
-                        <img className="bookImage" src={this.state.book.bookImage} alt="book image"></img>
+                    <Col size="sm-2">
+                        <img className="bookImage" src="https://images.pexels.com/photos/51342/books-education-school-literature-51342.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="book image"></img>
+                    </Col>
+                    <Col size="sm-2">
+                        <img className="bookImage" src="https://images.pexels.com/photos/51342/books-education-school-literature-51342.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="book image"></img>
+                    </Col>
+                    <Col size="sm-2">
+                        <img className="bookImage" src="https://images.pexels.com/photos/51342/books-education-school-literature-51342.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="book image"></img>
+                    </Col>
+                    <Col size="sm-2">
+                        <img className="bookImage" src="https://images.pexels.com/photos/51342/books-education-school-literature-51342.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="book image"></img>
+                    </Col>
+                    <Col size="sm-2">
+                        <img className="bookImage" src="https://images.pexels.com/photos/51342/books-education-school-literature-51342.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="book image"></img>
+                    </Col>
+                    <Col size="sm-2">
+                        <img className="bookImage" src="https://images.pexels.com/photos/51342/books-education-school-literature-51342.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="book image"></img>
                     </Col>
                 </Row>
                 <Row>

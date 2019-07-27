@@ -63,4 +63,13 @@
     top: 40px;
 }
 
+.bookImage {
+    width: 100%;
+    height: auto;
+    padding: 0;
+}
+div.col-sm-2 {
+    padding: 0;
+}
+
 /* Above is style to creatorDetail page */
