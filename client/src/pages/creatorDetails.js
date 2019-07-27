@@ -33,75 +33,73 @@ class creatorDetails extends Component {
     render() {
         return (
             <Container fluid>
-
                 <Row>
                     <Col size="sm-12">
-                        <CreatorHeader>
-                            <Row className="creatorRow">
-                                <Col size="sm-6">
-                                    <h1 className="creatorOne">{this.state.creator.firstName} , {this.state.creator.lastName}</h1>
-                               </Col>
-                                <Col size="sm-2">
-                                    <h3 className="dates">{this.state.creator.birthdate} - {this.state.creator.dateOfDeath}</h3>
+                        <Card>
+                            <Row className="headerR">
+                                <Col size="sm-9">
+                                    <Row>
+                                        <Col size="sm-6">
+                                            <h1 className="creatorTitle">{this.state.creator.lastName}, {this.state.creator.firstName}</h1>
+                                        </Col>
+                                        <Col size="sm-6">
+                                            <h2 className="birthDeath">({this.state.creator.birthdate} - {this.state.creator.dateOfDeath})</h2>
+                                        </Col>
+                                    </Row>
+                                <h3 className="tags">Tags: {this.state.creator.tags}</h3>
+                                <p className="bio">{this.state.creator.biography}</p>
                                 </Col>
-                                <Col size="md-3">
-                                    <div>
-                                        <Image id="imageCircle" src={this.state.creator.image} alt={this.state.creator.lastName} roundedCircle/>
+                                <Col size="sm-3">
+                                    <div className="imageCol">
+                                        <Image src={this.state.creator.image} alt="Creator Profile" roundedCircle />
                                     </div>
                                 </Col>
-                                <Row>
-                                
-                                    <Col size="sm-12">
-                                    <h3 className="tags"> Tags: {this.state.creator.tags}</h3>
-                                    </Col>
-                                    </Row>
                             </Row>
-                        </CreatorHeader>
-                    </Col>
-                </Row>
-                <Row>
-                    <Col size="md-12 sm-12">
-
-                        <Card heading="Biography">
-                            <p className="biography"> 
-                                {this.state.creator.biography}
-                            </p>
                         </Card>
                     </Col>
                 </Row>
                 <Row>
-                    <hr></hr>
-                    <Col size="md-12 sm-12">
-                        <img className="bookImage" src={this.state.book.bookImage} alt="book image"></img>
+                    <Col size="sm-2">
+                        <img className="bookImage" src="https://images.pexels.com/photos/51342/books-education-school-literature-51342.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="book image"></img>
                     </Col>
-                    <hr></hr>
-                 </Row>       
+                    <Col size="sm-2">
+                        <img className="bookImage" src="https://images.pexels.com/photos/51342/books-education-school-literature-51342.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="book image"></img>
+                    </Col>
+                    <Col size="sm-2">
+                        <img className="bookImage" src="https://images.pexels.com/photos/51342/books-education-school-literature-51342.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="book image"></img>
+                    </Col>
+                    <Col size="sm-2">
+                        <img className="bookImage" src="https://images.pexels.com/photos/51342/books-education-school-literature-51342.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="book image"></img>
+                    </Col>
+                    <Col size="sm-2">
+                        <img className="bookImage" src="https://images.pexels.com/photos/51342/books-education-school-literature-51342.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="book image"></img>
+                    </Col>
+                    <Col size="sm-2">
+                        <img className="bookImage" src="https://images.pexels.com/photos/51342/books-education-school-literature-51342.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="book image"></img>
+                    </Col>
+                </Row>
                 <Row>
-                    
                     <Col size="md-6 sm-12">
-                        <Card heading="Legacy" className="legacy">
-                            <div>
-                                <p>{this.state.creator.legacy}</p>
-                            </div>
-                        </Card>
-                        </Col>
-                        <Col size="md-6 sm-12">
-                        <Card heading="Own Words" className="ownWords">
-                            <div>
-                                <p>{this.state.creator.ownWords} </p>
-                            </div>
+                        <Card heading="Legacy">
+                            <p>{this.state.creator.legacy}</p>
                         </Card>
                     </Col>
-                    
-                    
+                    <Col size="md-6 sm-12">
+                        <Card heading="Own Words">
+                            <p>{this.state.creator.ownWords}</p>
+                        </Card>
+                    </Col>
                 </Row>
+            
 
-
+               
+            
                 <Row>
                     <Col size="md-2">
                         <Link to="/">← Back to Homepage</Link>
                     </Col>
                 </Row>
+
 
             </Container>
         )
