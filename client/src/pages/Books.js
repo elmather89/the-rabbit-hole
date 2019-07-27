@@ -127,6 +127,7 @@ class Books extends Component {
         this.setState({
             [name]: value
         });
+        console.log(event);
     };
 
     handleBookFormSubmit = event => {

@@ -19,3 +19,8 @@
     font-size: 20px;
     color: #AD343E;
 }
+
+.edit-btn, a {
+    color: white;
+}
+

@@ -20,7 +20,6 @@ class bookDetails extends Component {
 
     componentDidMount() {
       this.loadBookDetails();
-      // this.loadCreatorDetails();
   };
 
 // When this component mounts, grab the book with the _id of this.props.match.params.id
@@ -31,13 +30,6 @@ class bookDetails extends Component {
             this.setState({ book: res.data })})
           .catch(err => console.log(err));
     };
-
-    // loadCreatorDetails = () => {
-    //   API.getCreator()
-    //       .then(res =>
-    //           this.setState({ creator: res.data, birthdate: "", dateOfDeath: "" }))
-    //        .catch(err => console.log(err));
-    // };
 
     openBookEditModalHandler = () => {
       this.setState({
@@ -66,8 +58,8 @@ class bookDetails extends Component {
                       <h3>By {this.state.book.creator}</h3>
                       <p>({this.state.book.birthdate} - {this.state.book.dateOfDeath})</p>
                       <hr></hr>
-                      <Button className="open-modal-btn edit-btn" onClick={this.openBookEditModalHandler}>
-                            Edit Details
+                      <Button className="edit-btn">
+                      <Link to={"/edit/"+this.state.book._id}>Edit Details</Link>
                       </Button>
                       <p>{this.state.book.tags}</p>
                       <p>{this.state.book.biography}</p>
@@ -123,7 +115,7 @@ class bookDetails extends Component {
                 </Col>
               </Row>
 
-              <Row>
+              {/* <Row>
                 <div className={!this.state.isShowingBook ? "hideModalDiv" : 'showModalDiv'}>
                   <EditModal
                       className="modal book-edit-form"
@@ -133,7 +125,7 @@ class bookDetails extends Component {
                       <EditForm />
                   </EditModal>
                 </div>
-              </Row>
+              </Row> */}
 
               <Row>
                 <Col size="md-3">

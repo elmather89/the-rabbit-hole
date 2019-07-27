@@ -1,14 +1,15 @@
-import React from 'react';
+import React, { Component } from "react";
 import './style.css';
 import { Input, TextArea, CheckBox, FormBtn } from "../Form";
 import API from "../../utils/API"
+import { Link } from "react-router-dom";
 
-class EditForm extends React.Component {
+class EditForm extends Component {
     constructor(props) {
         super(props);
         console.log(props)
         this.state = {
-            title: this.props.title,
+            title: "",
             creator: "",
             birthdate: "",
             dateOfDeath: "",
@@ -30,31 +31,41 @@ class EditForm extends React.Component {
         this.loadBookById();
     };
 
-    loadBookById(id) {
-        API.getBook(id)
-            .then(res =>
-                this.setState({ books: res.data, title: "", creator: "", tags: "", accomplishments: "", quote: "", synopsis: "", originalPublisher: "", currentPublisher: "", yearPublished: "", bookImage: "" })
+    loadBookById = () => {
+        API.getBook(this.props.match.params.id)
+            .then(res => {
+                console.log(res);
+                this.setState({
+                    // book: res.data,
+                    title: res.data.title,
+                    creator: res.data.creator,
+                    synopsis: res.data.synopsis,
+                    birthdate: res.data.birthdate,
+                    dateOfDeath: res.data.dateOfDeath,
+                    tags: res.data.tags,
+                    biography: res.data.biography,
+                    quote: res.data.quote,
+                    originalPublisher: res.data.originalPublisher,
+                    currentPublisher: res.data.currentPublisher,
+                    yearPublished: res.data.yearPublished,
+                    bookImage: res.data.bookImage
+                })}
             )
             .catch(err => console.log(err));
     };
 
-    // updateBook(id) {
-    //     API.updateBook(id)
-    //         .then(res => this.loadBookById())
-    //         .catch(err => console.log(err));
-    //   };
-
-    handleInputChange(event) {
+    handleInputChange = (event) => {
         const { name, value } = event.target;
         this.setState({
             [name]: value
         });
+        console.log(event)
     };
 
-    handleBookEdit(event) {
+    handleBookEdit = (event) => {
         console.log(event);
         event.preventDefault();
-        API.updateBook(this.state.book._id, {
+        API.updateBook(this.props.match.params.id, {
             title: this.state.title,
             creator: this.state.creator,
             birthdate: this.state.birthdate,
@@ -68,12 +79,14 @@ class EditForm extends React.Component {
             yearPublished: this.state.yearPublished,
             bookImage: this.state.bookImage
         })
-            .then(res => this.loadBookById())
+            .then(res => console.log(res.data))
             .catch(err => console.log(err));
+            this.props.history.push("/books/" + this.state.book._id )
     }
 
     render() {
         return (
+
             <form>
             <label className="form-label"><small style={{textAlign: "left"}}>Title</small></label>
             <Input
@@ -159,6 +172,7 @@ class EditForm extends React.Component {
                 name="bookImage"
                 placeholder="Enter book image URL"
             />
+            <br></br>
             <button type="submit" className="btn btn-success"
               onSubmit={this.handleBookEdit}
             >
