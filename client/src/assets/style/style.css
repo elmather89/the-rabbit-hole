@@ -33,79 +33,8 @@
     text-align: left;
     margin: 0
 }
-.biography {
-    font-size: 25px;
-}
 
-.coverart {
-    
-    position: relative;
-    bottom: 100px;
-}
-
-
-
-.container {
-    display: grid;
-    grid-template-columns: -50px 100px auto 50px;
-    grid-template-rows: auto;
-    grid-column-gap: 0;
-    grid-row-gap: 15px;
-    align-items: stretch;
-    justify-content: stretch;
-    grid-template-areas: 
-    "name dates . image"
-    "tag tag tag image"
-    "biography biography biography biography"
-    "art art art art"
-    "legacy legacy words words";
-}
-
-.item-a {
-  justify-self: stretch;
-  grid-area: name;
-  font-size: 50px;
-}
-
-.item-b {
-  justify-self: stretch;
-  grid-area: dates;
-  font-size: 30px;
-  position: relative;
-  left: 30px;
-  top: 20px;
-}
-
-.item-c {
-    grid-area: image;
-    justify-self: center;
-}
-
-.item-d {
-    grid-area: tag;
-    font-size: 28px;
-    position: relative;
-    bottom: 120px;
-}
-
-.item-e {
-    grid-area: biography;
-    justify-self: center;
-    position: relative;
-    bottom: 150px;
-}
-
-.item-f {
-    grid-area: art;
-}
-
-.item-g {
-    grid-area: legacy;
-}
-
-.item-h {
-    grid-area: words;
-}
+/* The following is style for creatorDetail page */
 
 .imageCol {
     border-left: 5px solid black;
@@ -134,3 +63,4 @@
     top: 40px;
 }
 
+/* Above is style to creatorDetail page */
