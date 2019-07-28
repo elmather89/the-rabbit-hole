@@ -55,14 +55,14 @@ class bookDetails extends Component {
                     <Row className="headerRow">
                     <Col size="sm-9">
                       <h1 className="bookTitle">{this.state.book.title}</h1>
-                      <h3>By {this.state.book.creator}</h3>
-                      <p>({this.state.book.birthdate} - {this.state.book.dateOfDeath})</p>
+                      <h3>By {this.state.book.creatorName}</h3>
+                      <p>({this.state.book.dob} - {this.state.book.dod})</p>
                       <hr></hr>
                       <Button className="edit-btn">
                       <Link to={"/edit/"+this.state.book._id}>Edit Details</Link>
                       </Button>
-                      <p>{this.state.book.tags}</p>
-                      <p>{this.state.book.biography}</p>
+                      <p>{this.state.book.creatorTags}</p>
+                      <p>{this.state.book.bio}</p>
                     </Col>
                     <Col size="sm-3">
                       <div>
