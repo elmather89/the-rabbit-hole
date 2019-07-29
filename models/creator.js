@@ -20,13 +20,10 @@ const creatorSchema = new Schema({
   },
   biography: {
     type: String,
-    required: true,
     trim: true,
-    required: true
   },
   legacy: {
     type: String,
-    required: true,
     trim: true
   },
   ownWords: {

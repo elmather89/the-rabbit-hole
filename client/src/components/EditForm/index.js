@@ -10,11 +10,11 @@ class EditForm extends Component {
         console.log(props)
         this.state = {
             title: "",
-            creator: "",
-            birthdate: "",
-            dateOfDeath: "",
-            tags: "",
-            biography: "",
+            creatorName: "",
+            dob: "",
+            dod: "",
+            creatorTags: "",
+            bio: "",
             quote: "",
             synopsis: "",
             originalPublisher: "",
@@ -38,12 +38,12 @@ class EditForm extends Component {
                 this.setState({
                     // book: res.data,
                     title: res.data.title,
-                    creator: res.data.creator,
+                    creatorName: res.data.creatorName,
                     synopsis: res.data.synopsis,
-                    birthdate: res.data.birthdate,
-                    dateOfDeath: res.data.dateOfDeath,
-                    tags: res.data.tags,
-                    biography: res.data.biography,
+                    dob: res.data.dob,
+                    dod: res.data.dod,
+                    creatorTags: res.data.creatorTags,
+                    bio: res.data.bio,
                     quote: res.data.quote,
                     originalPublisher: res.data.originalPublisher,
                     currentPublisher: res.data.currentPublisher,
@@ -63,15 +63,13 @@ class EditForm extends Component {
     };
 
     handleBookEdit = (event) => {
-        console.log(event);
-        event.preventDefault();
         API.updateBook(this.props.match.params.id, {
             title: this.state.title,
-            creator: this.state.creator,
-            birthdate: this.state.birthdate,
-            dateOfDeath: this.state.dateOfDeath,
-            tags: this.state.tags,
-            biography: this.state.biography,
+            creatorName: this.state.creatorName,
+            dob: this.state.dob,
+            dod: this.state.dod,
+            creatorTags: this.state.creatorTags,
+            bio: this.state.bio,
             quote: this.state.quote,
             synopsis: this.state.synopsis,
             originalPublisher: this.state.originalPublisher,
@@ -79,9 +77,13 @@ class EditForm extends Component {
             yearPublished: this.state.yearPublished,
             bookImage: this.state.bookImage
         })
-            .then(res => console.log(res.data))
+            .then(res => {
+                console.log(res.data)
+                this.props.history.push("/books/")
+            }) 
             .catch(err => console.log(err));
-            this.props.history.push("/books/" + this.state.book._id )
+            
+            // this.props.history.push("/books/")
     }
 
     render() {
@@ -97,37 +99,37 @@ class EditForm extends Component {
             />
             <label className="form-label"><small>Creator Name</small></label>
             <Input
-                value={this.state.creator}
+                value={this.state.creatorName}
                 onChange={this.handleInputChange}
-                name="creator"
+                name="creatorName"
                 placeholder="Creator (required)"
             />
             <label className="form-label"><small>Year Born</small></label>
             <Input
-                value={this.state.birthdate}
+                value={this.state.dob}
                 onChange={this.handleInputChange}
-                name="birthdate"
+                name="dob"
                 placeholder="YYYY"
             />
             <label className="form-label"><small>Year Passed</small></label>
             <Input
-                value={this.state.dateOfDeath}
+                value={this.state.dod}
                 onChange={this.handleInputChange}
-                name="dateOfDeath"
+                name="dod"
                 placeholder="YYYY (if applicable)"
             />
             <label className="form-label"><small>Occupation(s)</small></label>
             <TextArea
-                value={this.state.tags}
+                value={this.state.creatorTags}
                 onChange={this.handleInputChange}
-                name="tags"
+                name="creatorTags"
                 placeholder="Author / Illustrator / Painter / etc."
             />
             <label className="form-label"><small>Biography</small></label>
             <TextArea
-                value={this.state.biography}
+                value={this.state.bio}
                 onChange={this.handleInputChange}
-                name="biography"
+                name="bio"
                 placeholder="Biography"
             />
             <label className="form-label"><small>Text of Interest / Quote</small></label>
@@ -174,7 +176,7 @@ class EditForm extends Component {
             />
             <br></br>
             <button type="submit" className="btn btn-success"
-              onSubmit={this.handleBookEdit}
+              onClick={this.handleBookEdit}
             >
               Update Book
             </button>

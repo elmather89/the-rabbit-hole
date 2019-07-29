@@ -33,9 +33,43 @@
     text-align: left;
     margin: 0
 }
-.biography {
-    font-size: 25px;
+
+/* The following is style for creatorDetail page */
+
+.imageCol {
+    border-left: 5px solid black;
 }
 
+.tags {
+    background-color: lightgray;
+    position: relative;
+    top: 30px;
+}
 
+.bio {
+    font-size: 30px;
+    position: relative;
+    top: 100px;
+}
 
+.creatorTitle {
+    font-size: 75px;
+}
+
+.birthDeath {
+    font-size: 30px;
+    position: relative;
+    right: 100px;
+    top: 40px;
+}
+
+.bookImage {
+    width: 100%;
+    height: auto;
+    padding: 0;
+}
+div.col-sm-2 {
+    padding: 0;
+}
+
+/* Above is style to creatorDetail page */
