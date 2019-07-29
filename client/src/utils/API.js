@@ -16,7 +16,7 @@ export default {
     },
     // Updates the book with the given id
     updateBook: function (id, bookData) {
-        return axios.put("/api/edit/" + id, bookData);
+        return axios.put("/api/books/" + id, bookData);
     },
     // Saves a book to the database
     saveBook: function (bookData) {
