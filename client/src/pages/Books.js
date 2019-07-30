@@ -5,11 +5,10 @@ import API from "../utils/API";
 import { Link } from "react-router-dom";
 import { Col, Row, Container } from "../components/Grid";
 import { List, ListItem } from "../components/List";
-import { Input, TextArea, CheckBox, FormBtn } from "../components/Form";
+import { Input, TextArea, FormBtn } from "../components/Form";
 import CreatorModal from "../components/Modal/creatorModal";
 import BookModal from "../components/Modal/bookModal";
 import Button from "../components/Button";
-import UpdateBtn from "../components/UpdateBtn";
 import "../assets/style/style.css";
 import brand from "../assets/images/brand.svg";
 import creator from "../assets/images/create.jpg";
@@ -20,14 +19,15 @@ import Search from "../components/Search";
 class Books extends Component {
     state = {
         books: [],
-        creator:[],
+        selectedCreator: "",
+        bookcreators: [],
+        creator: "",
         title: "",
         creatorName: "",
         dob: "",
         dod: "",
         bio: "",
         creatorTags: "",
-        accomplishments: "",
         quote: "",
         synopsis: "",
         originalPublisher: "",
@@ -89,16 +89,19 @@ class Books extends Component {
 
     loadBooks = () => {
         API.getBooks()
-            .then(res =>
-                this.setState({ books: res.data, title: "", creatorName: "", creatorTags: "", accomplishments: "", quote: "", synopsis: "", originalPublisher: "", currentPublisher: "", yearPublished: "", bookImage: "", dob: "", dod: "", bio: "" })
+            .then(res => {
+                this.setState({ books: res.data, title: "", creatorName: "", creatorTags: "", quote: "", synopsis: "", originalPublisher: "", currentPublisher: "", yearPublished: "", bookImage: "", dob: "", dod: "", bio: "" });
+            }
             )
             .catch(err => console.log(err));
     };
 
     loadCreators = () => {
         API.getCreators()
-            .then(res =>
-                this.setState({ creator: res.data, firstName: "", lastName: "", biography: "", birthdate: "", dateOfDeath: "", legacy: "", ownWords: "", tags: "", image: "" })
+            .then(res => {
+                let bookcreators = [null, ...res.data];
+                this.setState({ creator: res.data, selectedCreator: "", bookcreators: bookcreators, firstName: "", lastName: "", biography: "", birthdate: "", dateOfDeath: "", legacy: "", ownWords: "", tags: "", image: "" });
+            }
             )
             .catch(err => console.log(err));
     };
@@ -115,18 +118,6 @@ class Books extends Component {
             .catch(err => console.log(err));
     };
 
-    updateCreator = id => {
-        API.updateCreator(id)
-            .then(res => this.loadCreators())
-            .catch(err => console.log(err));
-    };
-
-    updateBook = id => {
-        API.updateBook(id)
-            .then(res => this.loadBooks())
-            .catch(err => console.log(err));
-    };
-
     handleInputChange = event => {
         const { name, value } = event.target;
         this.setState({
@@ -135,27 +126,34 @@ class Books extends Component {
         console.log(event);
     };
 
+    handleSelectedBookCreator = event => {
+        this.selectedCreator = event.target.value;
+        this.setState({ selectedCreator: event.target.value })
+    };
+
     handleBookFormSubmit = event => {
         event.preventDefault();
-        if (this.state.title && this.state.creatorName) {
-            API.saveBook({
-                title: this.state.title,
-                creatorName: this.state.creatorName,
-                dob: this.state.dob,
-                dod: this.state.dod,
-                bio: this.state.bio,
-                creatorTags: this.state.creatorTags,
-                accomplishments: this.state.accomplishments,
-                quote: this.state.quote,
-                synopsis: this.state.synopsis,
-                originalPublisher: this.state.originalPublisher,
-                currentPublisher: this.state.currentPublisher,
-                yearPublished: this.state.yearPublished,
-                bookImage: this.state.bookImage
+        API.saveBook({
+            title: this.state.title,
+            creatorName: this.selectedCreator,
+            dob: this.state.dob,
+            dod: this.state.dod,
+            bio: this.state.bio,
+            creatorTags: this.state.creatorTags,
+            quote: this.state.quote,
+            synopsis: this.state.synopsis,
+            originalPublisher: this.state.originalPublisher,
+            currentPublisher: this.state.currentPublisher,
+            yearPublished: this.state.yearPublished,
+            bookImage: this.state.bookImage,
+            creator: this.selectedCreator
+        })
+            .then(res => {
+                this.loadBooks();
             })
-                .then(res => this.loadBooks())
-                .catch(err => console.log(err));
-        }
+            .catch(err => console.log(err));
+        this.setState({ selectedCreator: "" })
+        // }
     };
 
     handleCreatorFormSubmit = event => {
@@ -266,12 +264,18 @@ class Books extends Component {
                                 show={this.state.isShowingBook}
                                 close={this.closeBookModalHandler}>
                                 <form>
-                                    <Input
-                                        value={this.state.creatorName}
-                                        onChange={this.handleInputChange}
-                                        name="creatorName"
-                                        placeholder="Creator (required)"
-                                    />
+                                    {this.state.creator.length ? (
+                                        <select value={this.state.selectedCreator} onChange={this.handleSelectedBookCreator} className="form-control">{
+                                            this.state.bookcreators.map(creator => {
+                                                if (creator != null) {
+                                                    return (
+                                                        <option value={creator._id}>{creator.lastName + " " + creator.firstName}</option>
+                                                    )
+                                                } else {
+                                                    return (<option value={null}>--Please Select a Creator</option>)
+                                                }
+                                            })
+                                        }</select>) : (<div></div>)}
                                     <Input
                                         value={this.state.title}
                                         onChange={this.handleInputChange}
@@ -296,7 +300,7 @@ class Books extends Component {
                                         name="creatorTags"
                                         placeholder="Author / Illustrator / Painter"
                                     />
-                                    <Input
+                                    <TextArea
                                         value={this.state.bio}
                                         onChange={this.handleInputChange}
                                         name="bio"
@@ -339,7 +343,7 @@ class Books extends Component {
                                         placeholder="Book Image URL"
                                     />
                                     <FormBtn
-                                        disabled={!(this.state.creatorName && this.state.title)}
+                                        disabled={!(this.state.selectedCreator && this.state.title)}
                                         onClick={this.handleBookFormSubmit}>
                                         SUBMIT
                                     </FormBtn>
@@ -362,11 +366,10 @@ class Books extends Component {
                                     <ListItem key={creator._id}>
                                         <Link to={"/creator/" + creator._id}>
                                             <strong>
-                                                {creator.firstName} {creator.lastName}
+                                                {creator.lastName} {creator.firstName}
 
                                             </strong>
                                         </Link>
-                                        <UpdateBtn onClick={() => this.updateCreator(creator._id)} />
                                         <DeleteBtn onClick={() => this.deleteCreator(creator._id)} />
                                     </ListItem>
                                 ))}
@@ -388,12 +391,11 @@ class Books extends Component {
                                 {this.state.books.map(book => (
                                     <ListItem key={book._id}>
                                         <Link to={"/books/" + book._id}>
-                                        <img src={book.bookImage} alt="book-cover" style={{width: 70, height: "auto", marginRight: 10}}></img>
+                                            <img src={book.bookImage} alt="book-cover" style={{ width: 70, height: "auto", marginRight: 10 }}></img>
                                             <strong>
-                                                {book.title} by {book.creatorName}
+                                                {book.title} by {book.creator ? `${book.creator.lastName} ${book.creator.firstName}` : book.creatorName}
                                             </strong>
                                         </Link>
-                                        {/* <UpdateBtn onClick={() => this.updateBook(book._id)} /> */}
                                         <DeleteBtn onClick={() => this.deleteBook(book._id)} />
                                     </ListItem>
                                 ))}
@@ -403,7 +405,6 @@ class Books extends Component {
                             )}
                     </Col>
                 </Row>
-
             </Container >
         )
     }
