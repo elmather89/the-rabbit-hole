@@ -1,12 +1,7 @@
-.creator-header {
+.creator-body {
     min-height: 400;
     clear: both;
-    padding: 120px 70px;
+    padding: 20px 70px;
     padding-bottom: 40px;
     text-align: left;
-}
-
-.edit-btn, a {
-    color: white;
-    
 }
