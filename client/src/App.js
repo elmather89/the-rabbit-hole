@@ -13,6 +13,7 @@ import Register from './components/Register';
 import Login from './components/Login';
 import EditBook from './components/EditForm/index';
 import NoMatch from "./pages/NoMatch";
+import CreatorEditForm from 'components/CreatorEditForm';
 
 if (localStorage.jwtToken) {
   setAuthToken(localStorage.jwtToken);
@@ -40,6 +41,7 @@ export function App() {
             <Route exact path="/register" component={Register} />
             <Route exact path="/login" component={Login} />
             <Route exact path="/edit/:id" component={EditBook} />
+            <Route exact path="/creatorEdit/:id" component={CreatorEditForm} />
             <Route component={NoMatch} />
           </Switch>
         </div>
