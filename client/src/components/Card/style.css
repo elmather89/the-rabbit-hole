@@ -1,0 +1,11 @@
+div.card.text-center.creatorCard {
+    
+    background-color: rgb(197, 174, 174);
+    border-top-color: transparent;
+    border-right-color: transparent;
+    margin: 20px
+}
+
+div.card-body {
+    height: 200%;
+}
