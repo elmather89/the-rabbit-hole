@@ -13,6 +13,8 @@ import Card from "../components/Card";
 import Image from 'react-bootstrap/Image';
 import logo from "../assets/images/EsphyrSlobodkina.jpg"
 import "../assets/style/style.css";
+import CreatorCarousel from "components/Carousel";
+import CreatorEditForm from "components/CreatorEditForm";
 
 
 class creatorDetails extends Component {
@@ -57,7 +59,7 @@ class creatorDetails extends Component {
                                     <hr></hr>
                                 </p>
                                 <Button className="edit-btn">
-                                <Link to={"/edit/"+this.state.book._id}>Edit Details</Link>
+                                <Link to={"/creatorEdit/"+this.state.creator._id}>Edit Details</Link>
                                 </Button>
                                 </Col>
                                 <div className="imageCol">
@@ -73,24 +75,10 @@ class creatorDetails extends Component {
                 </Row>
                 <CreatorBody>
                 <Row>
-                    
-                    <Col size="sm-2">
-                        <img className="bookImage" src="https://images.pexels.com/photos/51342/books-education-school-literature-51342.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="book image"></img>
-                    </Col>
-                    <Col size="sm-2">
-                        <img className="bookImage" src="https://images.pexels.com/photos/51342/books-education-school-literature-51342.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="book image"></img>
-                    </Col>
-                    <Col size="sm-2">
-                        <img className="bookImage" src="https://images.pexels.com/photos/51342/books-education-school-literature-51342.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="book image"></img>
-                    </Col>
-                    <Col size="sm-2">
-                        <img className="bookImage" src="https://images.pexels.com/photos/51342/books-education-school-literature-51342.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="book image"></img>
-                    </Col>
-                    <Col size="sm-2">
-                        <img className="bookImage" src="https://images.pexels.com/photos/51342/books-education-school-literature-51342.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="book image"></img>
-                    </Col>
-                    <Col size="sm-2">
-                        <img className="bookImage" src="https://images.pexels.com/photos/51342/books-education-school-literature-51342.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500" alt="book image"></img>
+                    <Col size="sm-12">
+                    <CreatorCarousel>
+
+                    </CreatorCarousel>
                     </Col>
                 </Row>
                 <Row>
@@ -107,10 +95,7 @@ class creatorDetails extends Component {
                         </Card>
                     </Col>
                 </Row>
-            
 
-               
-            
                 <Row>
                     <div className="homepage">
                     <Col size="sm-12">
