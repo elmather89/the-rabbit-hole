@@ -41,11 +41,18 @@ select.form-control {
 /* The following is style for creatorDetail page */
 
 .imageCol {
-    border-left: 5px solid black;
+    /* border: 5px solid rgb(84, 84, 114); */
+    display:block;
+    margin:auto;
+    
+}
+
+.contain1 {
+    box-shadow: 0 0 0 50px rgb(84, 84, 114) inset;
 }
 
 .tags {
-    background-color: lightgray;
+    
     position: relative;
     top: 30px;
 }
@@ -53,27 +60,33 @@ select.form-control {
 .bio {
     font-size: 30px;
     position: relative;
-    top: 100px;
+    top: 30px;
+    padding-bottom: 20px;
 }
 
 .creatorTitle {
     font-size: 75px;
+    text-align: center;
 }
 
-.birthDeath {
+ .birthDeath {
     font-size: 30px;
-    position: relative;
-    right: 100px;
-    top: 40px;
-}
+    text-align: center;
+   
+} 
 
 .bookImage {
     width: 100%;
     height: auto;
-    padding: 0;
+    padding: 1px;
 }
 div.col-sm-2 {
     padding: 0;
 }
+
+.homepage {
+    padding: 10px;
+}
+
 
 /* Above is style to creatorDetail page */
