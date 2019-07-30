@@ -14,6 +14,7 @@ import "../assets/style/style.css";
 import brand from "../assets/images/brand.svg";
 import creator from "../assets/images/create.jpg";
 import books from "../assets/images/books.jpg";
+import Search from "../components/Search";
 
 
 class Books extends Component {
@@ -184,6 +185,9 @@ class Books extends Component {
     render() {
         return (
             <Container fluid>
+                <Row>
+                    <Search />
+                </Row>
                 <Row>
                     <Col size="lg-12 md-12 sm-12">
                         <Jumbotron bgimg={brand}>
