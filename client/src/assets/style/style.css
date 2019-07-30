@@ -34,6 +34,10 @@
     margin: 0
 }
 
+select.form-control {
+    margin-bottom: 15px;
+}
+
 /* The following is style for creatorDetail page */
 
 .imageCol {
