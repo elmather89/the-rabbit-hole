@@ -34,6 +34,10 @@
     margin: 0
 }
 
+select.form-control {
+    margin-bottom: 15px;
+}
+
 /* The following is style for creatorDetail page */
 
 .imageCol {
@@ -76,6 +80,7 @@
     height: auto;
     padding: 1px;
 }
+
 div.col-sm-2 {
     padding: 0;
 }
@@ -83,6 +88,23 @@ div.col-sm-2 {
 .homepage {
     padding: 10px;
 }
+
+.outerbox {
+      width: 99%;
+      height: 210px;
+      background-color: rgb(84, 84, 114);
+      overflow: scroll;
+      display: flex;
+}
+
+.innerbox {
+      width: 150px;
+      height: 150px;
+      margin: 10px;
+      background-color: red;
+      flex: none;
+    }
+
 
 
 /* Above is style to creatorDetail page */
