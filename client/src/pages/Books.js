@@ -184,9 +184,6 @@ class Books extends Component {
         return (
             <Container fluid>
                 <Row>
-                    <Search />
-                </Row>
-                <Row>
                     <Col size="lg-12 md-12 sm-12">
                         <Jumbotron bgimg={brand}>
                         </Jumbotron>
@@ -357,9 +354,17 @@ class Books extends Component {
                         <Jumbotron bgimg={creator}>
                             <h1>Creators</h1>
                         </Jumbotron>
-                        <Button className="open-modal-btn" onClick={this.openCreatorModalHandler}>
-                            Add Creator
-                        </Button>
+                        <Row>
+                            <Col size="sm-12 md-9">
+                                <Search />
+                            </Col>
+                            <Col size="sm-12 md-3">
+                                <Button className="open-modal-btn" onClick={this.openCreatorModalHandler}>
+                                Add Creator
+                                </Button>
+                            </Col>
+                        </Row>          
+                        <br></br>
                         {this.state.creator.length ? (
                             <List>
                                 {this.state.creator.map(creator => (
@@ -383,9 +388,17 @@ class Books extends Component {
                         <Jumbotron bgimg={books}>
                             <h1>Books</h1>
                         </Jumbotron>
-                        <Button className="open-modal-btn" onClick={this.openBookModalHandler}>
-                            Add Book
-                        </Button>
+                        <Row>
+                            <Col size="sm-12 md-9">
+                                <Search />
+                            </Col>
+                            <Col size="sm-12 md-3">
+                                <Button className="open-modal-btn" onClick={this.openBookModalHandler}>
+                                Add Book
+                                </Button>
+                            </Col>
+                        </Row>                       
+                        <br></br>
                         {this.state.books.length ? (
                             <List>
                                 {this.state.books.map(book => (

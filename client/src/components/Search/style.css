@@ -1,0 +1,9 @@
+/* Style the search box */
+.search-list {
+    width: 100%;
+    height: 50%;
+    font-size: 18px;
+    padding: 11px;
+    margin-bottom: 20px;
+    border: 1px solid rgba(242, 153, 75, 1);
+  }
