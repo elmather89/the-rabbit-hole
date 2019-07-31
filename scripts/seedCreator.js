@@ -9,7 +9,7 @@ mongoose.connect(
 const creatorSeed = [
     {
         _id: 11,
-        _books: 
+        _books: 1,
         firstName: "Maurice",
         lastName: "Sendak",
         birthdate: 1928,
@@ -22,6 +22,7 @@ const creatorSeed = [
     },
     {
         _id: 12,
+        _books: 2,
         firstName: "Eric",
         lastName: "Carle",
         birthdate: 1929,
@@ -34,6 +35,7 @@ const creatorSeed = [
     },
     {
         _id: 13,
+        _books: 3,
         firstName: "E. B.",
         lastName: "White",
         birthdate: 1899,
@@ -46,6 +48,7 @@ const creatorSeed = [
     },
     {
         _id: 14,
+        _books: 6,
         firstName: "Shel",
         lastName: "Silverstein",
         birthdate: 1930,
@@ -58,6 +61,7 @@ const creatorSeed = [
     },
     {
         _id: 15,
+        _books: 7,
         firstName: "Ludwig",
         lastName: "Bemelmans",
         birthdate: 1898,
@@ -70,6 +74,7 @@ const creatorSeed = [
     },
     {
         _id: 16,
+        _books: 8,
         firstName: "H.A.",
         lastName: "Rey",
         birthdate: 1898,
@@ -82,6 +87,7 @@ const creatorSeed = [
     },
     {
         _id: 17,
+        _books: 9,
         firstName: "Don",
         lastName: "Freeman",
         birthdate: 1908,
@@ -94,6 +100,7 @@ const creatorSeed = [
     },
     {
         _id: 18,
+        _books: 10,
         firstName: "Esphyr",
         lastName: "Slobodkina",
         birthdate: 1908,

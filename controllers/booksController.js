@@ -13,6 +13,7 @@ module.exports = {
   findById: function (req, res) {
     db.Book
       .findById(req.params.id)
+      .populate('_creators', ["firstName", "lastName", ])
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
