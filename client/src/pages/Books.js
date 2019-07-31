@@ -407,7 +407,6 @@ class Books extends Component {
                         </Jumbotron>
                         <Row>
                             <Col size="sm-12 md-9">
-                                {/* <Search /> */}
                                 <div className="search">
                                     <input
                                         className="search-list"
@@ -442,7 +441,6 @@ class Books extends Component {
                         </Jumbotron>
                         <Row>
                             <Col size="sm-12 md-9">
-                                {/* <Search /> */}
                                 <div className="search">
                                     <input
                                         className="search-list"
