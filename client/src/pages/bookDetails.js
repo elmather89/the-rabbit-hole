@@ -29,21 +29,6 @@ class bookDetails extends Component {
       .catch(err => console.log(err));
   };
 
-  openBookEditModalHandler = () => {
-    this.setState({
-      isShowingBook: true,
-      isShowingCreator: false,
-      modalDivClass: true
-    });
-  };
-
-  closeBookEditModalHandler = () => {
-    this.setState({
-      isShowingBook: false,
-      modalDivClass: false
-    });
-  }
-
   render() {
     return (
       <Container fluid>
@@ -56,7 +41,7 @@ class bookDetails extends Component {
                   <h3>By {this.state.book.creatorName}</h3>
                   <p>({this.state.book.dob} - {this.state.book.dod})</p>
                   <hr></hr>
-                  <Button className="edit-btn">
+                  <Button id="book-edit-btn">
                     <Link to={"/edit/" + this.state.book._id}>Edit Details</Link>
                   </Button>
                   <p>{this.state.book.creatorTags}</p>
@@ -112,18 +97,6 @@ class bookDetails extends Component {
             </BookCard>
           </Col>
         </Row>
-
-        {/* <Row>
-                <div className={!this.state.isShowingBook ? "hideModalDiv" : 'showModalDiv'}>
-                  <EditModal
-                      className="modal book-edit-form"
-                      show={this.state.isShowingBook}
-                      close={this.closeBookEditModalHandler}
-                      >
-                      <EditForm />
-                  </EditModal>
-                </div>
-              </Row> */}
 
         <Row>
           <Col size="md-3">
