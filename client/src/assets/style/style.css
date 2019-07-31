@@ -108,3 +108,20 @@ div.col-sm-2 {
 
 
 /* Above is style to creatorDetail page */
+
+/* Footer style */
+
+.footer-header, .footer-copyright, .footer-icons, .footer-content a, .copyright {
+    text-align: center;
+    color: white;
+  }
+
+footer {
+    background-color: rgba(242, 153, 75, 1);;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.footer-content a {
+    margin-right: 20px;
+}
