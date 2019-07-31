@@ -48,7 +48,7 @@ class Books extends Component {
         fullName: "",
         _id: "",
         _books: "",
-        _creators: ""
+        _creators: []
     };
 
     componentDidMount() {
@@ -95,10 +95,11 @@ class Books extends Component {
     loadBooks = () => {
         API.getBooks()
             .then(res => {
+                console.log(res);
                 this.setState({
                     // books: res.data, creator: res.data._creators
                     books: res.data, title: "", creatorName: "", creatorTags: "", quote: "", synopsis: "", originalPublisher: "", currentPublisher: "", yearPublished: "", bookImage: "", dob: "", dod: "", bio: ""
-                    ,_id: "", _books: "", _creators: ""
+                    ,_id: "", _creators: res.data._creators, firstName: "", lastName: ""
                 });
             }
             )
@@ -112,7 +113,7 @@ class Books extends Component {
                 this.setState({
                     // creator: res.data, books: res.data._books, bookcreators: bookcreators
                     creator: res.data, selectedCreator: "", bookcreators: bookcreators, firstName: "", lastName: "", biography: "", birthdate: "", dateOfDeath: "", legacy: "", ownWords: "", tags: "", image: ""
-                    , _id: "", _books: "", _creators: ""
+                    , _id: "", _books: ""
             });
             }
             )
@@ -447,7 +448,7 @@ class Books extends Component {
                                         <Link to={"/books/" + book._id}>
                                             <img src={book.bookImage} alt="book-cover" style={{ width: 70, height: "auto", marginRight: 10 }}></img>
                                             <strong>
-                                                {book.title} by {book.creator ? `${book.creator.lastName} ${book.creator.firstName}` : book.creatorName}
+                                                {book.title} by {book._creators ? `${book._creators.firstName} ${book._creators.lastName}` : book.creatorName}
                                             </strong>
                                         </Link>
                                         <DeleteBtn onClick={() => this.deleteBook(book._id)} />

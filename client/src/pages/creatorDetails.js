@@ -50,13 +50,16 @@ class creatorDetails extends Component {
     };
     loadcreatorDetails = () => {
         API.getCreator(this.props.match.params.id)
-            .then(res =>
+            .then(res => {
+                console.log(res);
                 this.setState({ 
-                    // creator: res.data, book: res.data._books 
-                    creator: res.data, firstName: "", lastName: "", biography: "", birthdate: "", dateOfDeath: "", legacy: "", ownWords: "", tags: "", image: ""
-                    , _id: "", bookImage: ""
-                    , book: res.data._books
-                }))
+                    creator: res.data, book: res.data._books 
+                    // creator: res.data, firstName: "", lastName: "", biography: "", birthdate: "", dateOfDeath: "", legacy: "", ownWords: "", tags: "", image: ""
+                    // , _id: "", bookImage: ""
+                    // , book: res.data._books
+                });
+                }
+                )
             .catch(err => console.log(err));
     };
 
@@ -78,6 +81,11 @@ class creatorDetails extends Component {
                                         <Row>
                                             <Col size="sm-6">
                                                 <h2 className="birthDeath">({this.state.creator.birthdate} - {this.state.creator.dateOfDeath})</h2>
+                                            </Col>
+                                        </Row>
+                                        <Row>
+                                            <Col size="sm-6">
+                                                Internal ID: {this.state.creator._id}
                                             </Col>
                                         </Row>
                                         <h3 className="tags">Tags: {this.state.creator.tags}</h3>
