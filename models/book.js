@@ -2,6 +2,7 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const bookSchema = new Schema({
+  _id: Number,
   title: {
     type: String,
     trim: true,
@@ -38,10 +39,10 @@ const bookSchema = new Schema({
     default: Date.now
   },
   lastUpdated: Date,
-  creator:
+  _creators:
   // [
   {
-    type: Schema.Types.ObjectId,
+    type: Schema.Types.Number,
     ref: "Creator"
   }
   // ]

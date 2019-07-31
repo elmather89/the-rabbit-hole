@@ -2,6 +2,7 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const creatorSchema = new Schema({
+  _id: Number,
   firstName: {
     type: String,
     trim: true,
@@ -44,12 +45,10 @@ const creatorSchema = new Schema({
   },
   fullName: String,
   lastUpdated: Date,
-  books: [
-    {
-      type: Schema.Types.ObjectId,
+  _books: {
+      type: Schema.Types.Number,
       ref: "Book"
     }
-  ]
 });
 
 // Custom Instance Methods
