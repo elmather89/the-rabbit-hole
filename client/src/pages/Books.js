@@ -8,11 +8,13 @@ import { List, ListItem } from "../components/List";
 import { Input, TextArea, FormBtn } from "../components/Form";
 import CreatorModal from "../components/Modal/creatorModal";
 import BookModal from "../components/Modal/bookModal";
+import Footer from "../components/Footer";
 import Button from "../components/Button";
 import "../assets/style/style.css";
 import brand from "../assets/images/brand.svg";
 import creator from "../assets/images/create.jpg";
 import books from "../assets/images/books.jpg";
+import ReactPaginate from 'react-paginate';
 
 
 class Books extends Component {
@@ -401,6 +403,7 @@ class Books extends Component {
                             )}
                     </Col>
                 </Row>
+                <Footer />
             </Container >
         )
     }
