@@ -24,7 +24,7 @@ class bookDetails extends Component {
     API.getBook(this.props.match.params.id)
       .then(res => {
         console.log(res);
-        this.setState({ book: res.data })
+        this.setState({ book: res.data, creator: res.data._creators })
       })
       .catch(err => console.log(err));
   };
@@ -53,8 +53,8 @@ class bookDetails extends Component {
               <Row className="headerRow">
                 <Col size="sm-9">
                   <h1 className="bookTitle">{this.state.book.title}</h1>
-                  <h3>By {this.state.book.creatorName}</h3>
-                  <p>({this.state.book.dob} - {this.state.book.dod})</p>
+                  <h3>By {this.state.creator.firstName} {this.state.creator.lastName}</h3>
+                  <p>({this.state.creator.birthdate} - {this.state.creator.dateOfDeath})</p>
                   <hr></hr>
                   <Button className="edit-btn">
                     <Link to={"/edit/" + this.state.book._id}>Edit Details</Link>
