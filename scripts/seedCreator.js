@@ -8,6 +8,8 @@ mongoose.connect(
 
 const creatorSeed = [
     {
+        _id: 11,
+        _books: 
         firstName: "Maurice",
         lastName: "Sendak",
         birthdate: 1928,
@@ -19,6 +21,7 @@ const creatorSeed = [
         image: "https://upload.wikimedia.org/wikipedia/en/1/11/Maurice-Sendak_portrait2.jpg"
     },
     {
+        _id: 12,
         firstName: "Eric",
         lastName: "Carle",
         birthdate: 1929,
@@ -30,6 +33,7 @@ const creatorSeed = [
         image: "https://storytoys.com/wp-content/uploads/2016/06/eric-carle.jpg"
     },
     {
+        _id: 13,
         firstName: "E. B.",
         lastName: "White",
         birthdate: 1899,
@@ -41,6 +45,7 @@ const creatorSeed = [
         image: "https://capitanswing.com/wp-content/uploads/EBWhite2-450x450.jpg"
     },
     {
+        _id: 14,
         firstName: "Shel",
         lastName: "Silverstein",
         birthdate: 1930,
@@ -52,6 +57,7 @@ const creatorSeed = [
         image: "https://upload.wikimedia.org/wikipedia/en/8/8f/Ssilverstein.jpg"
     },
     {
+        _id: 15,
         firstName: "Ludwig",
         lastName: "Bemelmans",
         birthdate: 1898,
@@ -63,6 +69,7 @@ const creatorSeed = [
         image: "https://upload.wikimedia.org/wikipedia/en/b/b3/Ludwig_Bemelmans.jpg"
     },
     {
+        _id: 16,
         firstName: "H.A.",
         lastName: "Rey",
         birthdate: 1898,
@@ -74,6 +81,7 @@ const creatorSeed = [
         image: "https://www.diogenes.ch/dam/Diogenes/Autorenportraits/rey_ha_700068643_beschnitten.jpg"
     },
     {
+        _id: 17,
         firstName: "Don",
         lastName: "Freeman",
         birthdate: 1908,
@@ -85,6 +93,7 @@ const creatorSeed = [
         image: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/DonFreeman.jpg/330px-DonFreeman.jpg"
     },
     {
+        _id: 18,
         firstName: "Esphyr",
         lastName: "Slobodkina",
         birthdate: 1908,
