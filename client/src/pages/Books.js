@@ -412,7 +412,7 @@ class Books extends Component {
                                     <ListItem key={creator._id}>
                                         <Link to={"/creator/" + creator._id}>
                                             <strong>
-                                                {creator.lastName} {creator.firstName}
+                                                {creator.lastName}, {creator.firstName}
 
                                             </strong>
                                         </Link>

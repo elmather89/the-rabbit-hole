@@ -13,7 +13,8 @@ nav a {
 }
 
 nav a:hover {
-    text-shadow: 2px 2px 3px black;
+    /* text-shadow: 2px 2px 3px black; */
+    text-shadow: none;
     color: white;
 }
 
