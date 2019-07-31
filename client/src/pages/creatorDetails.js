@@ -1,17 +1,12 @@
 import React, { Component } from "react";
-import DeleteBtn from "../components/DeleteBtn";
-import Jumbotron from "../components/Jumbotron";
 import CreatorHeader from "../components/CreatorHeader";
 import CreatorBody from "../components/CreatorBody";
 import API from "../utils/API";
 import { Link } from "react-router-dom";
 import { Col, Row, Container } from "../components/Grid";
-import { List, ListItem } from "../components/List";
-import { Input, TextArea, CheckBox, FormBtn } from "../components/Form";
 import Button from "../components/Button";
 import Card from "../components/Card";
 import Image from 'react-bootstrap/Image';
-import logo from "../assets/images/EsphyrSlobodkina.jpg"
 import "../assets/style/style.css";
 import CreatorCarousel from "components/Carousel";
 import CreatorEditForm from "components/CreatorEditForm";
