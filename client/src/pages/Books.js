@@ -184,8 +184,12 @@ class Books extends Component {
 
     renderBookSearch = book => {
         const {bookSearch} = this.state;
-        if( bookSearch !== "" && book.title.toLowerCase().indexOf( bookSearch.toLowerCase() ) === -1 ) {
-            return null
+        if ( bookSearch !== "" && book.title.toLowerCase().indexOf( bookSearch.toLowerCase() ) === -1
+        ) if (
+            bookSearch !== "" && book.creatorName.toLowerCase().indexOf( bookSearch.toLowerCase() ) === -1
+        )
+        {
+          return null
         }
         return <ListItem key={book._id}>
             <Link to={"/books/" + book._id}>
@@ -200,8 +204,12 @@ class Books extends Component {
 
     renderCreatorSearch = creator => {
         const {creatorSearch} = this.state;
-        if( creatorSearch !== "" && creator.firstName.toLowerCase().indexOf( creatorSearch.toLowerCase() ) === -1 ) {
-            return null
+        if ( creatorSearch !== "" && creator.firstName.toLowerCase().indexOf( creatorSearch.toLowerCase() ) === -1
+        ) if (
+            creatorSearch !== "" && creator.lastName.toLowerCase().indexOf( creatorSearch.toLowerCase() ) === -1
+        )
+        {
+          return null
         }
         return <ListItem key={creator._id}>
             <Link to={"/creator/" + creator._id}>
