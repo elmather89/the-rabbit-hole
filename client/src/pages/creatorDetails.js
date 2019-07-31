@@ -16,7 +16,34 @@ import Carousel from "components/Carousel";
 class creatorDetails extends Component {
     state = {
         book: {},
-        creator: {}
+        creator: {},
+        // books: [],
+        selectedCreator: "",
+        bookcreators: [],
+        creator: "",
+        title: "",
+        creatorName: "",
+        dob: "",
+        dod: "",
+        bio: "",
+        creatorTags: "",
+        quote: "",
+        synopsis: "",
+        originalPublisher: "",
+        currentPublisher: "",
+        yearPublished: "",
+        bookImage: "",
+        firstName: "",
+        lastName: "",
+        biography: "",
+        birthdate: "",
+        dateOfDeath: "",
+        legacy: "",
+        ownWords: "",
+        tags: "",
+        image: "",
+        fullName: "",
+        bookImage: ""
     };
     componentDidMount() {
         this.loadcreatorDetails();
@@ -24,7 +51,12 @@ class creatorDetails extends Component {
     loadcreatorDetails = () => {
         API.getCreator(this.props.match.params.id)
             .then(res =>
-                this.setState({ creator: res.data, book: res.data._books }))
+                this.setState({ 
+                    // creator: res.data, book: res.data._books 
+                    creator: res.data, firstName: "", lastName: "", biography: "", birthdate: "", dateOfDeath: "", legacy: "", ownWords: "", tags: "", image: ""
+                    , _id: "", bookImage: ""
+                    , book: res.data._books
+                }))
             .catch(err => console.log(err));
     };
 
@@ -73,7 +105,7 @@ class creatorDetails extends Component {
                         <Row>
                             <Col size="sm-12">
                                 <div className="outerbox" width="200%">
-                                    <img className="innerbox" src={this.state.book.bookImage} alt={this.state.book.title}></img>
+                                    <img className="innerbox" src={this.state.book.bookImage} alt="book title"></img>
                                     {/* <img  className="innerbox" src="https://i.ytimg.com/vi/2lPcCNyopGI/hqdefault.jpg" alt="book image"></img>
                                      <img  className="innerbox" src="https://i.ytimg.com/vi/2lPcCNyopGI/hqdefault.jpg" alt="book image"></img>
                                      <img  className="innerbox" src="https://i.ytimg.com/vi/2lPcCNyopGI/hqdefault.jpg" alt="book image"></img>

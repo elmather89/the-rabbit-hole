@@ -45,7 +45,10 @@ class Books extends Component {
         ownWords: "",
         tags: "",
         image: "",
-        fullName: ""
+        fullName: "",
+        _id: "",
+        _books: "",
+        _creators: ""
     };
 
     componentDidMount() {
@@ -92,7 +95,11 @@ class Books extends Component {
     loadBooks = () => {
         API.getBooks()
             .then(res => {
-                this.setState({ books: res.data, title: "", creatorName: "", creatorTags: "", quote: "", synopsis: "", originalPublisher: "", currentPublisher: "", yearPublished: "", bookImage: "", dob: "", dod: "", bio: "" });
+                this.setState({
+                    // books: res.data, creator: res.data._creators
+                    books: res.data, title: "", creatorName: "", creatorTags: "", quote: "", synopsis: "", originalPublisher: "", currentPublisher: "", yearPublished: "", bookImage: "", dob: "", dod: "", bio: ""
+                    ,_id: "", _books: "", _creators: ""
+                });
             }
             )
             .catch(err => console.log(err));
@@ -102,7 +109,11 @@ class Books extends Component {
         API.getCreators()
             .then(res => {
                 let bookcreators = [null, ...res.data];
-                this.setState({ creator: res.data, selectedCreator: "", bookcreators: bookcreators, firstName: "", lastName: "", biography: "", birthdate: "", dateOfDeath: "", legacy: "", ownWords: "", tags: "", image: "" });
+                this.setState({
+                    // creator: res.data, books: res.data._books, bookcreators: bookcreators
+                    creator: res.data, selectedCreator: "", bookcreators: bookcreators, firstName: "", lastName: "", biography: "", birthdate: "", dateOfDeath: "", legacy: "", ownWords: "", tags: "", image: ""
+                    , _id: "", _books: "", _creators: ""
+            });
             }
             )
             .catch(err => console.log(err));
@@ -162,6 +173,8 @@ class Books extends Component {
         event.preventDefault();
         if (this.state.firstName && this.state.lastName) {
             API.saveCreator({
+                _id: this.state._id,
+                _books: this.state._books,
                 firstName: this.state.firstName,
                 lastName: this.state.lastName,
                 birthdate: this.state.birthdate,
@@ -195,6 +208,18 @@ class Books extends Component {
                                 show={this.state.isShowingCreator}
                                 close={this.closeCreatorModalHandler}>
                                 <form>
+                                    <Input
+                                        value={this.state._id}
+                                        onChange={this.handleInputChange}
+                                        name="_id"
+                                        placeholder="Assign a creator ID"
+                                    />
+                                    <Input
+                                        value={this.state._books}
+                                        onChange={this.handleInputChange}
+                                        name="_books"
+                                        placeholder="Assign one book's ID to this author"
+                                    />
                                     <Input
                                         value={this.state.firstName}
                                         onChange={this.handleInputChange}
