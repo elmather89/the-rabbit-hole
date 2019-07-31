@@ -48,7 +48,8 @@ select.form-control {
 }
 
 .contain1 {
-    box-shadow: 0 0 0 50px rgb(84, 84, 114) inset;
+    box-shadow: 0 0 0 50px rgba(242, 153, 75, 1) inset;
+    border-top: 100px solid black;
 }
 
 .tags {
