@@ -5,14 +5,15 @@ module.exports = {
   findAll: function (req, res) {
     db.Creator
       .find(req.query)
-      .sort({ firstName: 1 })
+      .sort({ lastName: 1 })
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
   findById: function (req, res) {
     db.Creator
       .findById(req.params.id)
-      .populate("books")
+      // .populate("books")
+      .populate('_books', ["title", "synopsis", "bookImage"])
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
