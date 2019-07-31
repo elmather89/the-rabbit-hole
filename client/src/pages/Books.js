@@ -366,7 +366,7 @@ class Books extends Component {
                         </Row>          
                         <br></br>
                         {this.state.creator.length ? (
-                            <List>
+                            <List className="creator-list">
                                 {this.state.creator.map(creator => (
                                     <ListItem key={creator._id}>
                                         <Link to={"/creator/" + creator._id}>
@@ -400,7 +400,7 @@ class Books extends Component {
                         </Row>                       
                         <br></br>
                         {this.state.books.length ? (
-                            <List>
+                            <List className="book-list">
                                 {this.state.books.map(book => (
                                     <ListItem key={book._id}>
                                         <Link to={"/books/" + book._id}>
