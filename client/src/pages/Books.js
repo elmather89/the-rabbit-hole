@@ -309,12 +309,12 @@ class Books extends Component {
                                         name="_id"
                                         placeholder="Assign a book ID"
                                     />
-                                    <Input
+                                    {/* <Input
                                         value={this.state._creators}
                                         onChange={this.handleInputChange}
                                         name="_creators"
                                         placeholder="Creator's unique ID"
-                                    />
+                                    /> */}
                                     <Input
                                         value={this.state.title}
                                         onChange={this.handleInputChange}
