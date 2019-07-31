@@ -1,4 +1,4 @@
-div.card.text-center.creatorCard {
+#creatCard {
     
     background-color: rgb(197, 174, 174);
     border-top-color: transparent;
@@ -6,6 +6,6 @@ div.card.text-center.creatorCard {
     margin: 20px
 }
 
-div.card-body {
+#cardBod {
     height: 200%;
 }

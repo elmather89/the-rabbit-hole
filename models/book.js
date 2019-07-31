@@ -38,17 +38,19 @@ const bookSchema = new Schema({
     default: Date.now
   },
   lastUpdated: Date,
-  creators: [
-    {
-      type: Schema.Types.ObjectId,
-      ref: "Creator"
-    }
-  ],
+  creator:
+  // [
+  {
+    type: Schema.Types.ObjectId,
+    ref: "Creator"
+  }
+  // ]
+  ,
   dob: {
     type: Number,
   },
   dod: {
-    type: Number,
+    type: String,
   },
   bio: {
     type: String,
@@ -61,7 +63,7 @@ const bookSchema = new Schema({
 
 // Custom Instance Methods
 
-bookSchema.methods.lastUpdatedDate = function() {
+bookSchema.methods.lastUpdatedDate = function () {
   this.lastUpdated = Date.now();
   return this.lastUpdated;
 };

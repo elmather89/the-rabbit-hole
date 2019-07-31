@@ -20,35 +20,36 @@ export default {
     },
     // Saves a book to the database
     saveBook: function (bookData) {
+        console.log(bookData);
         return axios.post("/api/books", bookData);
     },
     // Creator api's ///////////////////////////////////////////////////
     getCreators: function () {
         return axios.get("/api/creators");
     },
-    getCreator: function(id) {
+    getCreator: function (id) {
         return axios.get("/api/creators/" + id);
     },
-    deleteCreator: function(id) {
+    deleteCreator: function (id) {
         return axios.delete("/api/creators/" + id);
     },
     updateCreator: function (id, creatorData) {
         return axios.put("/api/creators/" + id, creatorData);
     },
-    saveCreator: function(creatorData) {
+    saveCreator: function (creatorData) {
         return axios.post("/api/creators", creatorData);
     },
     // User api's ///////////////////////////////////////////////
-    getUsers: function() {
+    getUsers: function () {
         return axios.get("/api/users");
     },
-    getUser: function(id) {
+    getUser: function (id) {
         return axios.get("/api/users/" + id);
     },
-    deleteUser: function(id) {
+    deleteUser: function (id) {
         return axios.delete("/api/users/" + id);
     },
-    saveUser: function(userData) {
+    saveUser: function (userData) {
         return axios.post("/api/users", userData);
     }
 };
