@@ -24,7 +24,7 @@ class creatorDetails extends Component {
     loadcreatorDetails = () => {
         API.getCreator(this.props.match.params.id)
             .then(res =>
-                this.setState({ creator: res.data }))
+                this.setState({ creator: res.data, book: res.data._books }))
             .catch(err => console.log(err));
     };
 
@@ -73,7 +73,7 @@ class creatorDetails extends Component {
                         <Row>
                             <Col size="sm-12">
                                 <div className="outerbox" width="200%">
-                                    <img className="innerbox" src="https://i.ytimg.com/vi/2lPcCNyopGI/hqdefault.jpg" alt="book image"></img>
+                                    <img className="innerbox" src={this.state.book.bookImage} alt={this.state.book.title}></img>
                                     <img className="innerbox" src="https://i.ytimg.com/vi/2lPcCNyopGI/hqdefault.jpg" alt="book image"></img>
                                     <img className="innerbox" src="https://i.ytimg.com/vi/2lPcCNyopGI/hqdefault.jpg" alt="book image"></img>
                                     {/* <img  className="innerbox" src="https://i.ytimg.com/vi/2lPcCNyopGI/hqdefault.jpg" alt="book image"></img>
