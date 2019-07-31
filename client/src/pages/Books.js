@@ -14,6 +14,7 @@ import "../assets/style/style.css";
 import brand from "../assets/images/brand.svg";
 import creator from "../assets/images/create.jpg";
 import books from "../assets/images/books.jpg";
+import Search from "../components/Search";
 import ReactPaginate from 'react-paginate';
 
 
@@ -355,11 +356,19 @@ class Books extends Component {
                         <Jumbotron bgimg={creator}>
                             <h1>Creators</h1>
                         </Jumbotron>
-                        <Button className="open-modal-btn" onClick={this.openCreatorModalHandler}>
-                            Add Creator
-                        </Button>
+                        <Row>
+                            <Col size="sm-12 md-9">
+                                <Search />
+                            </Col>
+                            <Col size="sm-12 md-3">
+                                <Button className="open-modal-btn" onClick={this.openCreatorModalHandler}>
+                                Add Creator
+                                </Button>
+                            </Col>
+                        </Row>          
+                        <br></br>
                         {this.state.creator.length ? (
-                            <List>
+                            <List className="creator-list">
                                 {this.state.creator.map(creator => (
                                     <ListItem key={creator._id}>
                                         <Link to={"/creator/" + creator._id}>
@@ -381,11 +390,19 @@ class Books extends Component {
                         <Jumbotron bgimg={books}>
                             <h1>Books</h1>
                         </Jumbotron>
-                        <Button className="open-modal-btn" onClick={this.openBookModalHandler}>
-                            Add Book
-                        </Button>
+                        <Row>
+                            <Col size="sm-12 md-9">
+                                <Search />
+                            </Col>
+                            <Col size="sm-12 md-3">
+                                <Button className="open-modal-btn" onClick={this.openBookModalHandler}>
+                                Add Book
+                                </Button>
+                            </Col>
+                        </Row>                       
+                        <br></br>
                         {this.state.books.length ? (
-                            <List>
+                            <List className="book-list">
                                 {this.state.books.map(book => (
                                     <ListItem key={book._id}>
                                         <Link to={"/books/" + book._id}>
