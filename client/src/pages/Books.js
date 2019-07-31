@@ -147,6 +147,8 @@ class Books extends Component {
     handleBookFormSubmit = event => {
         event.preventDefault();
         API.saveBook({
+            _id: this.state._id,
+            _creators: this.state._creators,
             title: this.state.title,
             creatorName: this.selectedCreator,
             dob: this.state.dob,
@@ -300,6 +302,18 @@ class Books extends Component {
                                                 }
                                             })
                                         }</select>) : (<div></div>)}
+                                    <Input
+                                        value={this.state._id}
+                                        onChange={this.handleInputChange}
+                                        name="_id"
+                                        placeholder="Assign a book ID"
+                                    />
+                                    <Input
+                                        value={this.state._creators}
+                                        onChange={this.handleInputChange}
+                                        name="_creators"
+                                        placeholder="Creator's unique ID"
+                                    />
                                     <Input
                                         value={this.state.title}
                                         onChange={this.handleInputChange}
