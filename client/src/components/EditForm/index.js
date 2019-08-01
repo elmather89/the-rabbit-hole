@@ -11,6 +11,7 @@ class EditForm extends Component {
         this.state = {
             title: "",
             creatorName: "",
+            fullName: "",
             dob: "",
             dod: "",
             creatorTags: "",
@@ -37,17 +38,19 @@ class EditForm extends Component {
     loadBookById = () => {
         API.getBook(this.props.match.params.id)
             .then(res => {
-                console.log(res);
+                let fullName = res.data._creators[0].firstName + " " + res.data._creators[0].lastName;
+                // console.log(fullName);
+                console.log(res.data._creators[0]);
                 this.setState({
                     // book: res.data,
                     title: res.data.title,
-                    creatorName: res.data.creatorName,
+                    creatorName: fullName,
                     synopsis: res.data.synopsis,
-                    dob: res.data.dob,
-                    dod: res.data.dod,
+                    dob: res.data._creators[0].birthdate,
+                    dod: res.data._creators[0].dateOfDeath,
                     creatorTags: res.data.creatorTags,
-                    bio: res.data.bio,
-                    quote: res.data.quote,
+                    bio: res.data._creators[0].biography,
+                    quote: res.data._creators[0].ownWords,
                     originalPublisher: res.data.originalPublisher,
                     currentPublisher: res.data.currentPublisher,
                     yearPublished: res.data.yearPublished,
@@ -69,7 +72,7 @@ class EditForm extends Component {
     handleBookEdit = (event) => {
         API.updateBook(this.props.match.params.id, {
             title: this.state.title,
-            creatorName: this.state.creatorName,
+            creatorName: this.state.fullName,
             dob: this.state.dob,
             dod: this.state.dod,
             creatorTags: this.state.creatorTags,
@@ -102,42 +105,42 @@ class EditForm extends Component {
                     placeholder="Book Title (required)"
                 />
                 <label className="form-label"><small>Creator Name</small></label>
-                <Input
+                <Input readOnly
                     value={this.state.creatorName}
                     onChange={this.handleInputChange}
                     name="creatorName"
                     placeholder="Creator (required)"
                 />
                 <label className="form-label"><small>Year Born</small></label>
-                <Input
+                <Input readOnly
                     value={this.state.dob}
                     onChange={this.handleInputChange}
                     name="dob"
                     placeholder="YYYY"
                 />
                 <label className="form-label"><small>Year Passed</small></label>
-                <Input
+                <Input readOnly
                     value={this.state.dod}
                     onChange={this.handleInputChange}
                     name="dod"
                     placeholder="YYYY (if applicable)"
                 />
                 <label className="form-label"><small>Occupation(s)</small></label>
-                <TextArea
+                <TextArea readOnly
                     value={this.state.creatorTags}
                     onChange={this.handleInputChange}
                     name="creatorTags"
                     placeholder="Author / Illustrator / Painter / etc."
                 />
                 <label className="form-label"><small>Biography</small></label>
-                <TextArea
+                <TextArea readOnly
                     value={this.state.bio}
                     onChange={this.handleInputChange}
                     name="bio"
                     placeholder="Biography"
                 />
                 <label className="form-label"><small>Text of Interest / Quote</small></label>
-                <TextArea
+                <TextArea readOnly
                     value={this.state.quote}
                     onChange={this.handleInputChange}
                     name="quote"

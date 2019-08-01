@@ -96,7 +96,7 @@ class Books extends Component {
     loadBooks = () => {
         API.getBooks()
             .then(res => {
-                // console.log(res.data);
+                console.log(res.data);
                 this.setState({
                     // books: res.data, creator: res.data._creators
                     books: res.data, title: "", creatorName: "", creatorTags: "", quote: "", synopsis: "", originalPublisher: "", currentPublisher: "", yearPublished: "", bookImage: "", dob: "", dod: "", bio: ""
