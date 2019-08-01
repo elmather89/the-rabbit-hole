@@ -199,6 +199,7 @@ class Books extends Component {
     };
 
     renderBookSearch = book => {
+        // console.log(book._creators[0]);
         const {bookSearch} = this.state;
         if ( bookSearch !== "" && book.title.toLowerCase().indexOf( bookSearch.toLowerCase() ) === -1
         ) if (
@@ -211,7 +212,7 @@ class Books extends Component {
             <Link to={"/books/" + book._id}>
                 <img src={book.bookImage} alt="book-cover" style={{ width: 70, height: "auto", marginRight: 10 }}></img>
                 <strong>
-                    {book.title} by {book.creator ? `${book.creator.firstName} ${book.creator.lastName}` : book.creatorName}
+                    {book.title} by {book._creators[0] ? `${book._creators[0].firstName} ${book._creators[0].lastName}` : book.title}
                 </strong>
             </Link>
             <DeleteBtn onClick={() => this.deleteBook(book._id)} />
