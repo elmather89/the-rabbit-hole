@@ -95,7 +95,7 @@ class Books extends Component {
     loadBooks = () => {
         API.getBooks()
             .then(res => {
-                console.log(res.data[0]._creators[0]);
+                // console.log(res.data);
                 this.setState({
                     // books: res.data, creator: res.data._creators
                     books: res.data, title: "", creatorName: "", creatorTags: "", quote: "", synopsis: "", originalPublisher: "", currentPublisher: "", yearPublished: "", bookImage: "", dob: "", dod: "", bio: ""
@@ -149,7 +149,7 @@ class Books extends Component {
         event.preventDefault();
         API.saveBook({
             _id: this.state._id,
-            _creators: this.state._creators,
+            _creators: this.selectedCreator,
             title: this.state.title,
             creatorName: this.selectedCreator,
             dob: this.state.dob,
@@ -165,6 +165,7 @@ class Books extends Component {
             creator: this.selectedCreator
         })
             .then(res => {
+                console.log(res);
                 this.loadBooks();
             })
             .catch(err => console.log(err));
@@ -444,14 +445,14 @@ class Books extends Component {
                         {this.state.books.length ? (
                             <List className="book-list">
                                 {this.state.books.map(book => (
-                                    // console.log(this.state.books),
+                                    console.log(book),
                                     // console.log(book._creators[0]),
                                     // console.log(this.state.books[0]._creators[0].lastName),
                                     <ListItem key={book._id}>
                                         <Link to={"/books/" + book._id}>
                                             <img src={book.bookImage} alt="book-cover" style={{ width: 70, height: "auto", marginRight: 10 }}></img>
                                             <strong>
-                                                {book.title} by {book.creatorName ? `${book.creatorName} ${book._creators[0]}` : book.creatorName}
+                                                {book.title} by {book.creatorName ? `${book.creatorName} ${book._creators}` : book.creatorName}
                                             </strong>
                                         </Link>
                                         <DeleteBtn onClick={() => this.deleteBook(book._id)} />

@@ -166,23 +166,7 @@ const bookSeed = [
         dod: 2002,
         bio: "Esphyr Slobodkina, internationally renowned artist and author of the children's classic Caps for Sale, was among the first female American artists to explore abstraction and the first to use collage in American storybooks. She studied art in Russia and China before immigrating to the United States in 1928. She was a founding member of the American Abstract Artists group, and her work is represented in prominent museum collections across the country.",
         creatorTags: "Artist / Author / Illustrator"
-    },
-    {
-        _id: 33,
-        _creators: [22],
-        title: "The Tale of Peter Rabbit",
-        creatorName: "B. Potter",
-        synopsis: "The story focuses on a family of anthropomorphic rabbits. The widowed mother rabbit keeps her four rabbit children, Flopsy, Mopsy, Cottontail and Peter from entering the vegetable garden of a man named Mr. McGregor. Her triplets (Flopsy, Mopsy and Cottontail) obediently refrain from entering the garden, but Peter enters the garden to snack on some vegetables. Peter ends up eating more than what is good for him and goes looking for parsley to cure his stomach ache. Peter is spotted by Mr. McGregor and loses his jacket and shoes while trying to escape. He hides in a watering can in a shed, but then has to run away again when Mr. McGregor finds him, and ends up completely lost. After sneaking past a cat, Peter sees the gate where he entered the garden from a distance and heads for it, despite being spotted and chased by Mr. McGregor again. With difficulty he wriggles under the gate, and escapes from the garden, but he spots his abandoned clothing being used to dress Mr. McGregor's scarecrow. After returning home, a sick Peter is sent to bed by his mother, and his triplet sisters receive a scrumptuous dinner of milk, bread and berries whilst Peter has a supper of chamomile tea.",
-        originalPublisher: "Frederick Warne & Co",
-        currentPublisher: "Frederick Warne & Co",
-        yearPublished: 1902,
-        quote: "Once upon a time there were four little Rabbits, and their names were--Flopsy, Mopsy, Cottontail, and Peter.",
-        bookImage: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5a/Peter_Rabbit_first_edition_1902a.jpg/440px-Peter_Rabbit_first_edition_1902a.jpg",
-        dob: 1866,
-        dod: 1943,
-        bio: "",
-        creatorTags: "Artist / Author / Illustrator"
-    }    
+    }  
 ];
 
 db.Book

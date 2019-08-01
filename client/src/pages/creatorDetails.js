@@ -117,7 +117,7 @@ class creatorDetails extends Component {
                             <Col size="sm-12">
 
                                 <div className="outerbox" width="200%">
-                                    <img className="innerbox" src={this.state.bookArray.bookImage} alt={this.state.bookArray.title}></img>
+                                    <img className="innerbox" src={this.state.book.bookImage} alt={this.state.book.title}></img>
                                     {/* <img  className="innerbox" src="https://i.ytimg.com/vi/2lPcCNyopGI/hqdefault.jpg" alt="book image"></img>
                                      <img  className="innerbox" src="https://i.ytimg.com/vi/2lPcCNyopGI/hqdefault.jpg" alt="book image"></img>
                                      <img  className="innerbox" src="https://i.ytimg.com/vi/2lPcCNyopGI/hqdefault.jpg" alt="book image"></img>
