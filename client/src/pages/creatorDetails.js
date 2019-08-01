@@ -77,22 +77,15 @@ class creatorDetails extends Component {
                             <CreatorHeader>
                                 <Row className="headerR">
                                     <Col size="sm-8">
-                                        <Row>
-                                            <Col size="sm-6">
+    
                                                 <h1 className="creatorTitle">{this.state.creator.firstName} {this.state.creator.lastName}</h1>
-                                            </Col>
-                                        </Row>
-                                        <Row>
-                                            <Col size="sm-6">
+
                                                 <h2 className="birthDeath">({this.state.creator.birthdate} - {this.state.creator.dateOfDeath})</h2>
-                                            </Col>
-                                        </Row>
-                                        <Row>
-                                            <Col size="sm-6">
+
                                                 Internal ID: {this.state.creator._id}
-                                            </Col>
-                                        </Row>
+
                                         <h3 className="tags">Tags: {this.state.creator.tags}</h3>
+
                                         <p className="bio">
                                             <hr></hr>
                                             <strong>Biography: </strong>{this.state.creator.biography}
@@ -101,15 +94,15 @@ class creatorDetails extends Component {
                                         <Button className="edit-btn">
                                             <Link to={"/creatorEdit/" + this.state.creator._id}>Edit Details</Link>
                                         </Button>
-                                    </Col>
-                                    <div className="imageCol">
-                                        <Col size="sm-4">
+                                      </Col>
 
-                                            <Image id="imageSize" className="imag" src={this.state.creator.image} alt="Creator Profile" roundedCircle />
-
-                                        </Col>
-                                    </div>
-                                </Row>
+                                       <Col size="sm-4">
+                                            <div className="imageCol">
+                                           <Image id="imageSize" className="imag" src={this.state.creator.image} alt="Creator Profile" roundedCircle />
+                                            </div> 
+                                       </Col>
+                                        </Row>  
+                               
                             </CreatorHeader>
                         </Col>
                     </Row>
