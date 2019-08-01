@@ -26,7 +26,7 @@ class EditForm extends Component {
 
         this.handleInputChange = this.handleInputChange.bind(this);
         this.handleBookEdit = this.handleBookEdit.bind(this);
-    }
+    };
 
     componentDidMount() {
         this.loadBookById();
@@ -88,7 +88,7 @@ class EditForm extends Component {
             .catch(err => console.log(err));
 
         // this.props.history.push("/books/")
-    }
+    };
 
     render() {
         return (
@@ -191,7 +191,7 @@ class EditForm extends Component {
                 </div>
             </form>
         );
-    }
-}
+    };
+};
 
 export default EditForm;

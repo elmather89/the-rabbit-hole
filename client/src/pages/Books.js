@@ -44,7 +44,9 @@ class Books extends Component {
         ownWords: "",
         tags: "",
         image: "",
-        fullName: ""
+        fullName: "",
+        bookSearch: "",
+        creatorSearch: ""
     };
 
     componentDidMount() {
@@ -179,6 +181,54 @@ class Books extends Component {
         }
     };
 
+    renderBookSearch = book => {
+        const {bookSearch} = this.state;
+        if ( bookSearch !== "" && book.title.toLowerCase().indexOf( bookSearch.toLowerCase() ) === -1
+        ) if (
+            bookSearch !== "" && book.creatorName.toLowerCase().indexOf( bookSearch.toLowerCase() ) === -1
+        )
+        {
+          return null
+        }
+        return <ListItem key={book._id}>
+            <Link to={"/books/" + book._id}>
+                <img src={book.bookImage} alt="book-cover" style={{ width: 70, height: "auto", marginRight: 10 }}></img>
+                <strong>
+                    {book.title} by {book.creator ? `${book.creator.firstName} ${book.creator.lastName}` : book.creatorName}
+                </strong>
+            </Link>
+            <DeleteBtn onClick={() => this.deleteBook(book._id)} />
+        </ListItem>
+    };
+
+    renderCreatorSearch = creator => {
+        const {creatorSearch} = this.state;
+        if ( creatorSearch !== "" && creator.firstName.toLowerCase().indexOf( creatorSearch.toLowerCase() ) === -1
+        ) if (
+            creatorSearch !== "" && creator.lastName.toLowerCase().indexOf( creatorSearch.toLowerCase() ) === -1
+        )
+        {
+          return null
+        }
+        return <ListItem key={creator._id}>
+            <Link to={"/creator/" + creator._id}>
+                <img src={creator.image} alt="book-cover" style={{ width: 70, height: "auto", marginRight: 10 }}></img>
+                <strong>
+                    {creator.lastName}, {creator.firstName}
+                </strong>
+            </Link>
+            <DeleteBtn onClick={() => this.deleteCreator(creator._id)} />
+        </ListItem>
+    };
+
+    handleBookSearch = event => {
+        this.setState({ bookSearch: event.target.value });
+    };
+
+    handleCreatorSearch = event => {
+        this.setState({ creatorSearch: event.target.value });
+    };
+
 
 
     render() {
@@ -267,7 +317,7 @@ class Books extends Component {
                                             this.state.bookcreators.map(creator => {
                                                 if (creator != null) {
                                                     return (
-                                                        <option value={creator._id}>{creator.lastName + " " + creator.firstName}</option>
+                                                        <option value={creator._id}>{creator.firstName + " " + creator.lastName}</option>
                                                     )
                                                 } else {
                                                     return (<option value={null}>--Please Select a Creator</option>)
@@ -357,7 +407,15 @@ class Books extends Component {
                         </Jumbotron>
                         <Row>
                             <Col size="sm-12 md-9">
-                                <Search />
+                                <div className="search">
+                                    <input
+                                        className="search-list"
+                                        type="text"
+                                        placeholder="Search Creator..."
+                                        title="creatorSearch"
+                                        onChange={this.handleCreatorSearch}>
+                                    </input>
+                                </div>
                             </Col>
                             <Col size="sm-12 md-3">
                                 <Button className="open-modal-btn" onClick={this.openCreatorModalHandler}>
@@ -368,18 +426,9 @@ class Books extends Component {
                         <br></br>
                         {this.state.creator.length ? (
                             <List className="creator-list">
-                                {this.state.creator.map(creator => (
-                                    <ListItem key={creator._id}>
-                                        <Link to={"/creator/" + creator._id}>
-                                            <img src={creator.image} alt="book-cover" style={{ width: 70, height: "auto", marginRight: 10 }}></img>
-                                            <strong>
-                                                {creator.lastName} {creator.firstName}
-
-                                            </strong>
-                                        </Link>
-                                        <DeleteBtn onClick={() => this.deleteCreator(creator._id)} />
-                                    </ListItem>
-                                ))}
+                                {this.state.creator.map(creator => {
+                                    return this.renderCreatorSearch(creator)                      
+                                })}
                             </List>
                         ) : (
                                 <h3>No Results to Display</h3>
@@ -392,7 +441,15 @@ class Books extends Component {
                         </Jumbotron>
                         <Row>
                             <Col size="sm-12 md-9">
-                                <Search />
+                                <div className="search">
+                                    <input
+                                        className="search-list"
+                                        type="text"
+                                        placeholder="Search Book..."
+                                        title="bookSearch"
+                                        onChange={this.handleBookSearch}>
+                                    </input>
+                                </div>
                             </Col>
                             <Col size="sm-12 md-3">
                                 <Button className="open-modal-btn" onClick={this.openBookModalHandler}>
@@ -403,20 +460,13 @@ class Books extends Component {
                         <br></br>
                         {this.state.books.length ? (
                             <List className="book-list">
-                                {this.state.books.map(book => (
-                                    <ListItem key={book._id}>
-                                        <Link to={"/books/" + book._id}>
-                                            <img src={book.bookImage} alt="book-cover" style={{ width: 70, height: "auto", marginRight: 10 }}></img>
-                                            <strong>
-                                                {book.title} by {book.creator ? `${book.creator.lastName} ${book.creator.firstName}` : book.creatorName}
-                                            </strong>
-                                        </Link>
-                                        <DeleteBtn onClick={() => this.deleteBook(book._id)} />
-                                    </ListItem>
-                                ))}
+                                {this.state.books.map(book => {
+                                    return this.renderBookSearch(book)                                    
+                                })}
                             </List>
                         ) : (
                                 <h3>No Results to Display</h3>
+                
                             )}
                     </Col>
                 </Row>

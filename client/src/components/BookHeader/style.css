@@ -20,7 +20,11 @@
     color: #AD343E;
 }
 
-.edit-btn, a {
+#book-edit-btn {
+    float: right;
+}
+
+#book-edit-btn, a {
     color: white;
 }
 
