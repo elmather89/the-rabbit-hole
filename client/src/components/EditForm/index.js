@@ -48,9 +48,9 @@ class EditForm extends Component {
                     synopsis: res.data.synopsis,
                     dob: res.data._creators[0].birthdate,
                     dod: res.data._creators[0].dateOfDeath,
-                    creatorTags: res.data.creatorTags,
+                    creatorTags: res.data._creators[0].tags,
                     bio: res.data._creators[0].biography,
-                    quote: res.data._creators[0].ownWords,
+                    quote: res.data.quote,
                     originalPublisher: res.data.originalPublisher,
                     currentPublisher: res.data.currentPublisher,
                     yearPublished: res.data.yearPublished,
@@ -73,10 +73,10 @@ class EditForm extends Component {
         API.updateBook(this.props.match.params.id, {
             title: this.state.title,
             creatorName: this.state.fullName,
-            dob: this.state.dob,
-            dod: this.state.dod,
-            creatorTags: this.state.creatorTags,
-            bio: this.state.bio,
+            // dob: this.state.dob,
+            // dod: this.state.dod,
+            // creatorTags: this.state.creatorTags,
+            // bio: this.state.bio,
             quote: this.state.quote,
             synopsis: this.state.synopsis,
             originalPublisher: this.state.originalPublisher,
@@ -104,35 +104,35 @@ class EditForm extends Component {
                     name="title"
                     placeholder="Book Title (required)"
                 />
-                <label className="form-label"><small>Creator Name</small></label>
+                <label className="form-label"><small>Creator Name (read only)</small></label>
                 <Input readOnly
                     value={this.state.creatorName}
                     onChange={this.handleInputChange}
                     name="creatorName"
                     placeholder="Creator (required)"
                 />
-                <label className="form-label"><small>Year Born</small></label>
+                <label className="form-label"><small>Year Born (read only)</small></label>
                 <Input readOnly
                     value={this.state.dob}
                     onChange={this.handleInputChange}
                     name="dob"
                     placeholder="YYYY"
                 />
-                <label className="form-label"><small>Year Passed</small></label>
+                <label className="form-label"><small>Year Passed (read only)</small></label>
                 <Input readOnly
                     value={this.state.dod}
                     onChange={this.handleInputChange}
                     name="dod"
                     placeholder="YYYY (if applicable)"
                 />
-                <label className="form-label"><small>Occupation(s)</small></label>
+                <label className="form-label"><small>Occupation(s) (read only)</small></label>
                 <TextArea readOnly
                     value={this.state.creatorTags}
                     onChange={this.handleInputChange}
                     name="creatorTags"
                     placeholder="Author / Illustrator / Painter / etc."
                 />
-                <label className="form-label"><small>Biography</small></label>
+                <label className="form-label"><small>Biography (read only)</small></label>
                 <TextArea readOnly
                     value={this.state.bio}
                     onChange={this.handleInputChange}
@@ -140,7 +140,7 @@ class EditForm extends Component {
                     placeholder="Biography"
                 />
                 <label className="form-label"><small>Text of Interest / Quote</small></label>
-                <TextArea readOnly
+                <TextArea
                     value={this.state.quote}
                     onChange={this.handleInputChange}
                     name="quote"
@@ -189,7 +189,7 @@ class EditForm extends Component {
             </button>
                 <div className="homepage">
 
-                    <Link className="homepage-link" to={`/books/${this.state.id}`}>← Back to Book Detail Page</Link>
+                    <Link className="homepage-link" to={`/books/${this.state.id}`}>← Back to Book Details Page</Link>
 
                 </div>
             </form>
