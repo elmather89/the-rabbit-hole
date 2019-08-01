@@ -19,7 +19,8 @@ const creatorSchema = new Schema({
     type: Number
   },
   dateOfDeath: {
-    type: Number
+    type: String,
+    trim: true,
   },
   biography: {
     type: String,

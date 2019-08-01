@@ -23,26 +23,12 @@ class bookDetails extends Component {
   loadBookDetails = () => {
     API.getBook(this.props.match.params.id)
       .then(res => {
-        this.setState({ book: res.data, creator: res.data._creators[0] })
+        // console.log(res.data._creators);
         console.log(res.data._creators[0]);
+        this.setState({ book: res.data, creator: res.data._creators[0] })
       })
       .catch(err => console.log(err));
   };
-
-  openBookEditModalHandler = () => {
-    this.setState({
-      isShowingBook: true,
-      isShowingCreator: false,
-      modalDivClass: true
-    });
-  };
-
-  closeBookEditModalHandler = () => {
-    this.setState({
-      isShowingBook: false,
-      modalDivClass: false
-    });
-  }
 
   render() {
     return (
@@ -56,7 +42,7 @@ class bookDetails extends Component {
                   <h3>By {this.state.creator.firstName} {this.state.creator.lastName}</h3>
                   <p>({this.state.creator.birthdate} - {this.state.creator.dateOfDeath})</p>
                   <hr></hr>
-                  <Button className="edit-btn">
+                  <Button id="book-edit-btn">
                     <Link to={"/edit/" + this.state.book._id}>Edit Details</Link>
                   </Button>
                   <p>{this.state.book.creatorTags}</p>
@@ -113,22 +99,12 @@ class bookDetails extends Component {
           </Col>
         </Row>
 
-        {/* <Row>
-                <div className={!this.state.isShowingBook ? "hideModalDiv" : 'showModalDiv'}>
-                  <EditModal
-                      className="modal book-edit-form"
-                      show={this.state.isShowingBook}
-                      close={this.closeBookEditModalHandler}
-                      >
-                      <EditForm />
-                  </EditModal>
-                </div>
-              </Row> */}
-
         <Row>
-          <Col size="md-3">
+          <div style={{ marginLeft: 20, marginBottom: 50 }}>
+          <Col size="sm-12">
             <Link className="homepage-link" to="/">← Back to Homepage</Link>
           </Col>
+          </div>
         </Row>
       </Container>
     );

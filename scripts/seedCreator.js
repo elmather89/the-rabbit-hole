@@ -44,7 +44,7 @@ const creatorSeed = [
         legacy: "For more than fifty years, he was a contributor to The New Yorker magazine. He was also a co-author of the English language style guide The Elements of Style. In addition, he wrote books for children, including Stuart Little (1945), Charlotte's Web (1952), and The Trumpet of the Swan (1970).",
         ownWords: "I arise in the morning torn between a desire to improve the world and a desire to enjoy the world. This makes it hard to plan the day.",
         tags: "Author",
-        image: "https://capitanswing.com/wp-content/uploads/EBWhite2-450x450.jpg"
+        image: "https://www.biography.com/.image/ar_1:1%2Cc_fill%2Ccs_srgb%2Cg_face%2Cq_auto:good%2Cw_300/MTE4MDAzNDEwNzI0MzU3NjQ2/e-b-white-9529308-1-402.jpg"
     },
     {
         _id: 14,
@@ -66,7 +66,7 @@ const creatorSeed = [
         lastName: "Bemelmans",
         birthdate: 1898,
         dateOfDeath: 1962,
-        biography: "Ludwig Bemelmans was a painter, illustrator, and writer of more than three dozen books for both adults and children. Born in 1898 in a part of Tirol now known as Merano, Italy, he came to the United States in 1914 and, after spending Christmas Eve on Ellis Island, set up residence in New York City. Before finding his voice as a writer, he worked in a hotel and ran his own restaurant. Later Bemelmans became a novelist and a nonfiction writer, as well as a frequent contributor to The New Yorker (for which he drew many covers), Town and Country, Holiday, and Vogue; and he also wrote a screenplay in Hollywood. He penned the first draft of Madeline on the backs of menus in Pete's Tavern. He is best known for his Madeline books, which rank among the most honored children's books ever. Madeline was named a Caldecott Honor Book; and the first of its five sequels, Madeline's Rescue, won the Caldecott Medal and was a New York Times Outstanding Book of the Year. A world traveler, Bemelmans was renowned as a true cosmopolite, an irreverent and droll chronicler of the incongruous, an elegant man-about-town, a merry observer of the improbable and the absurd. He died in 1962 after completing the sixth story about Madeline, Madeline's Christmas.",
+        biography: "Ludwig Bemelmans was a painter, illustrator, and writer of more than three dozen books for both adults and children.",
         legacy: " He is known best for the Madeline picture books. Six were published since 1939.",
         ownWords: "It's always wonderful when something altogether wrong ends right, without the help of either religion or the police.",
         tags: "Author / Illustrator / Painter",
