@@ -138,9 +138,21 @@ div.col-sm-2 {
 footer {
     background-color: rgba(242, 153, 75, 1);;
     text-align: center;
-    margin-top: 20px;
+    margin-top: 50px;
 }
 
 .footer-content a {
     margin-right: 20px;
+}
+
+.footer-icons {
+    margin: 10px;
+}
+
+.footer-header {
+    margin-top: 10px;
+}
+
+.footer-copyright {
+    margin-bottom: 10px;
 }

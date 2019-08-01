@@ -19,7 +19,7 @@ function Footer(/*props*/) {
                 </Row>
                 <Row>
                     <div className="col l12 s12 footer-copyright">
-                        <a href="https://www.rabbitholekc.org/" target="_blank" rel="noopener noreferrer"><i className="far fa-copyright fa-1x footer-icons"></i>2019 RABBIT HOLE</a>
+                        <a href="https://www.rabbitholekc.org/" target="_blank" rel="noopener noreferrer"><small><i className="far fa-copyright fa-1x footer-icons"></i>2019 RABBIT HOLE</small></a>
                     </div>
                 </Row>
             </div>
