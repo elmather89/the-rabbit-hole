@@ -1,11 +1,12 @@
 #creatCard {
     
-    background-color: rgb(197, 174, 174);
-    border-top-color: transparent;
-    border-right-color: transparent;
+    background-color: lightblue;
+    border-style: ridge;
+border-color: black;
+border-width: 2px;
     margin: 20px
 }
 
 #cardBod {
-    height: 200px;
+    height: 100%;
 }
