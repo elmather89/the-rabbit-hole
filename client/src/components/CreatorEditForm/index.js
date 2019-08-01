@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import './style.css';
 import { Input, TextArea } from "../Form";
-import API from "../../utils/API"
+import API from "../../utils/API";
+import { Link } from "react-router-dom";
 
 class CreatorEditForm extends Component {
     constructor(props) {
@@ -16,7 +17,8 @@ class CreatorEditForm extends Component {
             legacy: "",
             ownWords: "",
             tags: "",
-            image: ""
+            image: "",
+            id:""
         };
 
         this.handleInputChange = this.handleInputChange.bind(this);
@@ -25,6 +27,9 @@ class CreatorEditForm extends Component {
 
     componentDidMount() {
         this.loadCreatorById();
+        const path=window.location.pathname.split("/");
+        this.setState({id:path[2]});
+        
     };
 
     loadCreatorById = () => {
@@ -150,6 +155,13 @@ class CreatorEditForm extends Component {
                 >
                     Update Creator
             </button>
+             
+                            <div className="homepage">
+                                
+                                    <Link className="homepage-link" to={`/creator/${this.state.id}`}>← Back to Creator Detail Page</Link>
+                               
+                            </div>
+                        
             </form>
         );
     }
