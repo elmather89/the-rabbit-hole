@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import './style.css';
 import { Input, TextArea } from "../Form";
-import API from "../../utils/API"
+import API from "../../utils/API";
+import { Link } from "react-router-dom";
 
 class EditForm extends Component {
     constructor(props) {
@@ -19,7 +20,8 @@ class EditForm extends Component {
             originalPublisher: "",
             currentPublisher: "",
             yearPublished: "",
-            bookImage: ""
+            bookImage: "",
+            id: ""
         };
 
         this.handleInputChange = this.handleInputChange.bind(this);
@@ -28,6 +30,8 @@ class EditForm extends Component {
 
     componentDidMount() {
         this.loadBookById();
+        const path = window.location.pathname.split("/");
+        this.setState({ id: path[2] });
     };
 
     loadBookById = () => {
@@ -180,6 +184,11 @@ class EditForm extends Component {
                 >
                     Update Book
             </button>
+                <div className="homepage">
+
+                    <Link className="homepage-link" to={`/books/${this.state.id}`}>← Back to Book Detail Page</Link>
+
+                </div>
             </form>
         );
     };

@@ -47,9 +47,27 @@ select.form-control {
     
 }
 
+#imageSize {
+    position: relative;
+    width: 300px; 
+    height: auto;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
 .contain1 {
-    box-shadow: 0 0 0 50px rgba(242, 153, 75, 1) inset;
-    border-top: 100px solid black;
+    
+    border-width: 40px;
+    border-right-color: lightblue;
+    border-bottom-color: rgba(242, 153, 75, 1);
+    border-right-style: inset;
+    border-bottom-style: inset;
+
+
+    /* border-style: 18px outset #d2e3;
+   box-shadow: 0 0 0 50px rgba(242, 153, 75, 1) inset;
+    border-top: 100px solid black;  */
 }
 
 .tags {
@@ -93,7 +111,7 @@ div.col-sm-2 {
 .outerbox {
       width: 99%;
       height: 210px;
-      background-color: rgb(84, 84, 114);
+      background-color: black;
       overflow: scroll;
       display: flex;
 }

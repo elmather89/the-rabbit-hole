@@ -99,9 +99,11 @@ class bookDetails extends Component {
         </Row>
 
         <Row>
-          <Col size="md-3">
+          <div style={{ marginLeft: 20, marginBottom: 50 }}>
+          <Col size="sm-12">
             <Link className="homepage-link" to="/">← Back to Homepage</Link>
           </Col>
+          </div>
         </Row>
       </Container>
     );

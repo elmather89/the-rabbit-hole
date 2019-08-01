@@ -15,7 +15,6 @@ import brand from "../assets/images/brand.svg";
 import creator from "../assets/images/create.jpg";
 import books from "../assets/images/books.jpg";
 import Search from "../components/Search";
-import ReactPaginate from 'react-paginate';
 
 
 class Books extends Component {
@@ -213,8 +212,9 @@ class Books extends Component {
         }
         return <ListItem key={creator._id}>
             <Link to={"/creator/" + creator._id}>
+                <img src={creator.image} alt="book-cover" style={{ width: 70, height: "auto", marginRight: 10 }}></img>
                 <strong>
-                    {creator.firstName} {creator.lastName}
+                    {creator.lastName}, {creator.firstName}
                 </strong>
             </Link>
             <DeleteBtn onClick={() => this.deleteCreator(creator._id)} />
