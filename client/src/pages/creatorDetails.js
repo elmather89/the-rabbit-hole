@@ -118,14 +118,12 @@ class creatorDetails extends Component {
                             <Col size="sm-12">
 
                                 <div className="outerbox" width="200%">
-                                    <img  className="innerbox" src={this.state.books.length ? (
-                                    <List>{this.state.bookArray.map(bookArrayImage => (
-                                        <ListItem key={bookArrayImage._id}>
-                                            <Link to={"/books/" + bookArrayImage._id}>
-                                                <Image src={bookArrayImage.bookImage}></Image>
-                                            </Link>
-                                        </ListItem>
-                                    ))}</List>) : (<h3>No books associated yet.</h3>)} alt="book cover"></img>
+                                    {this.state.bookArray ? (
+                                        <Image className="innerbox" src={this.state.bookArray.bookImage}></Image>
+                                    ) : (
+                                        <div><h3>No books associated yet.</h3></div>
+                                    )}
+
                                      {/* <img  className="innerbox" src="https://images-na.ssl-images-amazon.com/images/I/81Tfdl%2Bvm3L.jpg" alt="book cover"></img>
                                      <img  className="innerbox" src="https://i.harperapps.com/covers/9780060263867/x510.jpg" alt="book cover"></img>
                                      <img  className="innerbox" src="https://images-na.ssl-images-amazon.com/images/I/51NUyaqOcjL._SX328_BO1,204,203,200_.jpg" alt="book cover"></img>
