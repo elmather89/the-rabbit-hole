@@ -48,7 +48,7 @@ class Books extends Component {
         fullName: "",
         _id: "",
         _books: "",
-        _creators: []
+        _creators: [{}]
     };
 
     componentDidMount() {
@@ -95,11 +95,11 @@ class Books extends Component {
     loadBooks = () => {
         API.getBooks()
             .then(res => {
-                console.log(res);
+                console.log(res.data);
                 this.setState({
                     // books: res.data, creator: res.data._creators
                     books: res.data, title: "", creatorName: "", creatorTags: "", quote: "", synopsis: "", originalPublisher: "", currentPublisher: "", yearPublished: "", bookImage: "", dob: "", dod: "", bio: ""
-                    ,_id: "", _creators: res.data._creators, firstName: "", lastName: ""
+                    ,_id: "", _creators: res.data[0]._creators, firstName: "", lastName: ""
                 });
             }
             )
@@ -309,12 +309,12 @@ class Books extends Component {
                                         name="_id"
                                         placeholder="Assign a book ID"
                                     />
-                                    {/* <Input
-                                        value={this.state._creators}
+                                    <Input
+                                        value={this.selectedCreator}
                                         onChange={this.handleInputChange}
                                         name="_creators"
                                         placeholder="Creator's unique ID"
-                                    /> */}
+                                    />
                                     <Input
                                         value={this.state.title}
                                         onChange={this.handleInputChange}
@@ -448,7 +448,7 @@ class Books extends Component {
                                         <Link to={"/books/" + book._id}>
                                             <img src={book.bookImage} alt="book-cover" style={{ width: 70, height: "auto", marginRight: 10 }}></img>
                                             <strong>
-                                                {book.title} by {book._creators ? `${book._creators.firstName} ${book._creators.lastName}` : book.creatorName}
+                                                {book.title} by {book._creators ? `${book._creators} ${book._creators}` : book.title}
                                             </strong>
                                         </Link>
                                         <DeleteBtn onClick={() => this.deleteBook(book._id)} />
