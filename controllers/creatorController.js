@@ -41,6 +41,7 @@ module.exports = {
   remove: function (req, res) {
     db.Creator
       .findById({ _id: req.params.id })
+      .populate('_books', ["title", "synopsis", "bookImage"])
       .then(dbModel => dbModel.remove())
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));

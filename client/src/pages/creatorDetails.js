@@ -4,6 +4,7 @@ import CreatorBody from "../components/CreatorBody";
 import API from "../utils/API";
 import { Link } from "react-router-dom";
 import { Col, Row, Container } from "../components/Grid";
+import { List, ListItem } from "../components/List";
 import Button from "../components/Button";
 import Card from "../components/Card";
 import Image from 'react-bootstrap/Image';
@@ -15,7 +16,8 @@ import Carousel from "components/Carousel";
 
 class creatorDetails extends Component {
     state = {
-        book: {},
+        books: [],
+        book: [{}],
         creator: {},
         // books: [],
         selectedCreator: "",
@@ -43,7 +45,7 @@ class creatorDetails extends Component {
         tags: "",
         image: "",
         fullName: "",
-        bookImage: ""
+        bookArray: ""
     };
     componentDidMount() {
         this.loadcreatorDetails();
@@ -51,15 +53,16 @@ class creatorDetails extends Component {
     loadcreatorDetails = () => {
         API.getCreator(this.props.match.params.id)
             .then(res => {
-                console.log(res);
-                this.setState({ 
-                    creator: res.data, book: res.data._books 
+                let bookArray = res.data._books[0];
+                console.log(bookArray);
+                this.setState({
+                    creator: res.data, book: res.data._books, bookArray: bookArray
                     // creator: res.data, firstName: "", lastName: "", biography: "", birthdate: "", dateOfDeath: "", legacy: "", ownWords: "", tags: "", image: ""
                     // , _id: "", bookImage: ""
                     // , book: res.data._books
                 });
-                }
-                )
+            }
+            )
             .catch(err => console.log(err));
     };
 
@@ -112,8 +115,9 @@ class creatorDetails extends Component {
                     <CreatorBody>
                         <Row>
                             <Col size="sm-12">
+
                                 <div className="outerbox" width="200%">
-                                    <img className="innerbox" src={this.state.book.bookImage} alt="book title"></img>
+                                    <img className="innerbox" src={this.state.bookArray.bookImage} alt={this.state.bookArray.title}></img>
                                     {/* <img  className="innerbox" src="https://i.ytimg.com/vi/2lPcCNyopGI/hqdefault.jpg" alt="book image"></img>
                                      <img  className="innerbox" src="https://i.ytimg.com/vi/2lPcCNyopGI/hqdefault.jpg" alt="book image"></img>
                                      <img  className="innerbox" src="https://i.ytimg.com/vi/2lPcCNyopGI/hqdefault.jpg" alt="book image"></img>

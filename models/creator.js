@@ -47,10 +47,10 @@ const creatorSchema = new Schema({
   },
   fullName: String,
   lastUpdated: Date,
-  _books: {
+  _books: [{
       type: Schema.Types.Number,
       ref: "Book"
-    }
+    }]
 });
 
 // Custom Instance Methods

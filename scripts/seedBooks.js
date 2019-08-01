@@ -9,7 +9,7 @@ mongoose.connect(
 const bookSeed = [
     {
         _id: 1,
-        _creators: 11,
+        _creators: [11],
         title: "Where the Wild Things Are",
         creatorName: "Maurice Sendak",
         synopsis: "Max is sent to bed without supper and imagines sailing away to the land of Wild Things, where he is made king.",
@@ -25,7 +25,7 @@ const bookSeed = [
     },
     {
         _id: 2,
-        _creators: 12,
+        _creators: [12],
         title: "The Very Hungry Caterpillar",
         creatorName: "Eric Carle",
         synopsis: "Follows the progress of a very hungry caterpillar as he eats his way through a varied and very large quantity of food, until, full at last, he forms a coccoon around himself and goes to sleep.",
@@ -41,7 +41,7 @@ const bookSeed = [
     },
     {
         _id: 3,
-        _creators: 13,
+        _creators: [13],
         title: "Charlotte's Web",
         creatorName: "E. B. White",
         synopsis: "‘Some Pig’. ‘Humble’. ‘Radiant’. These are the words in Charlotte's Web, high up in Zuckerman's barn. Charlotte's spiderweb tells of her feelings for a little pig named Wilbur, who simply wants a friend. They also express the love of a girl named Fern, who saved Wilbur's life when he was born the runt of his litter.",
@@ -57,7 +57,7 @@ const bookSeed = [
     },
     {
         _id: 4,
-        _creators: 13,
+        _creators: [13],
         title: "The Trumpet of the Swan",
         creatorName: "E. B. White",
         synopsis: "Like the rest of his family, Louis is a trumpeter swan. But unlike his four brothers and sisters, Louis can't trumpet joyfully. In fact, he can't even make a sound. And since he can't trumpet his love, the beautiful swan Serena pays absolutely no attention to him. Louis tries everything he can think of to win Serena's affection;he even goes to school to learn to read and write. But nothing seems to work. Then his father steals him a real brass trumpet. Is a musical instrument the key to winning Louis his love?",
@@ -73,7 +73,7 @@ const bookSeed = [
     },
     {
         _id: 5,
-        _creators: 13,
+        _creators: [13],
         title: "Stuart Little",
         creatorName: "E. B. White",
         synopsis: "Stuart Little is no ordinary mouse. Born to a family of humans, he lives in New York City with his parents, his older brother George, and Snowbell the cat. Though he's shy and thoughtful, he's also a true lover of adventure. Stuart's greatest adventure comes when his best friend, a beautiful little bird named Margalo, disappears from her nest. Determined to track her down, Stuart ventures away from home for the very first time in his life. He finds adventure aplenty. But will he find his friend?",
@@ -89,7 +89,7 @@ const bookSeed = [
     },
     {
         _id: 6,
-        _creators: 14,
+        _creators: [14],
         title: "The Giving Tree",
         creatorName: "Shel Silverstein",
         synopsis: "A young boy grows to manhood and old age experiencing the love and generosity of a tree which gives to him without thought of return.",
@@ -105,7 +105,7 @@ const bookSeed = [
     },
     {
         _id: 7,
-        _creators: 15,
+        _creators: [15],
         title: "Madeline",
         creatorName: "Ludwig Bemelmans",
         synopsis: "In an old house in Paris that was covered in vines, lived twelve little girls in two straight lines. Madeline is the smallest of the girls. She is seven years old, and the only redhead. She is the bravest and most daring of the girls, flaunting at the tiger in the zoo and giving Miss Clavel a headache as she goes around the city doing all sorts of antics.",
@@ -121,7 +121,7 @@ const bookSeed = [
     },
     {
         _id: 8,
-        _creators: 16,
+        _creators: [16],
         title: "Curious George",
         creatorName: "H.A. Rey",
         synopsis: "the curious monkey, George is taken from the jungle by the man in the yellow hat to live in a new home, but--oh, what happened! Though trying to be good, George is still very curious and takes a swim in the ocean, escapes from jail, and goes for a flying ride on a bunch of balloons.",
@@ -137,7 +137,7 @@ const bookSeed = [
     },
     {
         _id: 9,
-        _creators: 17,
+        _creators: [17],
         title: "Corduroy",
         creatorName: "Don Freeman",
         synopsis: "The amusing story of a toy bear whose one missing button from his green corduroy overalls almost costs him the opportunity of belonging to someone.",
@@ -153,7 +153,7 @@ const bookSeed = [
     },
     {
         _id: 10,
-        _creators: 18,
+        _creators: [18],
         title: "Caps for Sale",
         creatorName: "Esphyr Slobodkina",
         synopsis: "Monkey-see-monkey-do. Tale of the Peddler who went to sleep with his unsold caps on his head - and of the monkeys who stole them and wouldn't give them back until, in disgust he threw down the one remaining cap.",
@@ -169,7 +169,7 @@ const bookSeed = [
     },
     {
         _id: 33,
-        _creators: 22,
+        _creators: [22],
         title: "The Tale of Peter Rabbit",
         creatorName: "B. Potter",
         synopsis: "The story focuses on a family of anthropomorphic rabbits. The widowed mother rabbit keeps her four rabbit children, Flopsy, Mopsy, Cottontail and Peter from entering the vegetable garden of a man named Mr. McGregor. Her triplets (Flopsy, Mopsy and Cottontail) obediently refrain from entering the garden, but Peter enters the garden to snack on some vegetables. Peter ends up eating more than what is good for him and goes looking for parsley to cure his stomach ache. Peter is spotted by Mr. McGregor and loses his jacket and shoes while trying to escape. He hides in a watering can in a shed, but then has to run away again when Mr. McGregor finds him, and ends up completely lost. After sneaking past a cat, Peter sees the gate where he entered the garden from a distance and heads for it, despite being spotted and chased by Mr. McGregor again. With difficulty he wriggles under the gate, and escapes from the garden, but he spots his abandoned clothing being used to dress Mr. McGregor's scarecrow. After returning home, a sick Peter is sent to bed by his mother, and his triplet sisters receive a scrumptuous dinner of milk, bread and berries whilst Peter has a supper of chamomile tea.",

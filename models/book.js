@@ -41,13 +41,10 @@ const bookSchema = new Schema({
     default: Date.now
   },
   lastUpdated: Date,
-  _creators:
-  // [
-  {
+  _creators:[{
     type: Schema.Types.Number,
     ref: "Creator"
-  }
-  // ]
+  }]
   ,
   dob: {
     type: Number,
