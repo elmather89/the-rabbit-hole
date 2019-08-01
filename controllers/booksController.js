@@ -5,7 +5,7 @@ module.exports = {
   findAll: function (req, res) {
     db.Book
       .find(req.query)
-      .populate('creator', ['lastName', 'firstName'])
+      .populate('creator _creators', ['lastName', 'firstName', '_id'])
       .sort({ title: 1 })
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
@@ -13,7 +13,11 @@ module.exports = {
   findById: function (req, res) {
     db.Book
       .findById(req.params.id)
-      .then(dbModel => res.json(dbModel))
+      .populate('_creators', ["firstName", "lastName", "birthdate", "dateOfDeath", "_id", "tags", "biography", "ownWords"])
+      .then(dbModel => {
+        console.log(dbModel);
+        res.json(dbModel);
+      })
       .catch(err => res.status(422).json(err));
   },
   create: function (req, res) {

@@ -45,6 +45,9 @@ class Books extends Component {
         tags: "",
         image: "",
         fullName: "",
+        _id: "",
+        _books: "",
+        _creators: {},
         bookSearch: "",
         creatorSearch: ""
     };
@@ -93,7 +96,12 @@ class Books extends Component {
     loadBooks = () => {
         API.getBooks()
             .then(res => {
-                this.setState({ books: res.data, title: "", creatorName: "", creatorTags: "", quote: "", synopsis: "", originalPublisher: "", currentPublisher: "", yearPublished: "", bookImage: "", dob: "", dod: "", bio: "" });
+                console.log(res.data);
+                this.setState({
+                    // books: res.data, creator: res.data._creators
+                    books: res.data, title: "", creatorName: "", creatorTags: "", quote: "", synopsis: "", originalPublisher: "", currentPublisher: "", yearPublished: "", bookImage: "", dob: "", dod: "", bio: ""
+                    ,_id: "", creator: res.data[0]._creators, firstName: "", lastName: ""
+                });
             }
             )
             .catch(err => console.log(err));
@@ -103,7 +111,11 @@ class Books extends Component {
         API.getCreators()
             .then(res => {
                 let bookcreators = [null, ...res.data];
-                this.setState({ creator: res.data, selectedCreator: "", bookcreators: bookcreators, firstName: "", lastName: "", biography: "", birthdate: "", dateOfDeath: "", legacy: "", ownWords: "", tags: "", image: "" });
+                this.setState({
+                    // creator: res.data, books: res.data._books, bookcreators: bookcreators
+                    creator: res.data, selectedCreator: "", bookcreators: bookcreators, firstName: "", lastName: "", biography: "", birthdate: "", dateOfDeath: "", legacy: "", ownWords: "", tags: "", image: ""
+                    , _id: "", _books: ""
+            });
             }
             )
             .catch(err => console.log(err));
@@ -137,6 +149,8 @@ class Books extends Component {
     handleBookFormSubmit = event => {
         event.preventDefault();
         API.saveBook({
+            _id: this.state._id,
+            _creators: this.selectedCreator,
             title: this.state.title,
             creatorName: this.selectedCreator,
             dob: this.state.dob,
@@ -152,6 +166,7 @@ class Books extends Component {
             creator: this.selectedCreator
         })
             .then(res => {
+                console.log(res);
                 this.loadBooks();
             })
             .catch(err => console.log(err));
@@ -163,6 +178,8 @@ class Books extends Component {
         event.preventDefault();
         if (this.state.firstName && this.state.lastName) {
             API.saveCreator({
+                _id: this.state._id,
+                _books: this.state._books,
                 firstName: this.state.firstName,
                 lastName: this.state.lastName,
                 birthdate: this.state.birthdate,
@@ -182,6 +199,7 @@ class Books extends Component {
     };
 
     renderBookSearch = book => {
+        // console.log(book._creators[0]);
         const {bookSearch} = this.state;
         if ( bookSearch !== "" && book.title.toLowerCase().indexOf( bookSearch.toLowerCase() ) === -1
         ) if (
@@ -194,7 +212,7 @@ class Books extends Component {
             <Link to={"/books/" + book._id}>
                 <img src={book.bookImage} alt="book-cover" style={{ width: 70, height: "auto", marginRight: 10 }}></img>
                 <strong>
-                    {book.title} by {book.creator ? `${book.creator.firstName} ${book.creator.lastName}` : book.creatorName}
+                    {book.title} by {book._creators[0] ? `${book._creators[0].firstName} ${book._creators[0].lastName}` : book.title}
                 </strong>
             </Link>
             <DeleteBtn onClick={() => this.deleteBook(book._id)} />
@@ -244,6 +262,18 @@ class Books extends Component {
                                 show={this.state.isShowingCreator}
                                 close={this.closeCreatorModalHandler}>
                                 <form>
+                                    <Input
+                                        value={this.state._id}
+                                        onChange={this.handleInputChange}
+                                        name="_id"
+                                        placeholder="Assign a creator ID"
+                                    />
+                                    <Input
+                                        value={this.state._books}
+                                        onChange={this.handleInputChange}
+                                        name="_books"
+                                        placeholder="Assign one book's ID to this author"
+                                    />
                                     <Input
                                         value={this.state.firstName}
                                         onChange={this.handleInputChange}
@@ -324,6 +354,18 @@ class Books extends Component {
                                                 }
                                             })
                                         }</select>) : (<div></div>)}
+                                    <Input
+                                        value={this.state._id}
+                                        onChange={this.handleInputChange}
+                                        name="_id"
+                                        placeholder="Assign a book ID"
+                                    />
+                                    <Input
+                                        value={this.selectedCreator}
+                                        onChange={this.handleInputChange}
+                                        name="_creators"
+                                        placeholder="Creator's unique ID"
+                                    />
                                     <Input
                                         value={this.state.title}
                                         onChange={this.handleInputChange}

@@ -4,6 +4,7 @@ import CreatorBody from "../components/CreatorBody";
 import API from "../utils/API";
 import { Link } from "react-router-dom";
 import { Col, Row, Container } from "../components/Grid";
+import { List, ListItem } from "../components/List";
 import Button from "../components/Button";
 import Card from "../components/Card";
 import Image from 'react-bootstrap/Image';
@@ -15,16 +16,54 @@ import Carousel from "components/Carousel";
 
 class creatorDetails extends Component {
     state = {
-        book: {},
-        creator: {}
+        books: [],
+        book: [{}],
+        creator: {},
+        // books: [],
+        selectedCreator: "",
+        bookcreators: [],
+        creator: "",
+        title: "",
+        creatorName: "",
+        dob: "",
+        dod: "",
+        bio: "",
+        creatorTags: "",
+        quote: "",
+        synopsis: "",
+        originalPublisher: "",
+        currentPublisher: "",
+        yearPublished: "",
+        bookImage: "",
+        firstName: "",
+        lastName: "",
+        biography: "",
+        birthdate: "",
+        dateOfDeath: "",
+        legacy: "",
+        ownWords: "",
+        tags: "",
+        image: "",
+        fullName: "",
+        bookArray: ""
     };
     componentDidMount() {
         this.loadcreatorDetails();
     };
     loadcreatorDetails = () => {
         API.getCreator(this.props.match.params.id)
-            .then(res =>
-                this.setState({ creator: res.data }))
+            .then(res => {
+                let bookArray = res.data._books[0];
+                // console.log(bookArray);
+                console.log(res.data._books);
+                this.setState({
+                    creator: res.data, book: res.data._books, bookArray: bookArray
+                    // creator: res.data, firstName: "", lastName: "", biography: "", birthdate: "", dateOfDeath: "", legacy: "", ownWords: "", tags: "", image: ""
+                    // , _id: "", bookImage: ""
+                    // , book: res.data._books
+                });
+            }
+            )
             .catch(err => console.log(err));
     };
 
@@ -46,6 +85,11 @@ class creatorDetails extends Component {
                                         <Row>
                                             <Col size="sm-6">
                                                 <h2 className="birthDeath">({this.state.creator.birthdate} - {this.state.creator.dateOfDeath})</h2>
+                                            </Col>
+                                        </Row>
+                                        <Row>
+                                            <Col size="sm-6">
+                                                Internal ID: {this.state.creator._id}
                                             </Col>
                                         </Row>
                                         <h3 className="tags">Tags: {this.state.creator.tags}</h3>
@@ -72,9 +116,15 @@ class creatorDetails extends Component {
                     <CreatorBody>
                         <Row>
                             <Col size="sm-12">
+
                                 <div className="outerbox" width="200%">
-                                    <img  className="innerbox" src="https://i.harperapps.com/covers/9780060254926/y648.jpg" alt="book cover"></img>
-                                     <img  className="innerbox" src="https://images-na.ssl-images-amazon.com/images/I/81Tfdl%2Bvm3L.jpg" alt="book cover"></img>
+                                    {this.state.bookArray ? (
+                                        <Image className="innerbox" src={this.state.bookArray.bookImage}></Image>
+                                    ) : (
+                                        <div><h3>No books associated yet.</h3></div>
+                                    )}
+
+                                     {/* <img  className="innerbox" src="https://images-na.ssl-images-amazon.com/images/I/81Tfdl%2Bvm3L.jpg" alt="book cover"></img>
                                      <img  className="innerbox" src="https://i.harperapps.com/covers/9780060263867/x510.jpg" alt="book cover"></img>
                                      <img  className="innerbox" src="https://images-na.ssl-images-amazon.com/images/I/51NUyaqOcjL._SX328_BO1,204,203,200_.jpg" alt="book cover"></img>
                                      <img  className="innerbox" src="https://images-na.ssl-images-amazon.com/images/I/61Dvo5DcSEL._SX333_BO1,204,203,200_.jpg" alt="book cover"></img>
@@ -92,7 +142,7 @@ class creatorDetails extends Component {
                                       <img  className="innerbox" src="https://i.harperapps.com/covers/9780060254926/y648.jpg" alt="book cover"></img>
                                       <img  className="innerbox" src="https://static.wixstatic.com/media/fa39c3_c6c3b1266239468fa0c4fc352e1d17cd~mv2.jpg" alt="book cover"></img>
                                       <img  className="innerbox" src="https://i.harperapps.com/covers/9780060254926/y648.jpg" alt="book cover"></img>
-                                      <img  className="innerbox" src="https://static.wixstatic.com/media/fa39c3_c6c3b1266239468fa0c4fc352e1d17cd~mv2.jpg" alt="book cover"></img>
+                                      <img  className="innerbox" src="https://static.wixstatic.com/media/fa39c3_c6c3b1266239468fa0c4fc352e1d17cd~mv2.jpg" alt="book cover"></img> */}
                                     {/* //  <img  className="innerbox" src="https://i.ytimg.com/vi/2lPcCNyopGI/hqdefault.jpg" alt="book image"></img>
                                     //  <img  className="innerbox" src="https://i.ytimg.com/vi/2lPcCNyopGI/hqdefault.jpg" alt="book image"></img>
                                     //  <img  className="innerbox" src="https://i.ytimg.com/vi/2lPcCNyopGI/hqdefault.jpg" alt="book image"></img>
