@@ -15,7 +15,6 @@ import brand from "../assets/images/brand.svg";
 import creator from "../assets/images/create.jpg";
 import books from "../assets/images/books.jpg";
 import Search from "../components/Search";
-import ReactPaginate from 'react-paginate';
 
 
 class Books extends Component {
