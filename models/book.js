@@ -51,9 +51,11 @@ const bookSchema = new Schema({
   },
   dod: {
     type: String,
+    trim: true,
   },
   bio: {
     type: String,
+    trim: true,
   },
   creatorTags: {
     type: String,

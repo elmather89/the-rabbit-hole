@@ -37,7 +37,7 @@ class creatorDetails extends Component {
                         <Col size="sm-12">
                             <CreatorHeader>
                                 <Row className="headerR">
-                                    <Col size="sm-9">
+                                    <Col size="sm-8">
                                         <Row>
                                             <Col size="sm-6">
                                                 <h1 className="creatorTitle">{this.state.creator.firstName} {this.state.creator.lastName}</h1>
@@ -59,9 +59,9 @@ class creatorDetails extends Component {
                                         </Button>
                                     </Col>
                                     <div className="imageCol">
-                                        <Col size="sm-3">
+                                        <Col size="sm-4">
 
-                                            <Image className="imag" src={this.state.creator.image} alt="Creator Profile" roundedCircle />
+                                            <Image id="imageSize" className="imag" src={this.state.creator.image} alt="Creator Profile" roundedCircle />
 
                                         </Col>
                                     </div>
@@ -120,7 +120,7 @@ class creatorDetails extends Component {
                         <Row>
                             <div className="homepage">
                                 <Col size="sm-12">
-                                    <Link to="/">← Back to Homepage</Link>
+                                    <Link className="homepage-link" to="/">← Back to Homepage</Link>
                                 </Col>
                             </div>
                         </Row>
