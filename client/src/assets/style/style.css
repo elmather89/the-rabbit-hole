@@ -1,4 +1,6 @@
-
+body, html { 
+    overflow-x: hidden;
+}
 
 .creator {
     background-image: url(../images/create.jpg);
@@ -165,4 +167,40 @@ footer {
     padding: 11px;
     margin-bottom: 20px;
     border: 1px solid rgba(242, 153, 75, 1);
+  }
+
+  /* Hero image */
+
+  .hero-image {
+    height: 50%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+  }
+
+  .hero-image, img {
+      width: 100%;
+      height: 100%;
+  }
+
+  /*======= Media Queries ========*/
+
+  @media screen and (max-height: 450px) {
+    #creator-jumbo, #book-jumbo {
+        width: 100%;
+        height: 50px;
+    }
+  }
+
+  @media only screen and (max-width: 600px) {
+    #creator-jumbo, #book-jumbo {
+        width: 100%;
+        height: 50%;
+    }
+
+    .hero-image, img {
+        width: 100%;
+        height: 120%;
+    }
   }
