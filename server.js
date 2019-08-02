@@ -35,10 +35,6 @@ if (process.env.NODE_ENV === 'production') {
   app.use(express.static('client/build'));
 }
 
-// Requiring the `Book` & `Author` models for accessing these collections
-// var Book = require("./book.js");
-// var Author = require("./author.js");
-
 // Add routes, both API and view
 app.use(routes);
 
@@ -55,26 +51,8 @@ if (process.env.NODE_ENV === 'production') {
   });
 }
 
-// Mongo Routes
-//.
-
 // Start the server
 app.listen(PORT, () => {
   // eslint-disable-next-line
   console.log(`🌎 ==> API server now on port ${PORT}!`);
 });
-
-// Dynamically force schema refresh only for 'test'
-// const FORCE_SCHEMA = process.env.NODE_ENV === 'test';
-
-// db.sequelize
-//   .authenticate()
-//   .then(() => {
-//     db.sequelize.sync({ force: FORCE_SCHEMA }).then(() => {
-//       console.log(`🌎 ==> API server now on port ${PORT}!`); // eslint-disable-line no-console
-//       app.emit('appStarted');
-//     });
-//   })
-//   .catch(console.error); // eslint-disable-line no-console
-
-// module.exports = app;

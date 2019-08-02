@@ -23,7 +23,7 @@ class CreatorEditForm extends Component {
 
         this.handleInputChange = this.handleInputChange.bind(this);
         this.handleCreatorEdit = this.handleCreatorEdit.bind(this);
-    }
+    };
 
     componentDidMount() {
         this.loadCreatorById();
@@ -78,9 +78,7 @@ class CreatorEditForm extends Component {
                 this.props.history.push("/creators/")
             })
             .catch(err => console.log(err));
-
-        // this.props.history.push("/books/")
-    }
+    };
 
     render() {
         return (
@@ -121,7 +119,7 @@ class CreatorEditForm extends Component {
                     name="biography"
                     placeholder="biography"
                 />
-                <label className="form-label"><small>legacy</small></label>
+                <label className="form-label"><small>Legacy</small></label>
                 <TextArea
                     value={this.state.legacy}
                     onChange={this.handleInputChange}
@@ -135,7 +133,7 @@ class CreatorEditForm extends Component {
                     name="ownWords"
                     placeholder="Own Words (Quote)"
                 />
-                <label className="form-label"><small>Tags</small></label>
+                <label className="form-label"><small>Occupation Tag(s)</small></label>
                 <TextArea
                     value={this.state.tags}
                     onChange={this.handleInputChange}
@@ -154,17 +152,13 @@ class CreatorEditForm extends Component {
                     onClick={this.handleCreatorEdit}
                 >
                     Update Creator
-            </button>
-             
-                            <div className="homepage">
-                                
-                                    <Link className="homepage-link" to={`/creator/${this.state.id}`}>← Back to Creator Detail Page</Link>
-                               
-                            </div>
-                        
+                </button>
+                <div className="homepage">
+                        <Link className="homepage-link" to={`/creator/${this.state.id}`}>← Back to Creator Details Page</Link>
+                </div>
             </form>
         );
-    }
-}
+    };
+};
 
 export default CreatorEditForm;
