@@ -73,10 +73,10 @@ class EditForm extends Component {
         API.updateBook(this.props.match.params.id, {
             title: this.state.title,
             creatorName: this.state.fullName,
-            // dob: this.state.dob,
-            // dod: this.state.dod,
-            // creatorTags: this.state.creatorTags,
-            // bio: this.state.bio,
+            dob: this.state.dob,
+            dod: this.state.dod,
+            creatorTags: this.state.creatorTags,
+            bio: this.state.bio,
             quote: this.state.quote,
             synopsis: this.state.synopsis,
             originalPublisher: this.state.originalPublisher,
@@ -89,13 +89,10 @@ class EditForm extends Component {
                 this.props.history.push("/books/")
             })
             .catch(err => console.log(err));
-
-        // this.props.history.push("/books/")
     };
 
     render() {
         return (
-
             <form>
                 <label className="form-label"><small style={{ textAlign: "left" }}>Title (Required)</small></label>
                 <Input
@@ -179,11 +176,9 @@ class EditForm extends Component {
                     onClick={this.handleBookEdit}
                 >
                     Update Book
-            </button>
+                </button>
                 <div className="homepage">
-
                     <Link className="homepage-link" to={`/books/${this.state.id}`}>← Back to Book Details Page</Link>
-
                 </div>
             </form>
         );

@@ -14,7 +14,6 @@ import "../assets/style/style.css";
 import brand from "../assets/images/brand.svg";
 import creator from "../assets/images/create.jpg";
 import books from "../assets/images/books.jpg";
-import Search from "../components/Search";
 
 
 class Books extends Component {
@@ -61,7 +60,7 @@ class Books extends Component {
             isShowingBook: false
         }
         this.setState({ modalDivClass: false });
-    }
+    };
 
     openCreatorModalHandler = () => {
         this.setState({
@@ -69,7 +68,7 @@ class Books extends Component {
             isShowingBook: false,
             modalDivClass: true
         });
-    }
+    };
 
     openBookModalHandler = () => {
         this.setState({
@@ -77,28 +76,27 @@ class Books extends Component {
             isShowingCreator: false,
             modalDivClass: true
         });
-    }
+    };
 
     closeCreatorModalHandler = () => {
         this.setState({
             isShowingCreator: false,
             modalDivClass: false
         });
-    }
+    };
 
     closeBookModalHandler = () => {
         this.setState({
             isShowingBook: false,
             modalDivClass: false
         });
-    }
+    };
 
     loadBooks = () => {
         API.getBooks()
             .then(res => {
                 console.log(res.data);
                 this.setState({
-                    // books: res.data, creator: res.data._creators
                     books: res.data, title: "", creatorName: "", creatorTags: "", quote: "", synopsis: "", originalPublisher: "", currentPublisher: "", yearPublished: "", bookImage: "", dob: "", dod: "", bio: ""
                     ,_id: "", creator: res.data[0]._creators, firstName: "", lastName: ""
                 });
@@ -112,7 +110,6 @@ class Books extends Component {
             .then(res => {
                 let bookcreators = [null, ...res.data];
                 this.setState({
-                    // creator: res.data, books: res.data._books, bookcreators: bookcreators
                     creator: res.data, selectedCreator: "", bookcreators: bookcreators, firstName: "", lastName: "", biography: "", birthdate: "", dateOfDeath: "", legacy: "", ownWords: "", tags: "", image: ""
                     , _id: "", _books: ""
             });
@@ -171,7 +168,6 @@ class Books extends Component {
             })
             .catch(err => console.log(err));
         this.setState({ selectedCreator: "" })
-        // }
     };
 
     handleCreatorFormSubmit = event => {
@@ -199,11 +195,10 @@ class Books extends Component {
     };
 
     renderBookSearch = book => {
-        // console.log(book._creators[0]);
         const {bookSearch} = this.state;
         if ( bookSearch !== "" && book.title.toLowerCase().indexOf( bookSearch.toLowerCase() ) === -1
         ) if (
-            bookSearch !== "" && book.creatorName.toLowerCase().indexOf( bookSearch.toLowerCase() ) === -1
+            bookSearch !== "" && book._creators[0].lastName.toLowerCase().indexOf( bookSearch.toLowerCase() ) === -1
         )
         {
           return null
@@ -256,7 +251,7 @@ class Books extends Component {
                     <Col size="lg-12 md-12 sm-12">
                         <Jumbotron bgimg={brand}>
                         </Jumbotron>
-                        <div className={!this.state.isShowingCreator ? "hideModalDiv" : 'showModalDiv'}>
+                          <div className={!this.state.isShowingCreator ? "hideModalDiv" : 'showModalDiv'}>
                             <CreatorModal
                                 className="modal"
                                 show={this.state.isShowingCreator}
@@ -343,8 +338,8 @@ class Books extends Component {
                                     </FormBtn>
                                 </form>
                             </CreatorModal>
-                        </div>
-                        <div className={!this.state.isShowingBook ? "hideModalDiv" : 'showModalDiv'}>
+                          </div>
+                          <div className={!this.state.isShowingBook ? "hideModalDiv" : 'showModalDiv'}>
                             <BookModal
                                 className="modal"
                                 show={this.state.isShowingBook}
@@ -382,7 +377,7 @@ class Books extends Component {
                                         onChange={this.handleInputChange}
                                         name="title"
                                     />
-                                    <label className="form-label"><small>Year of Birth</small></label>
+                                    {/* <label className="form-label"><small>Year of Birth</small></label>
                                     <Input
                                         value={this.state.dob}
                                         onChange={this.handleInputChange}
@@ -408,7 +403,7 @@ class Books extends Component {
                                         value={this.state.bio}
                                         onChange={this.handleInputChange}
                                         name="bio"
-                                    />
+                                    /> */}
                                     <label className="form-label"><small>Book Synopsis</small></label>
                                     <TextArea
                                         value={this.state.synopsis}
@@ -453,7 +448,7 @@ class Books extends Component {
                                     </FormBtn>
                                 </form>
                             </BookModal>
-                        </div>
+                          </div>
                     </Col>
                 </Row>
                 <Row>
