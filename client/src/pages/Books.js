@@ -435,7 +435,7 @@ class Books extends Component {
                                     <input
                                         className="search-list"
                                         type="text"
-                                        placeholder="Search Creator..."
+                                        placeholder="Search creator by first or last name"
                                         title="creatorSearch"
                                         onChange={this.handleCreatorSearch}>
                                     </input>
@@ -469,7 +469,7 @@ class Books extends Component {
                                     <input
                                         className="search-list"
                                         type="text"
-                                        placeholder="Search Book..."
+                                        placeholder="Search book by title or creator last name"
                                         title="bookSearch"
                                         onChange={this.handleBookSearch}>
                                     </input>
