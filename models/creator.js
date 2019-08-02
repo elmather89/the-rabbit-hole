@@ -3,8 +3,9 @@ const Schema = mongoose.Schema;
 
 const creatorSchema = new Schema({
   _id: {
-    type: Number,
-    required: true
+    type: String,
+    trim: true,
+    required: "ID is Required",
   },
   firstName: {
     type: String,
@@ -50,7 +51,7 @@ const creatorSchema = new Schema({
   fullName: String,
   lastUpdated: Date,
   _books: [{
-      type: Schema.Types.Number,
+      type: Schema.Types.String,
       ref: "Book"
     }]
 });

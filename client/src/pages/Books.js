@@ -225,7 +225,7 @@ class Books extends Component {
         }
         return <ListItem key={creator._id}>
             <Link to={"/creator/" + creator._id}>
-                <img src={creator.image} alt="book-cover" style={{ width: 70, height: "auto", marginRight: 10 }}></img>
+                <img src={creator.image} alt="creator-image" style={{ width: 70, height: "auto", marginRight: 10 }}></img>
                 <strong>
                     {creator.lastName}, {creator.firstName}
                 </strong>
@@ -257,19 +257,19 @@ class Books extends Component {
                                 show={this.state.isShowingCreator}
                                 close={this.closeCreatorModalHandler}>
                                 <form>
-                                    <label className="form-label"><small>Assign Creator ID (Required)</small></label>
+                                    <label className="form-label"><small>Assign Unique Creator ID (Required)</small></label>
                                     <Input
                                         value={this.state._id}
                                         onChange={this.handleInputChange}
                                         name="_id"
-                                        placeholder="Use first 3 letters of creator last name, followed by year of birth (i.e. BEM1898)"
+                                        placeholder="Recommend first 3 letters of last name, followed by year of birth (i.e. bem1898)"
                                     />
-                                    <label className="form-label"><small>Assign Book ID (Required)</small></label>
+                                    <label className="form-label"><small>Book ISBN (Required)</small></label>
                                     <Input
                                         value={this.state._books}
                                         onChange={this.handleInputChange}
                                         name="_books"
-                                        placeholder="Use first 3 letters of book title, followed by original year published (i.e. MAD1939)"
+                                        placeholder="i.e. 0439558769"
                                     />
                                     <label className="form-label"><small>First Name (Required)</small></label>
                                     <Input
@@ -357,19 +357,19 @@ class Books extends Component {
                                                 }
                                             })
                                         }</select>) : (<div></div>)}
-                                    <label className="form-label"><small>Assign Book ID (Required)</small></label>
+                                    <label className="form-label"><small>Book ISBN (Required)</small></label>
                                     <Input
                                         value={this.state._id}
                                         onChange={this.handleInputChange}
                                         name="_id"
-                                        placeholder="Use first 3 letters of book title, followed by original year published (i.e. MAD1939)"
+                                        placeholder="i.e. 0439558769"
                                     />
-                                    <label className="form-label"><small>Assign Creator ID (Required)</small></label>
+                                    <label className="form-label"><small>Assign Unique Creator ID (Required)</small></label>
                                     <Input
                                         value={this.selectedCreator}
                                         onChange={this.handleInputChange}
                                         name="_creators"
-                                        placeholder="Use first 3 letters of creator last name, followed by year of birth (i.e. BEM1898)"
+                                        placeholder="Recommend first 3 letters of last name, followed by year of birth (i.e. bem1898)"
                                     />
                                     <label className="form-label"><small>Book Title (Required)</small></label>
                                     <Input
@@ -377,33 +377,6 @@ class Books extends Component {
                                         onChange={this.handleInputChange}
                                         name="title"
                                     />
-                                    {/* <label className="form-label"><small>Year of Birth</small></label>
-                                    <Input
-                                        value={this.state.dob}
-                                        onChange={this.handleInputChange}
-                                        name="dob"
-                                        placeholder="YYYY"
-                                    />
-                                    <label className="form-label"><small>Year Passed</small></label>
-                                    <Input
-                                        value={this.state.dod}
-                                        onChange={this.handleInputChange}
-                                        name="dod"
-                                        placeholder="YYYY"
-                                    />
-                                    <label className="form-label"><small>Occupation Tag(s)</small></label>
-                                    <Input
-                                        value={this.state.creatorTags}
-                                        onChange={this.handleInputChange}
-                                        name="creatorTags"
-                                        placeholder="Author / Illustrator / Painter"
-                                    />
-                                    <label className="form-label"><small>Biography</small></label>
-                                    <TextArea
-                                        value={this.state.bio}
-                                        onChange={this.handleInputChange}
-                                        name="bio"
-                                    /> */}
                                     <label className="form-label"><small>Book Synopsis</small></label>
                                     <TextArea
                                         value={this.state.synopsis}

@@ -8,8 +8,8 @@ mongoose.connect(
 
 const creatorSeed = [
     {
-        _id: 11,
-        _books: [1],
+        _id: "sen1928",
+        _books: ["0099408392"],
         firstName: "Maurice",
         lastName: "Sendak",
         birthdate: 1928,
@@ -21,8 +21,8 @@ const creatorSeed = [
         image: "https://upload.wikimedia.org/wikipedia/en/1/11/Maurice-Sendak_portrait2.jpg"
     },
     {
-        _id: 12,
-        _books: [2],
+        _id: "car1929",
+        _books: ["0241003008"],
         firstName: "Eric",
         lastName: "Carle",
         birthdate: 1929,
@@ -34,8 +34,8 @@ const creatorSeed = [
         image: "https://storytoys.com/wp-content/uploads/2016/06/eric-carle.jpg"
     },
     {
-        _id: 13,
-        _books: [3],
+        _id: "whi1899",
+        _books: ["0064410935"],
         firstName: "E. B.",
         lastName: "White",
         birthdate: 1899,
@@ -47,21 +47,21 @@ const creatorSeed = [
         image: "https://www.biography.com/.image/ar_1:1%2Cc_fill%2Ccs_srgb%2Cg_face%2Cq_auto:good%2Cw_300/MTE4MDAzNDEwNzI0MzU3NjQ2/e-b-white-9529308-1-402.jpg"
     },
     {
-        _id: 14,
-        _books: [6],
+        _id: "sil1930",
+        _books: ["0060256656"],
         firstName: "Shel",
         lastName: "Silverstein",
         birthdate: 1930,
         dateOfDeath: 1999,
         biography: "Shel Silverstein's incomparable career as a bestselling children's book author and illustrator began with Lafcadio, the Lion Who Shot Back. He is also the creator of picture books including A Giraffe and a Half, Who Wants a Cheap Rhinoceros?, The Missing Piece, The Missing Piece Meets the Big O, and the perennial favorite The Giving Tree, as well as classic poetry collections such as Where the Sidewalk Ends, A Light in the Attic, Every Thing On It, Don't Bump the Glump!, and Runny Babbit.",
-        legacy: "His books have been translated into more than 30 languages and have sold more than 20 million copies.[3] He was the recipient of two Grammy Awards, as well as Golden Globe Award and Academy Award nominations.",
+        legacy: "His books have been translated into more than 30 languages and have sold more than 20 million copies.3 He was the recipient of two Grammy Awards, as well as Golden Globe Award and Academy Award nominations.",
         ownWords: "Tell me I'm clever, Tell me I'm kind, Tell me I'm talented, Tell me I'm cute, Tell me I'm sensitive, Graceful and wise, Tell me I'm perfect - But tell me the truth.",
         tags: "Author / Poet / Cartoonist / Songwriter / Playwright",
         image: "https://upload.wikimedia.org/wikipedia/en/8/8f/Ssilverstein.jpg"
     },
     {
-        _id: 15,
-        _books: [7],
+        _id: "bem1898",
+        _books: ["0590133373"],
         firstName: "Ludwig",
         lastName: "Bemelmans",
         birthdate: 1898,
@@ -73,8 +73,8 @@ const creatorSeed = [
         image: "https://upload.wikimedia.org/wikipedia/en/b/b3/Ludwig_Bemelmans.jpg"
     },
     {
-        _id: 16,
-        _books: [8],
+        _id: "rey1898",
+        _books: ["039515023X"],
         firstName: "H.A.",
         lastName: "Rey",
         birthdate: 1898,
@@ -86,8 +86,8 @@ const creatorSeed = [
         image: "https://www.diogenes.ch/dam/Diogenes/Autorenportraits/rey_ha_700068643_beschnitten.jpg"
     },
     {
-        _id: 17,
-        _books: [9],
+        _id: "fre1908",
+        _books: ["0670241334"],
         firstName: "Don",
         lastName: "Freeman",
         birthdate: 1908,
@@ -99,8 +99,8 @@ const creatorSeed = [
         image: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/DonFreeman.jpg/330px-DonFreeman.jpg"
     },
     {
-        _id: 18,
-        _books: [10],
+        _id: "slo1908",
+        _books: ["0064431436"],
         firstName: "Esphyr",
         lastName: "Slobodkina",
         birthdate: 1908,
