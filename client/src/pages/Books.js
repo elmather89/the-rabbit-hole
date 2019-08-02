@@ -382,14 +382,14 @@ class Books extends Component {
                                         onChange={this.handleInputChange}
                                         name="title"
                                     />
-                                    {/* <label className="form-label"><small>Year of Birth</small></label>
+                                    <label className="form-label"><small>Year of Birth</small></label>
                                     <Input
                                         value={this.state.dob}
                                         onChange={this.handleInputChange}
                                         name="dob"
                                         placeholder="YYYY"
-                                    /> */}
-                                    {/* <label className="form-label"><small>Year Passed</small></label>
+                                    />
+                                    <label className="form-label"><small>Year Passed</small></label>
                                     <Input
                                         value={this.state.dod}
                                         onChange={this.handleInputChange}
@@ -408,7 +408,7 @@ class Books extends Component {
                                         value={this.state.bio}
                                         onChange={this.handleInputChange}
                                         name="bio"
-                                    /> */}
+                                    />
                                     <label className="form-label"><small>Book Synopsis</small></label>
                                     <TextArea
                                         value={this.state.synopsis}
