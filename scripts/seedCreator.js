@@ -35,7 +35,7 @@ const creatorSeed = [
     },
     {
         _id: "whi1899",
-        _books: ["0064410935"],
+        _books: ["0064410935", "0064408671", "0064400565"],
         firstName: "E. B.",
         lastName: "White",
         birthdate: 1899,
