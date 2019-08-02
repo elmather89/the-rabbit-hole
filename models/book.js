@@ -3,7 +3,8 @@ const Schema = mongoose.Schema;
 
 const bookSchema = new Schema({
   _id: {
-    type: Number
+    type: String,
+    required: true
   },
   title: {
     type: String,

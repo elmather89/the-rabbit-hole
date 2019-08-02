@@ -3,7 +3,8 @@ const Schema = mongoose.Schema;
 
 const creatorSchema = new Schema({
   _id: {
-    type: Number
+    type: String,
+    required: true
   },
   firstName: {
     type: String,
