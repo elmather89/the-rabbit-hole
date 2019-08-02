@@ -97,19 +97,17 @@ class EditForm extends Component {
         return (
 
             <form>
-                <label className="form-label"><small style={{ textAlign: "left" }}>Title</small></label>
+                <label className="form-label"><small style={{ textAlign: "left" }}>Title (Required)</small></label>
                 <Input
                     value={this.state.title}
                     onChange={this.handleInputChange}
                     name="title"
-                    placeholder="Book Title (required)"
                 />
                 <label className="form-label"><small>Creator Name (read only)</small></label>
                 <Input readOnly
                     value={this.state.creatorName}
                     onChange={this.handleInputChange}
                     name="creatorName"
-                    placeholder="Creator (required)"
                 />
                 <label className="form-label"><small>Year Born (read only)</small></label>
                 <Input readOnly
@@ -125,47 +123,42 @@ class EditForm extends Component {
                     name="dod"
                     placeholder="YYYY (if applicable)"
                 />
-                <label className="form-label"><small>Occupation(s) (read only)</small></label>
+                <label className="form-label"><small>Occupation Tag(s) (read only)</small></label>
                 <TextArea readOnly
                     value={this.state.creatorTags}
                     onChange={this.handleInputChange}
                     name="creatorTags"
-                    placeholder="Author / Illustrator / Painter / etc."
+                    placeholder="Author / Illustrator / Painter"
                 />
                 <label className="form-label"><small>Biography (read only)</small></label>
                 <TextArea readOnly
                     value={this.state.bio}
                     onChange={this.handleInputChange}
                     name="bio"
-                    placeholder="Biography"
                 />
                 <label className="form-label"><small>Text of Interest / Quote</small></label>
                 <TextArea
                     value={this.state.quote}
                     onChange={this.handleInputChange}
                     name="quote"
-                    placeholder="Quote"
                 />
                 <label className="form-label"><small>Book Synopsis</small></label>
                 <TextArea
                     value={this.state.synopsis}
                     onChange={this.handleInputChange}
                     name="synopsis"
-                    placeholder="Synopsis"
                 />
                 <label className="form-label"><small>Original Publisher</small></label>
                 <Input
                     value={this.state.originalPublisher}
                     onChange={this.handleInputChange}
                     name="originalPublisher"
-                    placeholder="Original Publisher"
                 />
                 <label className="form-label"><small>Current Publisher</small></label>
                 <Input
                     value={this.state.currentPublisher}
                     onChange={this.handleInputChange}
                     name="currentPublisher"
-                    placeholder="Current Publisher"
                 />
                 <label className="form-label"><small>Original Year Published</small></label>
                 <Input
