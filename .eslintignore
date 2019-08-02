@@ -6,3 +6,6 @@
 /scripts
 /models
 /controllers
+/routes
+/config
+/validation

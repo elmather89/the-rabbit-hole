@@ -8,7 +8,6 @@ module.exports = {
       .populate('_books', ['bookImage', 'title', 'synopsis'])
       .sort({ lastName: 1 })
       .then(dbModel => {
-        // console.log(dbModel);
         res.json(dbModel);
       })
       .catch(err => res.status(422).json(err));

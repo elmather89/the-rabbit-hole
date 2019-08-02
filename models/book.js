@@ -3,7 +3,9 @@ const Schema = mongoose.Schema;
 
 const bookSchema = new Schema({
   _id: {
-    type: Number
+    type: String,
+    trim: true,
+    required: "ID is Required"
   },
   title: {
     type: String,
@@ -42,7 +44,7 @@ const bookSchema = new Schema({
   },
   lastUpdated: Date,
   _creators:[{
-    type: Schema.Types.Number,
+    type: Schema.Types.String,
     ref: "Creator"
   }]
   ,

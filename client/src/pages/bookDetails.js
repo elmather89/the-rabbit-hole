@@ -23,7 +23,6 @@ class bookDetails extends Component {
   loadBookDetails = () => {
     API.getBook(this.props.match.params.id)
       .then(res => {
-        // console.log(res.data._creators);
         console.log(res.data._creators[0]);
         this.setState({ book: res.data, creator: res.data._creators[0] })
       })
