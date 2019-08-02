@@ -269,7 +269,7 @@ class Books extends Component {
                                         name="_id"
                                         placeholder="Use first 3 letters of creator last name, followed by year of birth (i.e. BEM1898)"
                                     />
-                                    <label className="form-label"><small>Assign Creator ID (Required)</small></label>
+                                    <label className="form-label"><small>Assign Book ID (Required)</small></label>
                                     <Input
                                         value={this.state._books}
                                         onChange={this.handleInputChange}
@@ -334,7 +334,7 @@ class Books extends Component {
                                         value={this.state.image}
                                         onChange={this.handleInputChange}
                                         name="image"
-                                        placeholder="Add creator image URL"
+                                        placeholder="Enter creator image URL"
                                     />
                                     <FormBtn
                                         disabled={!(this.state.firstName && this.state.lastName)}
@@ -362,83 +362,89 @@ class Books extends Component {
                                                 }
                                             })
                                         }</select>) : (<div></div>)}
+                                    <label className="form-label"><small>Assign Book ID (Required)</small></label>
                                     <Input
                                         value={this.state._id}
                                         onChange={this.handleInputChange}
                                         name="_id"
-                                        placeholder="Assign a book ID"
+                                        placeholder="Use first 3 letters of book title, followed by original year published (i.e. MAD1939)"
                                     />
+                                    <label className="form-label"><small>Assign Creator ID (Required)</small></label>
                                     <Input
                                         value={this.selectedCreator}
                                         onChange={this.handleInputChange}
                                         name="_creators"
-                                        placeholder="Creator's unique ID"
+                                        placeholder="Use first 3 letters of creator last name, followed by year of birth (i.e. BEM1898)"
                                     />
+                                    <label className="form-label"><small>Book Title (Required)</small></label>
                                     <Input
                                         value={this.state.title}
                                         onChange={this.handleInputChange}
                                         name="title"
-                                        placeholder="Book Title (required)"
                                     />
+                                    {/* <label className="form-label"><small>Year of Birth</small></label>
                                     <Input
                                         value={this.state.dob}
                                         onChange={this.handleInputChange}
                                         name="dob"
-                                        placeholder="Year of Birth"
-                                    />
+                                        placeholder="YYYY"
+                                    /> */}
+                                    {/* <label className="form-label"><small>Year Passed</small></label>
                                     <Input
                                         value={this.state.dod}
                                         onChange={this.handleInputChange}
                                         name="dod"
-                                        placeholder="Year of Death"
+                                        placeholder="YYYY"
                                     />
+                                    <label className="form-label"><small>Occupation Tag(s)</small></label>
                                     <Input
                                         value={this.state.creatorTags}
                                         onChange={this.handleInputChange}
                                         name="creatorTags"
                                         placeholder="Author / Illustrator / Painter"
                                     />
+                                    <label className="form-label"><small>Biography</small></label>
                                     <TextArea
                                         value={this.state.bio}
                                         onChange={this.handleInputChange}
                                         name="bio"
-                                        placeholder="Biography"
-                                    />
+                                    /> */}
+                                    <label className="form-label"><small>Book Synopsis</small></label>
                                     <TextArea
                                         value={this.state.synopsis}
                                         onChange={this.handleInputChange}
                                         name="synopsis"
-                                        placeholder="Synopsis"
                                     />
+                                    <label className="form-label"><small>Original Publisher</small></label>
                                     <Input
                                         value={this.state.originalPublisher}
                                         onChange={this.handleInputChange}
                                         name="originalPublisher"
-                                        placeholder="Original Publisher"
                                     />
+                                    <label className="form-label"><small>Current Publisher</small></label>
                                     <Input
                                         value={this.state.currentPublisher}
                                         onChange={this.handleInputChange}
                                         name="currentPublisher"
-                                        placeholder="Current Publisher"
                                     />
+                                    <label className="form-label"><small>Year Published</small></label>
                                     <Input
                                         value={this.state.yearPublished}
                                         onChange={this.handleInputChange}
                                         name="yearPublished"
-                                        placeholder="Year Published"
                                     />
+                                    <label className="form-label"><small>Text of Interest / Quote</small></label>
                                     <TextArea
                                         value={this.state.quote}
                                         onChange={this.handleInputChange}
                                         name="quote"
-                                        placeholder="Quote"
                                     />
+                                    <label className="form-label"><small>Book Cover</small></label>
                                     <Input
                                         value={this.state.bookImage}
                                         onChange={this.handleInputChange}
                                         name="bookImage"
-                                        placeholder="Book Image URL"
+                                        placeholder="Enter book image URL"
                                     />
                                     <FormBtn
                                         disabled={!(this.state.selectedCreator && this.state.title)}
