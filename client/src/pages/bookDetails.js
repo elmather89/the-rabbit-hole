@@ -45,8 +45,8 @@ class bookDetails extends Component {
                   <Button id="book-edit-btn">
                     <Link to={"/edit/" + this.state.book._id}>Edit Details</Link>
                   </Button>
-                  <p>{this.state.book.creatorTags}</p>
-                  <p>{this.state.book.bio}</p>
+                  <p>{this.state.creator.tags}</p>
+                  <p>{this.state.creator.biography}</p>
                 </Col>
                 <Col size="sm-3">
                   <div>
