@@ -262,71 +262,79 @@ class Books extends Component {
                                 show={this.state.isShowingCreator}
                                 close={this.closeCreatorModalHandler}>
                                 <form>
+                                    <label className="form-label"><small>Assign Creator ID (Required)</small></label>
                                     <Input
                                         value={this.state._id}
                                         onChange={this.handleInputChange}
                                         name="_id"
-                                        placeholder="Assign a creator ID"
+                                        placeholder="Use first 3 letters of creator last name, followed by year of birth (i.e. BEM1898)"
                                     />
+                                    <label className="form-label"><small>Assign Creator ID (Required)</small></label>
                                     <Input
                                         value={this.state._books}
                                         onChange={this.handleInputChange}
                                         name="_books"
-                                        placeholder="Assign one book's ID to this author"
+                                        placeholder="Use first 3 letters of book title, followed by original year published (i.e. MAD1939)"
                                     />
+                                    <label className="form-label"><small>First Name (Required)</small></label>
                                     <Input
                                         value={this.state.firstName}
                                         onChange={this.handleInputChange}
                                         name="firstName"
-                                        placeholder="First Name (required)"
+                                        placeholder="J.K."
                                     />
+                                    <label className="form-label"><small>Last Name (Required)</small></label>
                                     <Input
                                         value={this.state.lastName}
                                         onChange={this.handleInputChange}
                                         name="lastName"
-                                        placeholder="Last Name (required)"
+                                        placeholder="Rowling"
                                     />
+                                    <label className="form-label"><small>Year of Birth</small></label>
                                     <Input
                                         value={this.state.birthdate}
                                         onChange={this.handleInputChange}
                                         name="birthdate"
-                                        placeholder="Birthdate"
+                                        placeholder="YYYY"
                                     />
+                                    <label className="form-label"><small>Year Passed (if applicable)</small></label>
                                     <Input
                                         value={this.state.dateOfDeath}
                                         onChange={this.handleInputChange}
                                         name="dateOfDeath"
-                                        placeholder="Date of Death"
+                                        placeholder="YYYY"
                                     />
+                                    <label className="form-label"><small>Biography</small></label>
                                     <TextArea
                                         value={this.state.biography}
                                         onChange={this.handleInputChange}
                                         name="biography"
-                                        placeholder="Biography"
                                     />
+                                    <label className="form-label"><small>Legacy</small></label>
                                     <TextArea
                                         value={this.state.legacy}
                                         onChange={this.handleInputChange}
                                         name="legacy"
-                                        placeholder="Legacy"
                                     />
+                                    <label className="form-label"><small>Own Words</small></label>
                                     <TextArea
                                         value={this.state.ownWords}
                                         onChange={this.handleInputChange}
                                         name="ownWords"
-                                        placeholder="Own Words"
                                     />
+                                    <label className="form-label"><small>Occupation Tag(s)</small></label>
                                     <Input
                                         value={this.state.tags}
                                         onChange={this.handleInputChange}
                                         name="tags"
-                                        placeholder="Tags"
+                                        placeholder="Author / Illustrator / Painter"
                                     />
+                                    <label className="form-label"><small>Profile Picture</small></label>
                                     <Input
                                         value={this.state.image}
                                         onChange={this.handleInputChange}
                                         name="image"
-                                        placeholder="Image URL"
+                                        placeholder="Add creator image URL"
                                     />
                                     <FormBtn
                                         disabled={!(this.state.firstName && this.state.lastName)}
