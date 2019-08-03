@@ -25,3 +25,33 @@ nav a:hover {
 .navbar-brand {
     text-transform: none;
 }
+
+nav #title {
+    font-size: 45px;
+}
+
+/*======= Media Queries ========*/
+
+@media screen and (max-height: 1024px) {
+    nav img {
+        margin-right: 10px;
+        width: 40px;
+        height: 40px
+    }
+
+    nav #title {
+        font-size: 20px;
+    }
+}
+
+  @media only screen and (max-width: 600px) {
+    nav img {
+        margin-right: 10px;
+        width: 30px;
+        height: 30px
+    }
+
+    nav #title {
+        font-size: 15px;
+    }
+  }

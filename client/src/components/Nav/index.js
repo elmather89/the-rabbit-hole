@@ -38,9 +38,9 @@ class Nav extends Component {
       )
         return(
             <nav className="navbar navbar-expand-lg">
-                <h3>
-                <Link className="navbar-brand" to="/"><img src={RHLogo} alt="Rabbit hOle logo"></img> The Rabbit hOle Creator Collection</Link>
-                </h3>
+                <Link className="navbar-brand" id="title" to="/"><img src={RHLogo} alt="Rabbit hOle logo"></img>
+                The Rabbit hOle Creator Collection
+                </Link>
                 <div className="collapse navbar-collapse" id="navbarSupportedContent">
                     {isAuthenticated ? authLinks : guestLinks}
                 </div>
