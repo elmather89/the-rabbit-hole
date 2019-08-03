@@ -28,3 +28,77 @@
     color: white;
 }
 
+/*======= Media Queries ========*/
+
+@media screen and (max-width: 1024px) {
+
+    .book-header h1 {
+        font-size: 3rem;
+    }
+
+    .book-header h3 {
+        font-size: 2rem !important;
+    }
+    
+    .book-header img {
+        width: 200px;
+        height: auto;
+    }
+
+    #book-edit-btn {
+        float: right;
+        font-size: 12px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+
+    .book-header h1 {
+        font-size: 2rem;
+    }
+
+    .book-header h3 {
+        font-size: 1.5rem !important;
+    }
+    
+    .book-header img {
+        width: 160px;
+        height: auto;
+    }
+
+    #book-edit-btn {
+        float: right;
+        font-size: 10px;
+    }
+}
+
+  @media only screen and (max-width: 600px) {
+
+    .book-header {
+        min-height: 400;
+        clear: both;
+        padding: 50px 30px;
+        padding-bottom: 40px;
+        text-align: left;
+    }
+
+    .book-header h1 {
+        font-size: 2rem;
+    }
+
+    .book-header h3 {
+        font-size: 1.5rem !important;
+    }
+    
+    .book-header img {
+        width: 150px;
+        height: auto;
+    }
+
+    #book-edit-btn {
+        float: right;
+        font-size: 10px;
+    }
+
+  }
+

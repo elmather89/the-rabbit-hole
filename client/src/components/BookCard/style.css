@@ -11,3 +11,85 @@
     margin-top: 20px;
     margin-bottom: 10px;
 }
+
+/*======= Media Queries ========*/
+
+@media screen and (max-width: 1024px) {
+
+    .bookCard {
+        border-left: 60px solid lightblue;
+        border-bottom: 60px solid rgba(242, 153, 75, 1);
+        background-color: rgb(235, 231, 231);
+        border-top-color: transparent;
+        border-right-color: transparent;
+        margin: 20px
+    }
+    
+    .smallCaption {
+        margin-top: 20px;
+        margin-bottom: 10px;
+        font-size: 12px;
+    }
+
+    .bookCard .card-title {
+        font-size: 17px;
+    }
+
+    .publish-info {
+        font-size: 17px !important;
+    }
+}
+
+@media screen and (max-width: 768px) {
+
+    .bookCard {
+        border-left: 50px solid lightblue;
+        border-bottom: 50px solid rgba(242, 153, 75, 1);
+        background-color: rgb(235, 231, 231);
+        border-top-color: transparent;
+        border-right-color: transparent;
+        margin: 20px
+    }
+    
+    .smallCaption {
+        margin-top: 20px;
+        margin-bottom: 10px;
+        font-size: 10px;
+    }
+
+    .bookCard .card-title {
+        font-size: 17px;
+    }
+
+    .publish-info {
+        font-size: 15px !important;
+    }
+}
+
+  @media only screen and (max-width: 600px) {
+
+    .bookCard {
+        border-left: 20px solid lightblue;
+        border-bottom: 20px solid rgba(242, 153, 75, 1);
+        background-color: rgb(235, 231, 231);
+        border-top-color: transparent;
+        border-right-color: transparent;
+        margin: 5px
+    }
+    
+    .smallCaption {
+        margin-top: 10px;
+        margin-bottom: 10px;
+        font-size: 12px;
+    }
+
+    .bookCard .card-title {
+        font-size: 17px;
+    }
+
+    .publish-info {
+        font-size: 17px !important;
+    }
+
+  }
+
