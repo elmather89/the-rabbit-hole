@@ -249,8 +249,9 @@ class Books extends Component {
             <Container fluid>
                 <Row>
                     <Col size="lg-12 md-12 sm-12">
-                        <Jumbotron bgimg={brand}>
-                        </Jumbotron>
+                        <div class="hero-image">
+                            <img src={brand}></img>
+                        </div>
                           <div className={!this.state.isShowingCreator ? "hideModalDiv" : 'showModalDiv'}>
                             <CreatorModal
                                 className="modal"
@@ -426,7 +427,7 @@ class Books extends Component {
                 </Row>
                 <Row>
                     <Col size="lg-6 md-6 sm-12">
-                        <Jumbotron bgimg={creator}>
+                        <Jumbotron bgimg={creator} id="creator-jumbo">
                             <h1>Creators</h1>
                         </Jumbotron>
                         <Row>
@@ -460,7 +461,7 @@ class Books extends Component {
                     </Col>
 
                     <Col size="md-6 sm-12">
-                        <Jumbotron bgimg={books}>
+                        <Jumbotron bgimg={books} id="book-jumbo">
                             <h1>Books</h1>
                         </Jumbotron>
                         <Row>

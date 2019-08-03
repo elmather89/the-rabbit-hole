@@ -5,7 +5,7 @@ function Jumbotron(props) {
     return (
         <div
             {...props} style={{
-                height: 300, clear: "both", paddingTop: 120, textAlign: "center",
+                height: 300, clear: "both", paddingTop: 120, marginTop: 30, textAlign: "center",
                 backgroundSize: "cover", overflow: "hidden", backgroundImage: "url(" + props.bgimg + ")"
             }}
             className="jumbotron"
