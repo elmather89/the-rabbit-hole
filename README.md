@@ -19,4 +19,10 @@ This web app allow users to access children’s book title and author informatio
 * Auth0 with JWT middleware
 * Gravatar
 
+## Built by: 
+[Christy St. Thomas](https://github.com/ckayv11)
+[Jennifer Harden](https://github.com/JenHarden)
+[Robert Rowan](https://github.com/rowanb27)
+[Elizabeth Mather](https://github.com/elmather89?tab=repositories)
+
 Deployed site [here](https://rabbit-hole-creator-collection.herokuapp.com/).
