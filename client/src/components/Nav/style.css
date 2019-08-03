@@ -27,12 +27,12 @@ nav a:hover {
 }
 
 nav #title {
-    font-size: 45px;
+    font-size: 35px;
 }
 
 /*======= Media Queries ========*/
 
-@media screen and (max-height: 1024px) {
+@media screen and (max-width: 1020px) {
     nav img {
         margin-right: 10px;
         width: 40px;
