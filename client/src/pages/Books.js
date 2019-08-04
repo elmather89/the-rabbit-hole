@@ -197,9 +197,10 @@ class Books extends Component {
     renderBookSearch = book => {
         const {bookSearch} = this.state;
         if ( bookSearch !== "" && book.title.toLowerCase().indexOf( bookSearch.toLowerCase() ) === -1
-        ) if (
-            bookSearch !== "" && book._creators[0].lastName.toLowerCase().indexOf( bookSearch.toLowerCase() ) === -1
         )
+        // if (
+        //     bookSearch !== "" && book._creators[0].lastName.toLowerCase().indexOf( bookSearch.toLowerCase() ) === -1
+        // )
         {
           return null
         }
@@ -470,7 +471,7 @@ class Books extends Component {
                                     <input
                                         className="search-list"
                                         type="text"
-                                        placeholder="Search book by title or creator last name"
+                                        placeholder="Search book by title"
                                         title="bookSearch"
                                         onChange={this.handleBookSearch}>
                                     </input>
