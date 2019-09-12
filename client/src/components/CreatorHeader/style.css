@@ -10,3 +10,76 @@
     color: white;
     
 }
+
+/*======= Media Queries ========*/
+
+@media screen and (max-width: 1024px) {
+
+    .creatorTitle {
+        font-size: 3rem;
+    }
+
+    .birthDeath, .tags, .bio {
+        font-size: 1rem !important;
+    }
+    
+    #imageSize {
+        width: 200px;
+        height: auto;
+    }
+
+    .submission-btn {
+        font-size: 12px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+
+    .creatorTitle {
+        font-size: 2rem;
+    }
+
+    .birthDeath, .tags, .bio {
+        font-size: 1rem !important;
+    }
+    
+    #imageSize {
+        width: 160px;
+        height: auto;
+    }
+
+    .submission-btn {
+        font-size: 10px;
+    }
+}
+
+  @media only screen and (max-width: 600px) {
+
+    .creator-header {
+        min-height: 400;
+        clear: both;
+        padding: 50px 30px;
+        padding-bottom: 40px;
+        text-align: left;
+    }
+
+    .creatorTitle {
+        font-size: 2rem;
+    }
+
+    .birthDeath, .tags, .bio {
+        font-size: 1rem !important;
+    }
+    
+    #imageSize {
+        width: 210px;
+        height: auto;
+        margin-top: 20px;
+    }
+
+    .submission-btn {
+        font-size: 10px;
+    }
+
+  }
+
