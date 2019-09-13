@@ -184,7 +184,17 @@ footer {
       height: 100%;
   }
 
+
   /*======= Media Queries ========*/
+
+  @media screen and (max-width: 768px) {
+
+    form {
+        margin: 50px !important
+    }
+    
+  }
+
 
   @media only screen and (max-width: 600px) {
 
@@ -201,4 +211,9 @@ footer {
         border-right-style: inset;
         border-bottom-style: inset;
     }
+
+    form {
+        margin: 40px !important
+    }
+
   }
