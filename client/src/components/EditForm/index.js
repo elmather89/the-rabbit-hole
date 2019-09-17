@@ -95,7 +95,7 @@ class EditForm extends Component {
         return (
             <form>
                 <div className="homepage">
-                    <Link className="homepage-link" to={`/creator/${this.state.id}`}>← Back to Creator Details Page</Link>
+                    <Link className="homepage-link" to={`/books/${this.state.id}`}>← Back to Book Details Page</Link>
                 </div>
                 <label className="form-label"><small style={{ textAlign: "left" }}>Title (Required)</small></label>
                 <Input
