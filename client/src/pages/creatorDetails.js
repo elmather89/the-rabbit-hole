@@ -116,30 +116,6 @@ class creatorDetails extends Component {
                                     ) : (
                                         <div><h3>No books associated yet.</h3></div>
                                     )}
-
-                                     {/* <img  className="innerbox" src="https://images-na.ssl-images-amazon.com/images/I/81Tfdl%2Bvm3L.jpg" alt="book cover"></img>
-                                     <img  className="innerbox" src="https://i.harperapps.com/covers/9780060263867/x510.jpg" alt="book cover"></img>
-                                     <img  className="innerbox" src="https://images-na.ssl-images-amazon.com/images/I/51NUyaqOcjL._SX328_BO1,204,203,200_.jpg" alt="book cover"></img>
-                                     <img  className="innerbox" src="https://images-na.ssl-images-amazon.com/images/I/61Dvo5DcSEL._SX333_BO1,204,203,200_.jpg" alt="book cover"></img>
-                                     <img  className="innerbox" src="https://static.wixstatic.com/media/fa39c3_c6c3b1266239468fa0c4fc352e1d17cd~mv2.jpg" alt="book cover"></img>
-                                     <img  className="innerbox" src="https://s26162.pcdn.co/wp-content/uploads/2018/03/9780590089074_mres.jpg" alt="book cover"></img>
-                                     <img  className="innerbox" src="https://images-na.ssl-images-amazon.com/images/I/513NAjhmZjL._SX258_BO1,204,203,200_.jpg" alt="book cover"></img>
-                                     <img  className="innerbox" src="https://images.penguinrandomhouse.com/cover/9781101631386" alt="book cover"></img>
-                                     <img  className="innerbox" src="https://i.harperapps.com/covers/9780062134479/y648.jpg" alt="book cover"></img>
-                                      <img  className="innerbox" src="https://s26162.pcdn.co/wp-content/uploads/2018/03/9780590089074_mres.jpg" alt="book cover"></img>
-                                      <img  className="innerbox" src="https://i.harperapps.com/covers/9780060263867/x510.jpg" alt="book cover"></img>
-                                      <img  className="innerbox" src="https://s26162.pcdn.co/wp-content/uploads/2018/03/9780590089074_mres.jpg" alt="book cover"></img>
-                                      <img  className="innerbox" src="https://i.harperapps.com/covers/9780060263867/x510.jpg" alt="book cover"></img>
-                                      <img  className="innerbox" src="https://s26162.pcdn.co/wp-content/uploads/2018/03/9780590089074_mres.jpg" alt="book cover"></img>
-                                      <img  className="innerbox" src="https://i.harperapps.com/covers/9780060263867/x510.jpg" alt="book cover"></img>
-                                      <img  className="innerbox" src="https://i.harperapps.com/covers/9780060254926/y648.jpg" alt="book cover"></img>
-                                      <img  className="innerbox" src="https://static.wixstatic.com/media/fa39c3_c6c3b1266239468fa0c4fc352e1d17cd~mv2.jpg" alt="book cover"></img>
-                                      <img  className="innerbox" src="https://i.harperapps.com/covers/9780060254926/y648.jpg" alt="book cover"></img>
-                                      <img  className="innerbox" src="https://static.wixstatic.com/media/fa39c3_c6c3b1266239468fa0c4fc352e1d17cd~mv2.jpg" alt="book cover"></img> */}
-                                    {/* //  <img  className="innerbox" src="https://i.ytimg.com/vi/2lPcCNyopGI/hqdefault.jpg" alt="book image"></img>
-                                    //  <img  className="innerbox" src="https://i.ytimg.com/vi/2lPcCNyopGI/hqdefault.jpg" alt="book image"></img>
-                                    //  <img  className="innerbox" src="https://i.ytimg.com/vi/2lPcCNyopGI/hqdefault.jpg" alt="book image"></img>
-                                    //  <img  className="innerbox" src="https://i.ytimg.com/vi/2lPcCNyopGI/hqdefault.jpg" alt="book image"></img> */}
                                </div>
 
                             </Col>
