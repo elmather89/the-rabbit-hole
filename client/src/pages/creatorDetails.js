@@ -83,8 +83,6 @@ class creatorDetails extends Component {
 
                                                 <h2 className="birthDeath">({this.state.creator.birthdate} - {this.state.creator.dateOfDeath})</h2>
 
-                                                Internal ID: {this.state.creator._id}
-
                                         <h3 className="tags">Tags: {this.state.creator.tags}</h3>
 
                                         <p className="bio">
@@ -147,6 +145,10 @@ class creatorDetails extends Component {
                             </div>
                         </Row>
 
+                        <Row>
+                            <Col size="sm-12">Internal ID: {this.state.creator._id}</Col>
+                        </Row>
+                        
                     </CreatorBody>
                 </Container>
             </div>

@@ -40,7 +40,7 @@ class bookDetails extends Component {
                 <Col size="sm-9">
                   <h1 className="bookTitle">{this.state.book.title}</h1>
                   <Link to={`/creator/${this.state.creator._id}`}>
-                  <h3>By {this.state.creator.firstName} {this.state.creator.lastName}</h3>
+                    <h3>By {this.state.creator.firstName} {this.state.creator.lastName}</h3>
                   </Link>
                   <p>({this.state.creator.birthdate} - {this.state.creator.dateOfDeath})</p>
                   <hr></hr>
@@ -94,6 +94,9 @@ class bookDetails extends Component {
                         style={{ height: "auto" }}>
                       </img>
                     </div>
+                    <div style={{ textAlign: "center", padding: 10 }}>
+                    ISBN: {this.state.book._id}
+                    </div>
                   </div>
                 </Col>
               </Row>
@@ -103,11 +106,12 @@ class bookDetails extends Component {
 
         <Row>
           <div style={{ marginLeft: 20, marginBottom: 50 }}>
-          <Col size="sm-12">
-            <Link className="homepage-link" to="/">← Back to Homepage</Link>
-          </Col>
+            <Col size="sm-12">
+              <Link className="homepage-link" to="/">← Back to Homepage</Link>
+            </Col>
           </div>
         </Row>
+
       </Container>
     );
   };
