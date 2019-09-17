@@ -49,6 +49,7 @@ class creatorDetails extends Component {
     };
     componentDidMount() {
         this.loadcreatorDetails();
+        window.scrollTo(0, 0);
     };
     loadcreatorDetails = () => {
         API.getCreator(this.props.match.params.id)
@@ -110,11 +111,13 @@ class creatorDetails extends Component {
                         <Row>
                             <Col size="sm-12">
 
-                                <div className="outerbox" width="200%">
+                            <div className="outerbox" width="200%">
                                     {this.state.bookArray ? (
-                                        <Image className="innerbox" src={this.state.bookArray.bookImage}></Image>
+                                        <Link to={`/books/${this.state.bookArray._id}`}>
+                                            <Image className="innerbox" src={this.state.bookArray.bookImage}></Image>
+                                        </Link>
                                     ) : (
-                                        <div><h3>No books associated yet.</h3></div>
+                                        <div><h3 className="warning">Book with isbn {this.state.book._id} is associated with this author, but you must add this book to the book collection.</h3></div>
                                     )}
                                </div>
 
