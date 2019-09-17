@@ -12,6 +12,14 @@
     margin-bottom: 10px;
 }
 
+a h3 {
+    color: black;
+}
+
+a h3:hover {
+    text-decoration: solid underline lightblue;
+}
+
 /*======= Media Queries ========*/
 
 @media screen and (max-width: 1024px) {

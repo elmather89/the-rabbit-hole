@@ -18,7 +18,7 @@ class CreatorEditForm extends Component {
             ownWords: "",
             tags: "",
             image: "",
-            id:""
+            id: ""
         };
 
         this.handleInputChange = this.handleInputChange.bind(this);
@@ -27,9 +27,9 @@ class CreatorEditForm extends Component {
 
     componentDidMount() {
         this.loadCreatorById();
-        const path=window.location.pathname.split("/");
-        this.setState({id:path[2]});
-        
+        const path = window.location.pathname.split("/");
+        this.setState({ id: path[2] });
+        window.scrollTo(0, 0);
     };
 
     loadCreatorById = () => {
@@ -84,6 +84,9 @@ class CreatorEditForm extends Component {
         return (
 
             <form>
+                <div className="homepage">
+                    <Link className="homepage-link" to={`/creator/${this.state.id}`}>← Back to Creator Details Page</Link>
+                </div>
                 <label className="form-label"><small style={{ textAlign: "left" }}>First Name</small></label>
                 <Input
                     value={this.state.firstName}
@@ -153,9 +156,6 @@ class CreatorEditForm extends Component {
                 >
                     Update Creator
                 </button>
-                <div className="homepage">
-                        <Link className="homepage-link" to={`/creator/${this.state.id}`}>← Back to Creator Details Page</Link>
-                </div>
             </form>
         );
     };

@@ -17,6 +17,7 @@ class bookDetails extends Component {
 
   componentDidMount() {
     this.loadBookDetails();
+    window.scrollTo(0, 0);
   };
 
   // When this component mounts, grab the book with the _id of this.props.match.params.id
@@ -38,7 +39,9 @@ class bookDetails extends Component {
               <Row className="headerRow">
                 <Col size="sm-9">
                   <h1 className="bookTitle">{this.state.book.title}</h1>
-                  <h3>By {this.state.creator.firstName} {this.state.creator.lastName}</h3>
+                  <Link to={`/creator/${this.state.creator._id}`}>
+                    <h3>By {this.state.creator.firstName} {this.state.creator.lastName}</h3>
+                  </Link>
                   <p>({this.state.creator.birthdate} - {this.state.creator.dateOfDeath})</p>
                   <hr></hr>
                   <Button id="book-edit-btn">
@@ -91,6 +94,9 @@ class bookDetails extends Component {
                         style={{ height: "auto" }}>
                       </img>
                     </div>
+                    <div style={{ textAlign: "center", padding: 10 }}>
+                    ISBN: {this.state.book._id}
+                    </div>
                   </div>
                 </Col>
               </Row>
@@ -100,11 +106,12 @@ class bookDetails extends Component {
 
         <Row>
           <div style={{ marginLeft: 20, marginBottom: 50 }}>
-          <Col size="sm-12">
-            <Link className="homepage-link" to="/">← Back to Homepage</Link>
-          </Col>
+            <Col size="sm-12">
+              <Link className="homepage-link" to="/">← Back to Homepage</Link>
+            </Col>
           </div>
         </Row>
+
       </Container>
     );
   };

@@ -49,6 +49,7 @@ class creatorDetails extends Component {
     };
     componentDidMount() {
         this.loadcreatorDetails();
+        window.scrollTo(0, 0);
     };
     loadcreatorDetails = () => {
         API.getCreator(this.props.match.params.id)
@@ -82,8 +83,6 @@ class creatorDetails extends Component {
 
                                                 <h2 className="birthDeath">({this.state.creator.birthdate} - {this.state.creator.dateOfDeath})</h2>
 
-                                                Internal ID: {this.state.creator._id}
-
                                         <h3 className="tags">Tags: {this.state.creator.tags}</h3>
 
                                         <p className="bio">
@@ -110,36 +109,14 @@ class creatorDetails extends Component {
                         <Row>
                             <Col size="sm-12">
 
-                                <div className="outerbox" width="200%">
+                            <div className="outerbox" width="200%">
                                     {this.state.bookArray ? (
-                                        <Image className="innerbox" src={this.state.bookArray.bookImage}></Image>
+                                        <Link to={`/books/${this.state.bookArray._id}`}>
+                                            <Image className="innerbox" src={this.state.bookArray.bookImage}></Image>
+                                        </Link>
                                     ) : (
-                                        <div><h3>No books associated yet.</h3></div>
+                                        <div><h3 className="warning">Book with isbn {this.state.book._id} is associated with this author, but you must add this book to the book collection.</h3></div>
                                     )}
-
-                                     {/* <img  className="innerbox" src="https://images-na.ssl-images-amazon.com/images/I/81Tfdl%2Bvm3L.jpg" alt="book cover"></img>
-                                     <img  className="innerbox" src="https://i.harperapps.com/covers/9780060263867/x510.jpg" alt="book cover"></img>
-                                     <img  className="innerbox" src="https://images-na.ssl-images-amazon.com/images/I/51NUyaqOcjL._SX328_BO1,204,203,200_.jpg" alt="book cover"></img>
-                                     <img  className="innerbox" src="https://images-na.ssl-images-amazon.com/images/I/61Dvo5DcSEL._SX333_BO1,204,203,200_.jpg" alt="book cover"></img>
-                                     <img  className="innerbox" src="https://static.wixstatic.com/media/fa39c3_c6c3b1266239468fa0c4fc352e1d17cd~mv2.jpg" alt="book cover"></img>
-                                     <img  className="innerbox" src="https://s26162.pcdn.co/wp-content/uploads/2018/03/9780590089074_mres.jpg" alt="book cover"></img>
-                                     <img  className="innerbox" src="https://images-na.ssl-images-amazon.com/images/I/513NAjhmZjL._SX258_BO1,204,203,200_.jpg" alt="book cover"></img>
-                                     <img  className="innerbox" src="https://images.penguinrandomhouse.com/cover/9781101631386" alt="book cover"></img>
-                                     <img  className="innerbox" src="https://i.harperapps.com/covers/9780062134479/y648.jpg" alt="book cover"></img>
-                                      <img  className="innerbox" src="https://s26162.pcdn.co/wp-content/uploads/2018/03/9780590089074_mres.jpg" alt="book cover"></img>
-                                      <img  className="innerbox" src="https://i.harperapps.com/covers/9780060263867/x510.jpg" alt="book cover"></img>
-                                      <img  className="innerbox" src="https://s26162.pcdn.co/wp-content/uploads/2018/03/9780590089074_mres.jpg" alt="book cover"></img>
-                                      <img  className="innerbox" src="https://i.harperapps.com/covers/9780060263867/x510.jpg" alt="book cover"></img>
-                                      <img  className="innerbox" src="https://s26162.pcdn.co/wp-content/uploads/2018/03/9780590089074_mres.jpg" alt="book cover"></img>
-                                      <img  className="innerbox" src="https://i.harperapps.com/covers/9780060263867/x510.jpg" alt="book cover"></img>
-                                      <img  className="innerbox" src="https://i.harperapps.com/covers/9780060254926/y648.jpg" alt="book cover"></img>
-                                      <img  className="innerbox" src="https://static.wixstatic.com/media/fa39c3_c6c3b1266239468fa0c4fc352e1d17cd~mv2.jpg" alt="book cover"></img>
-                                      <img  className="innerbox" src="https://i.harperapps.com/covers/9780060254926/y648.jpg" alt="book cover"></img>
-                                      <img  className="innerbox" src="https://static.wixstatic.com/media/fa39c3_c6c3b1266239468fa0c4fc352e1d17cd~mv2.jpg" alt="book cover"></img> */}
-                                    {/* //  <img  className="innerbox" src="https://i.ytimg.com/vi/2lPcCNyopGI/hqdefault.jpg" alt="book image"></img>
-                                    //  <img  className="innerbox" src="https://i.ytimg.com/vi/2lPcCNyopGI/hqdefault.jpg" alt="book image"></img>
-                                    //  <img  className="innerbox" src="https://i.ytimg.com/vi/2lPcCNyopGI/hqdefault.jpg" alt="book image"></img>
-                                    //  <img  className="innerbox" src="https://i.ytimg.com/vi/2lPcCNyopGI/hqdefault.jpg" alt="book image"></img> */}
                                </div>
 
                             </Col>
@@ -168,6 +145,10 @@ class creatorDetails extends Component {
                             </div>
                         </Row>
 
+                        <Row>
+                            <Col size="sm-12">Internal ID: {this.state.creator._id}</Col>
+                        </Row>
+                        
                     </CreatorBody>
                 </Container>
             </div>

@@ -33,6 +33,7 @@ class EditForm extends Component {
         this.loadBookById();
         const path = window.location.pathname.split("/");
         this.setState({ id: path[2] });
+        window.scrollTo(0, 0);
     };
 
     loadBookById = () => {
@@ -94,6 +95,9 @@ class EditForm extends Component {
     render() {
         return (
             <form>
+                <div className="homepage">
+                    <Link className="homepage-link" to={`/books/${this.state.id}`}>← Back to Book Details Page</Link>
+                </div>
                 <label className="form-label"><small style={{ textAlign: "left" }}>Title (Required)</small></label>
                 <Input
                     value={this.state.title}
@@ -177,9 +181,6 @@ class EditForm extends Component {
                 >
                     Update Book
                 </button>
-                <div className="homepage">
-                    <Link className="homepage-link" to={`/books/${this.state.id}`}>← Back to Book Details Page</Link>
-                </div>
             </form>
         );
     };
