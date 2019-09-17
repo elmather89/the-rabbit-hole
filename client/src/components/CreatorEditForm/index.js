@@ -29,7 +29,7 @@ class CreatorEditForm extends Component {
         this.loadCreatorById();
         const path = window.location.pathname.split("/");
         this.setState({ id: path[2] });
-
+        window.scrollTo(0, 0);
     };
 
     loadCreatorById = () => {
