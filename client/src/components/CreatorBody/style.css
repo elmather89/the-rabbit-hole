@@ -5,3 +5,31 @@
     padding-bottom: 40px;
     text-align: left;
 }
+
+/*======= Media Queries ========*/
+
+@media screen and (max-width: 768px) {
+
+.creator-body {
+    min-height: 400;
+    clear: both;
+    padding: 50px 30px;
+    padding-bottom: 40px;
+    text-align: left;
+}
+
+}
+
+@media only screen and (max-width: 600px) {
+
+.creator-body {
+    min-height: 400;
+    clear: both;
+    padding: 30px 10px;
+    padding-bottom: 40px;
+    text-align: left;
+}
+
+}
+
+

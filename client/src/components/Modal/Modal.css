@@ -78,3 +78,42 @@
     padding: 10px;
     font-weight: bold;
 } */
+
+/*======= Media Queries ========*/
+
+@media only screen and (max-width: 1024px) {
+
+    .modal-wrapper {
+        width: 80% !important;
+        margin-bottom: 50px !important;
+    }
+    
+    .modal-header {
+        height: 30px !important;
+        line-height: 20px !important;
+    }
+    
+    .modal-header h3 {
+        padding: 2px !important;
+        font-size: 15px !important;
+    }
+    
+    .modal-body {
+        padding: 5px 10px !important;
+    }
+    
+    .modal-footer {
+        height: 40px !important;
+        padding: 0 !important;
+        width: 100% !important;
+        margin-top: 30px !important;
+    }
+    
+    .close-modal-btn {
+        font-size: 15px !important;
+    }
+    
+    .btn-cancel, .btn-continue {
+        padding: 7px !important;
+    }
+}

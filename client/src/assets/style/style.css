@@ -184,7 +184,17 @@ footer {
       height: 100%;
   }
 
+
   /*======= Media Queries ========*/
+
+  @media screen and (max-width: 768px) {
+
+    form {
+        margin: 50px !important
+    }
+    
+  }
+
 
   @media only screen and (max-width: 600px) {
 
@@ -192,4 +202,18 @@ footer {
         width: 100%;
         height: 125%;
     }
+
+    .contain1 {
+    
+        border-width: 20px;
+        border-right-color: lightblue;
+        border-bottom-color: rgba(242, 153, 75, 1);
+        border-right-style: inset;
+        border-bottom-style: inset;
+    }
+
+    form {
+        margin: 40px !important
+    }
+
   }
