@@ -94,6 +94,9 @@ class EditForm extends Component {
     render() {
         return (
             <form>
+                <div className="homepage">
+                    <Link className="homepage-link" to={`/creator/${this.state.id}`}>← Back to Creator Details Page</Link>
+                </div>
                 <label className="form-label"><small style={{ textAlign: "left" }}>Title (Required)</small></label>
                 <Input
                     value={this.state.title}
@@ -177,9 +180,6 @@ class EditForm extends Component {
                 >
                     Update Book
                 </button>
-                <div className="homepage">
-                    <Link className="homepage-link" to={`/books/${this.state.id}`}>← Back to Book Details Page</Link>
-                </div>
             </form>
         );
     };
