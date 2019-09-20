@@ -198,9 +198,9 @@ class Books extends Component {
         const {bookSearch} = this.state;
         if ( bookSearch !== "" && book.title.toLowerCase().indexOf( bookSearch.toLowerCase() ) === -1
         )
-        // if (
-        //     bookSearch !== "" && book._creators[0].lastName.toLowerCase().indexOf( bookSearch.toLowerCase() ) === -1
-        // )
+        if (
+            bookSearch !== "" && book._creators[0].lastName.toLowerCase().indexOf( bookSearch.toLowerCase() ) === -1
+        )
         {
           return null
         }
@@ -218,7 +218,8 @@ class Books extends Component {
     renderCreatorSearch = creator => {
         const {creatorSearch} = this.state;
         if ( creatorSearch !== "" && creator.firstName.toLowerCase().indexOf( creatorSearch.toLowerCase() ) === -1
-        ) if (
+        ) 
+        if (
             creatorSearch !== "" && creator.lastName.toLowerCase().indexOf( creatorSearch.toLowerCase() ) === -1
         )
         {
