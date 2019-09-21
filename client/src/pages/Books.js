@@ -429,9 +429,9 @@ class Books extends Component {
                 </Row>
                 <Row>
                     <Col size="lg-6 md-6 sm-12">
-                        <Jumbotron bgimg={creator} id="creator-jumbo">
+                        {/* <Jumbotron bgimg={creator} id="creator-jumbo">
                             <h1>Creators</h1>
-                        </Jumbotron>
+                        </Jumbotron> */}
                         <Row>
                             <Col size="sm-12 md-9">
                                 <div className="search">
@@ -463,9 +463,9 @@ class Books extends Component {
                     </Col>
 
                     <Col size="md-6 sm-12">
-                        <Jumbotron bgimg={books} id="book-jumbo">
+                        {/* <Jumbotron bgimg={books} id="book-jumbo">
                             <h1>Books</h1>
-                        </Jumbotron>
+                        </Jumbotron> */}
                         <Row>
                             <Col size="sm-12 md-9">
                                 <div className="search">
