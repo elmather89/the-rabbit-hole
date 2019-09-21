@@ -6,6 +6,7 @@ import BookCard from '../BookCard';
 
 import './style.css';
 import { Col, Row, Container } from "../Grid";
+import DeleteBtn from '../DeleteBtn';
 import { Input, TextArea } from "../Form";
 import API from "../../utils/API";
 import { Link } from "react-router-dom";
@@ -85,6 +86,12 @@ class CreatorEditForm extends Component {
                 console.log(res.data)
                 this.props.history.push("/creators/")
             })
+            .catch(err => console.log(err));
+    };
+
+    deleteCreator = id => {
+        API.deleteCreator(id)
+            .then(res => this.loadCreators())
             .catch(err => console.log(err));
     };
 
@@ -171,6 +178,7 @@ class CreatorEditForm extends Component {
                 >
                     Update Creator
                 </button>
+                <DeleteBtn onClick={() => this.deleteCreator(this.state.id)} />
             </form>
         )
 

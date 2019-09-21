@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import DeleteBtn from "../components/DeleteBtn";
+// import DeleteBtn from "../components/DeleteBtn";
 import Jumbotron from "../components/Jumbotron";
 import API from "../utils/API";
 import { Link } from "react-router-dom";
@@ -118,17 +118,17 @@ class Books extends Component {
             .catch(err => console.log(err));
     };
 
-    deleteBook = id => {
-        API.deleteBook(id)
-            .then(res => this.loadBooks())
-            .catch(err => console.log(err));
-    };
+    // deleteBook = id => {
+    //     API.deleteBook(id)
+    //         .then(res => this.loadBooks())
+    //         .catch(err => console.log(err));
+    // };
 
-    deleteCreator = id => {
-        API.deleteCreator(id)
-            .then(res => this.loadCreators())
-            .catch(err => console.log(err));
-    };
+    // deleteCreator = id => {
+    //     API.deleteCreator(id)
+    //         .then(res => this.loadCreators())
+    //         .catch(err => console.log(err));
+    // };
 
     handleInputChange = event => {
         const { name, value } = event.target;
@@ -211,7 +211,7 @@ class Books extends Component {
                     {book.title} by {book._creators[0] ? `${book._creators[0].firstName} ${book._creators[0].lastName}` : book.title}
                 </strong>
             </Link>
-            <DeleteBtn onClick={() => this.deleteBook(book._id)} />
+            {/* <DeleteBtn onClick={() => this.deleteBook(book._id)} /> */}
         </ListItem>
     };
 
@@ -232,7 +232,7 @@ class Books extends Component {
                     {creator.lastName}, {creator.firstName}
                 </strong>
             </Link>
-            <DeleteBtn onClick={() => this.deleteCreator(creator._id)} />
+            {/* <DeleteBtn onClick={() => this.deleteCreator(creator._id)} /> */}
         </ListItem>
     };
 
