@@ -12,6 +12,9 @@ import "../assets/style/style.css";
 import CreatorCarousel from "components/Carousel";
 import CreatorEditForm from "components/CreatorEditForm";
 import Carousel from "components/Carousel";
+import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
+import { logoutUser } from '.../../actions/authentication';
 
 
 class creatorDetails extends Component {
@@ -70,7 +73,10 @@ class creatorDetails extends Component {
 
 
     render() {
-        return (
+
+        const { isAuthenticated, user } = this.props.auth;
+
+        const authLinks = (
             <div className="contain1">
                 <Container fluid>
                     <Row>
@@ -153,6 +159,98 @@ class creatorDetails extends Component {
                 </Container>
             </div>
         )
+
+        const guestLinks = (
+            <div className="contain1">
+                <Container fluid>
+                    <Row>
+                        <Col size="sm-12">
+                            <CreatorHeader>
+                                <Row className="headerR">
+                                    <Col size="sm-8">
+    
+                                                <h1 className="creatorTitle">{this.state.creator.firstName} {this.state.creator.lastName}</h1>
+
+                                                <h2 className="birthDeath">({this.state.creator.birthdate} - {this.state.creator.dateOfDeath})</h2>
+
+                                        <h3 className="tags">Tags: {this.state.creator.tags}</h3>
+
+                                        <p className="bio">
+                                            <hr></hr>
+                                            <strong>Biography: </strong>{this.state.creator.biography}
+                                            <hr></hr>
+                                        </p>
+                                      </Col>
+
+                                       <Col size="sm-4">
+                                            <div className="imageCol">
+                                           <Image id="imageSize" className="imag" src={this.state.creator.image} alt="Creator Profile" roundedCircle />
+                                            </div> 
+                                       </Col>
+                                        </Row>  
+                               
+                            </CreatorHeader>
+                        </Col>
+                    </Row>
+                    <CreatorBody>
+                        <Row>
+                            <Col size="sm-12">
+
+                            <div className="outerbox" width="200%">
+                                    {this.state.bookArray ? (
+                                        <Link to={`/books/${this.state.bookArray._id}`}>
+                                            <Image className="innerbox" src={this.state.bookArray.bookImage}></Image>
+                                        </Link>
+                                    ) : (
+                                        <div><h3 className="warning">Book with isbn {this.state.book._id} is associated with this author, but you must add this book to the book collection.</h3></div>
+                                    )}
+                               </div>
+
+                            </Col>
+                            
+                        </Row>
+                        <Row>
+                            <Col size="md-6 sm-12">
+                                <Card>
+                                    <strong>Legacy</strong>
+                                    <p>{this.state.creator.legacy}</p>
+                                </Card>
+                            </Col>
+                            <Col size="md-6 sm-12">
+                                <Card>
+                                    <strong>Own Words</strong>
+                                    <p>"{this.state.creator.ownWords}"</p>
+                                </Card>
+                            </Col>
+                        </Row>
+
+                        <Row>
+                            <div className="homepage">
+                                <Col size="sm-12">
+                                    <Link className="homepage-link" to="/">← Back to Homepage</Link>
+                                </Col>
+                            </div>
+                        </Row>
+
+                        <Row>
+                            <Col size="sm-12">Internal ID: {this.state.creator._id}</Col>
+                        </Row>
+                        
+                    </CreatorBody>
+                </Container>
+            </div>
+        )
+
+        return (
+            <div>
+                {isAuthenticated ? authLinks : guestLinks}
+            </div>
+        );
     };
-}
-export default creatorDetails;
+};
+
+const mapStateToProps = (state) => ({
+    auth: state.auth
+})
+
+export default connect(mapStateToProps, { logoutUser })(withRouter(creatorDetails));
