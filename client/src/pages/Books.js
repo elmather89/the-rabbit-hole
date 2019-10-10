@@ -14,6 +14,7 @@ import "../assets/style/style.css";
 import brand from "../assets/images/brand.svg";
 import creator from "../assets/images/create.jpg";
 import books from "../assets/images/books.jpg";
+import ContainerBoot from 'react-bootstrap/Container';
 
 
 class Books extends Component {
@@ -427,6 +428,7 @@ class Books extends Component {
                           </div>
                     </Col>
                 </Row>
+                <ContainerBoot>
                 <Row>
                     <Col size="lg-6 md-6 sm-12">
                         {/* <Jumbotron bgimg={creator} id="creator-jumbo">
@@ -497,6 +499,7 @@ class Books extends Component {
                             )}
                     </Col>
                 </Row>
+                </ContainerBoot>
                 <Footer />
             </Container >
         )

@@ -15,6 +15,7 @@ import Carousel from "components/Carousel";
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { logoutUser } from '.../../actions/authentication';
+import ContainerBoot from 'react-bootstrap/Container';
 
 
 class creatorDetails extends Component {
