@@ -119,9 +119,9 @@ class creatorDetails extends Component {
                         <Row>
                             <Col size="sm-12">
 
-                                <div className="outerbox" width="200%">
+                                <div className="outerbox">
                                 {this.state.book.length ? (
-                                        <div>{
+                                        <span>{
                                             this.state.bookArray.map(creator => {
                                                 console.log(creator);
                                                 if (creator != null) {
@@ -134,7 +134,7 @@ class creatorDetails extends Component {
                                                     return (<p value={null}>--Please Select a Creator</p>)
                                                 }
                                             })
-                                        }</div>) : (<span></span>)}
+                                        }</span>) : (<span></span>)}
                                 </div>
 
                             </Col>
@@ -208,7 +208,7 @@ class creatorDetails extends Component {
                         <Row>
                             <Col size="sm-12">
 
-                                <div className="outerbox" width="200%">
+                                <div className="outerbox">
                                     {this.state.book.length ? (
                                         <div>{
                                             this.state.bookArray.map(creator => {

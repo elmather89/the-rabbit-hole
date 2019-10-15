@@ -111,16 +111,16 @@ div.col-sm-2 {
 }
 
 .outerbox {
-      width: 99%;
-      height: 210px;
-      background-color: black;
+      width: auto;
+      max-height: 250px;
+      background-color: rgb(235, 231, 231);
       overflow: scroll;
       display: flex;
 }
 
 .innerbox {
-      width: 150px;
-      height: 150px;
+      width: auto;
+      max-height: 200px;
       margin: 10px;
       background-color: red;
       flex: none;
