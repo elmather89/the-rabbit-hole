@@ -49,7 +49,7 @@ class creatorDetails extends Component {
         tags: "",
         image: "",
         fullName: "",
-        bookArray: ""
+        bookArray: []
     };
     componentDidMount() {
         this.loadcreatorDetails();
@@ -58,9 +58,12 @@ class creatorDetails extends Component {
     loadcreatorDetails = () => {
         API.getCreator(this.props.match.params.id)
             .then(res => {
-                let bookArray = res.data._books[0];
+
+                // let bookArray = res.data._books[0];
+                let bookArray = [res.data._books];
                 // console.log(bookArray);
                 console.log(res.data._books);
+
                 this.setState({
                     creator: res.data, book: res.data._books, bookArray: bookArray
                     // creator: res.data, firstName: "", lastName: "", biography: "", birthdate: "", dateOfDeath: "", legacy: "", ownWords: "", tags: "", image: ""
@@ -85,10 +88,10 @@ class creatorDetails extends Component {
                             <CreatorHeader>
                                 <Row className="headerR">
                                     <Col size="sm-8">
-    
-                                                <h1 className="creatorTitle">{this.state.creator.firstName} {this.state.creator.lastName}</h1>
 
-                                                <h2 className="birthDeath">({this.state.creator.birthdate} - {this.state.creator.dateOfDeath})</h2>
+                                        <h1 className="creatorTitle">{this.state.creator.firstName} {this.state.creator.lastName}</h1>
+
+                                        <h2 className="birthDeath">({this.state.creator.birthdate} - {this.state.creator.dateOfDeath})</h2>
 
                                         <h3 className="tags">Tags: {this.state.creator.tags}</h3>
 
@@ -100,15 +103,15 @@ class creatorDetails extends Component {
                                         <Button className="edit-btn">
                                             <Link to={"/creatorEdit/" + this.state.creator._id}>Edit Details</Link>
                                         </Button>
-                                      </Col>
+                                    </Col>
 
-                                       <Col size="sm-4">
-                                            <div className="imageCol">
-                                           <Image id="imageSize" className="imag" src={this.state.creator.image} alt="Creator Profile" roundedCircle />
-                                            </div> 
-                                       </Col>
-                                        </Row>  
-                               
+                                    <Col size="sm-4">
+                                        <div className="imageCol">
+                                            <Image id="imageSize" className="imag" src={this.state.creator.image} alt="Creator Profile" roundedCircle />
+                                        </div>
+                                    </Col>
+                                </Row>
+
                             </CreatorHeader>
                         </Col>
                     </Row>
@@ -116,18 +119,18 @@ class creatorDetails extends Component {
                         <Row>
                             <Col size="sm-12">
 
-                            <div className="outerbox" width="200%">
+                                <div className="outerbox" width="200%">
                                     {this.state.bookArray ? (
                                         <Link to={`/books/${this.state.bookArray._id}`}>
                                             <Image className="innerbox" src={this.state.bookArray.bookImage}></Image>
                                         </Link>
                                     ) : (
-                                        <div><h3 className="warning">Book with isbn {this.state.book._id} is associated with this author, but you must add this book to the book collection.</h3></div>
-                                    )}
-                               </div>
+                                            <div><h3 className="warning">Book with isbn {this.state.book._id} is associated with this author, but you must add this book to the book collection.</h3></div>
+                                        )}
+                                </div>
 
                             </Col>
-                            
+
                         </Row>
                         <Row>
                             <Col size="md-6 sm-12">
@@ -155,7 +158,7 @@ class creatorDetails extends Component {
                         <Row>
                             <Col size="sm-12">Internal ID: {this.state.creator._id}</Col>
                         </Row>
-                        
+
                     </CreatorBody>
                 </Container>
             </div>
@@ -169,10 +172,10 @@ class creatorDetails extends Component {
                             <CreatorHeader>
                                 <Row className="headerR">
                                     <Col size="sm-8">
-    
-                                                <h1 className="creatorTitle">{this.state.creator.firstName} {this.state.creator.lastName}</h1>
 
-                                                <h2 className="birthDeath">({this.state.creator.birthdate} - {this.state.creator.dateOfDeath})</h2>
+                                        <h1 className="creatorTitle">{this.state.creator.firstName} {this.state.creator.lastName}</h1>
+
+                                        <h2 className="birthDeath">({this.state.creator.birthdate} - {this.state.creator.dateOfDeath})</h2>
 
                                         <h3 className="tags">Tags: {this.state.creator.tags}</h3>
 
@@ -181,15 +184,15 @@ class creatorDetails extends Component {
                                             <strong>Biography: </strong>{this.state.creator.biography}
                                             <hr></hr>
                                         </p>
-                                      </Col>
+                                    </Col>
 
-                                       <Col size="sm-4">
-                                            <div className="imageCol">
-                                           <Image id="imageSize" className="imag" src={this.state.creator.image} alt="Creator Profile" roundedCircle />
-                                            </div> 
-                                       </Col>
-                                        </Row>  
-                               
+                                    <Col size="sm-4">
+                                        <div className="imageCol">
+                                            <Image id="imageSize" className="imag" src={this.state.creator.image} alt="Creator Profile" roundedCircle />
+                                        </div>
+                                    </Col>
+                                </Row>
+
                             </CreatorHeader>
                         </Col>
                     </Row>
@@ -197,18 +200,33 @@ class creatorDetails extends Component {
                         <Row>
                             <Col size="sm-12">
 
-                            <div className="outerbox" width="200%">
-                                    {this.state.bookArray ? (
+                                <div className="outerbox" width="200%">
+                                    {/* {this.state.bookArray ? (
                                         <Link to={`/books/${this.state.bookArray._id}`}>
                                             <Image className="innerbox" src={this.state.bookArray.bookImage}></Image>
                                         </Link>
                                     ) : (
                                         <div><h3 className="warning">Book with isbn {this.state.book._id} is associated with this author, but you must add this book to the book collection.</h3></div>
-                                    )}
-                               </div>
+                                    )} */}
+
+                                    {this.state.book.length ? (
+                                        <div>{
+                                            this.state.bookArray.map(creator => {
+                                                console.log(creator);
+                                                if (creator != null) {
+                                                    return (
+                                                        <p value={creator._id}>{creator.title}</p>
+                                                    )
+                                                } else {
+                                                    return (<p value={null}>--Please Select a Creator</p>)
+                                                }
+                                            })
+                                        }</div>) : (<span></span>)}
+
+                                </div>
 
                             </Col>
-                            
+
                         </Row>
                         <Row>
                             <Col size="md-6 sm-12">
@@ -236,7 +254,7 @@ class creatorDetails extends Component {
                         <Row>
                             <Col size="sm-12">Internal ID: {this.state.creator._id}</Col>
                         </Row>
-                        
+
                     </CreatorBody>
                 </Container>
             </div>
