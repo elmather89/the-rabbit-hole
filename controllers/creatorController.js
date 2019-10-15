@@ -15,7 +15,7 @@ module.exports = {
   findById: function (req, res) {
     db.Creator
       .findById(req.params.id)
-      .populate('_books', ["title", "synopsis", "bookImage"])
+      .populate('_books', ["title", "synopsis", "bookImage", "bookArray"])
       .then(dbModel => {
         console.log(dbModel);
         res.json(dbModel);

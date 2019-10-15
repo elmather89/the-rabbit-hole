@@ -60,9 +60,9 @@ class creatorDetails extends Component {
             .then(res => {
 
                 // let bookArray = res.data._books[0];
-                let bookArray = [res.data._books];
-                // console.log(bookArray);
-                console.log(res.data._books);
+                let bookArray = [...res.data._books];
+                console.log(bookArray);
+                // console.log(res.data._books);
 
                 this.setState({
                     creator: res.data, book: res.data._books, bookArray: bookArray
@@ -120,13 +120,21 @@ class creatorDetails extends Component {
                             <Col size="sm-12">
 
                                 <div className="outerbox" width="200%">
-                                    {this.state.bookArray ? (
-                                        <Link to={`/books/${this.state.bookArray._id}`}>
-                                            <Image className="innerbox" src={this.state.bookArray.bookImage}></Image>
-                                        </Link>
-                                    ) : (
-                                            <div><h3 className="warning">Book with isbn {this.state.book._id} is associated with this author, but you must add this book to the book collection.</h3></div>
-                                        )}
+                                {this.state.book.length ? (
+                                        <div>{
+                                            this.state.bookArray.map(creator => {
+                                                console.log(creator);
+                                                if (creator != null) {
+                                                    return (
+                                                        <Link to={`/books/${creator._id}`}>
+                                                            <Image className="innerbox" src={creator.bookImage}></Image>
+                                                        </Link>
+                                                    )
+                                                } else {
+                                                    return (<p value={null}>--Please Select a Creator</p>)
+                                                }
+                                            })
+                                        }</div>) : (<span></span>)}
                                 </div>
 
                             </Col>
@@ -201,28 +209,21 @@ class creatorDetails extends Component {
                             <Col size="sm-12">
 
                                 <div className="outerbox" width="200%">
-                                    {/* {this.state.bookArray ? (
-                                        <Link to={`/books/${this.state.bookArray._id}`}>
-                                            <Image className="innerbox" src={this.state.bookArray.bookImage}></Image>
-                                        </Link>
-                                    ) : (
-                                        <div><h3 className="warning">Book with isbn {this.state.book._id} is associated with this author, but you must add this book to the book collection.</h3></div>
-                                    )} */}
-
                                     {this.state.book.length ? (
                                         <div>{
                                             this.state.bookArray.map(creator => {
                                                 console.log(creator);
                                                 if (creator != null) {
                                                     return (
-                                                        <p value={creator._id}>{creator.title}</p>
+                                                        <Link to={`/books/${creator._id}`}>
+                                                            <Image className="innerbox" src={creator.bookImage}></Image>
+                                                        </Link>
                                                     )
                                                 } else {
                                                     return (<p value={null}>--Please Select a Creator</p>)
                                                 }
                                             })
                                         }</div>) : (<span></span>)}
-
                                 </div>
 
                             </Col>
