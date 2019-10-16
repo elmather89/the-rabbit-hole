@@ -210,7 +210,7 @@ class creatorDetails extends Component {
 
                                 <div className="outerbox">
                                     {this.state.book.length ? (
-                                        <div>{
+                                        <span>{
                                             this.state.bookArray.map(creator => {
                                                 console.log(creator);
                                                 if (creator != null) {
@@ -223,7 +223,7 @@ class creatorDetails extends Component {
                                                     return (<p value={null}>--Please Select a Creator</p>)
                                                 }
                                             })
-                                        }</div>) : (<span></span>)}
+                                        }</span>) : (<span></span>)}
                                 </div>
 
                             </Col>
