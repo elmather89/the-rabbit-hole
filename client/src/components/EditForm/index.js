@@ -1,8 +1,15 @@
 import React, { Component } from "react";
+import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
+import { logoutUser } from '.../../actions/authentication';
 import './style.css';
 import { Input, TextArea } from "../Form";
 import API from "../../utils/API";
 import { Link } from "react-router-dom";
+import { Col, Row, Container } from "../Grid";
+import BookCard from '../BookCard';
+import DeleteBtn from "../DeleteBtn";
+// import { connect } from "tls";
 
 class EditForm extends Component {
     constructor(props) {
@@ -92,8 +99,22 @@ class EditForm extends Component {
             .catch(err => console.log(err));
     };
 
+    deleteBook = id => {
+        API.deleteBook(id)
+            .then(res => this.loadBooks())
+            .catch(err => console.log(err));
+    };
+
+    onLogout(e) {
+        e.preventDefault();
+        this.props.logoutUser(this.props.history);
+    }
+
     render() {
-        return (
+
+        const { isAuthenticated, user } = this.props.auth;
+
+        const authLinks = (
             <form>
                 <div className="homepage">
                     <Link className="homepage-link" to={`/books/${this.state.id}`}>← Back to Book Details Page</Link>
@@ -181,9 +202,33 @@ class EditForm extends Component {
                 >
                     Update Book
                 </button>
+                <DeleteBtn onClick={() => this.deleteBook(this.state.id)} />
             </form>
+        )
+
+        const guestLinks = (
+            <Row>
+                <Col size="sm-12">
+                    <BookCard >
+                        NO ACCESS<br />
+                        <div className="homepage">
+                            <Link className="homepage-link" to={`/books/${this.state.id}`}>← Please go back to the book's detail page.</Link>
+                        </div>
+                    </BookCard>
+                </Col>
+            </Row>
+        )
+
+        return (
+            <div>
+                {isAuthenticated ? authLinks : guestLinks}
+            </div>
         );
     };
 };
 
-export default EditForm;
+const mapStateToProps = (state) => ({
+    auth: state.auth
+})
+
+export default connect(mapStateToProps, { logoutUser })(withRouter(EditForm));

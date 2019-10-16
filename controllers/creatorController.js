@@ -5,7 +5,7 @@ module.exports = {
   findAll: function (req, res) {
     db.Creator
       .find(req.query)
-      .populate('_books', ['bookImage', 'title', 'synopsis'])
+      .populate('_books', ['bookImage', 'title', 'synopsis', 'bookImage', 'bookArray', '_id'])
       .sort({ lastName: 1 })
       .then(dbModel => {
         res.json(dbModel);
@@ -15,7 +15,7 @@ module.exports = {
   findById: function (req, res) {
     db.Creator
       .findById(req.params.id)
-      .populate('_books', ["title", "synopsis", "bookImage"])
+      .populate('_books', ['bookImage', 'title', 'synopsis', 'bookImage', 'bookArray', '_id'])
       .then(dbModel => {
         console.log(dbModel);
         res.json(dbModel);

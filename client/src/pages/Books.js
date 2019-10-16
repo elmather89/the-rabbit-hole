@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import DeleteBtn from "../components/DeleteBtn";
+// import DeleteBtn from "../components/DeleteBtn";
 import Jumbotron from "../components/Jumbotron";
 import API from "../utils/API";
 import { Link } from "react-router-dom";
@@ -14,6 +14,7 @@ import "../assets/style/style.css";
 import brand from "../assets/images/brand.svg";
 import creator from "../assets/images/create.jpg";
 import books from "../assets/images/books.jpg";
+import ContainerBoot from 'react-bootstrap/Container';
 
 
 class Books extends Component {
@@ -118,17 +119,17 @@ class Books extends Component {
             .catch(err => console.log(err));
     };
 
-    deleteBook = id => {
-        API.deleteBook(id)
-            .then(res => this.loadBooks())
-            .catch(err => console.log(err));
-    };
+    // deleteBook = id => {
+    //     API.deleteBook(id)
+    //         .then(res => this.loadBooks())
+    //         .catch(err => console.log(err));
+    // };
 
-    deleteCreator = id => {
-        API.deleteCreator(id)
-            .then(res => this.loadCreators())
-            .catch(err => console.log(err));
-    };
+    // deleteCreator = id => {
+    //     API.deleteCreator(id)
+    //         .then(res => this.loadCreators())
+    //         .catch(err => console.log(err));
+    // };
 
     handleInputChange = event => {
         const { name, value } = event.target;
@@ -198,9 +199,9 @@ class Books extends Component {
         const {bookSearch} = this.state;
         if ( bookSearch !== "" && book.title.toLowerCase().indexOf( bookSearch.toLowerCase() ) === -1
         )
-        // if (
-        //     bookSearch !== "" && book._creators[0].lastName.toLowerCase().indexOf( bookSearch.toLowerCase() ) === -1
-        // )
+        if (
+            bookSearch !== "" && book._creators[0].lastName.toLowerCase().indexOf( bookSearch.toLowerCase() ) === -1
+        )
         {
           return null
         }
@@ -211,14 +212,15 @@ class Books extends Component {
                     {book.title} by {book._creators[0] ? `${book._creators[0].firstName} ${book._creators[0].lastName}` : book.title}
                 </strong>
             </Link>
-            <DeleteBtn onClick={() => this.deleteBook(book._id)} />
+            {/* <DeleteBtn onClick={() => this.deleteBook(book._id)} /> */}
         </ListItem>
     };
 
     renderCreatorSearch = creator => {
         const {creatorSearch} = this.state;
         if ( creatorSearch !== "" && creator.firstName.toLowerCase().indexOf( creatorSearch.toLowerCase() ) === -1
-        ) if (
+        ) 
+        if (
             creatorSearch !== "" && creator.lastName.toLowerCase().indexOf( creatorSearch.toLowerCase() ) === -1
         )
         {
@@ -231,7 +233,7 @@ class Books extends Component {
                     {creator.lastName}, {creator.firstName}
                 </strong>
             </Link>
-            <DeleteBtn onClick={() => this.deleteCreator(creator._id)} />
+            {/* <DeleteBtn onClick={() => this.deleteCreator(creator._id)} /> */}
         </ListItem>
     };
 
@@ -426,11 +428,12 @@ class Books extends Component {
                           </div>
                     </Col>
                 </Row>
+                <ContainerBoot>
                 <Row>
                     <Col size="lg-6 md-6 sm-12">
-                        <Jumbotron bgimg={creator} id="creator-jumbo">
+                        {/* <Jumbotron bgimg={creator} id="creator-jumbo">
                             <h1>Creators</h1>
-                        </Jumbotron>
+                        </Jumbotron> */}
                         <Row>
                             <Col size="sm-12 md-9">
                                 <div className="search">
@@ -462,9 +465,9 @@ class Books extends Component {
                     </Col>
 
                     <Col size="md-6 sm-12">
-                        <Jumbotron bgimg={books} id="book-jumbo">
+                        {/* <Jumbotron bgimg={books} id="book-jumbo">
                             <h1>Books</h1>
-                        </Jumbotron>
+                        </Jumbotron> */}
                         <Row>
                             <Col size="sm-12 md-9">
                                 <div className="search">
@@ -496,6 +499,7 @@ class Books extends Component {
                             )}
                     </Col>
                 </Row>
+                </ContainerBoot>
                 <Footer />
             </Container >
         )

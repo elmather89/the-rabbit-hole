@@ -1,8 +1,17 @@
 import React, { Component } from "react";
+import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
+import { logoutUser } from '.../../actions/authentication';
+import BookCard from '../BookCard';
+
 import './style.css';
+import { Col, Row, Container } from "../Grid";
+import DeleteBtn from '../DeleteBtn';
 import { Input, TextArea } from "../Form";
 import API from "../../utils/API";
 import { Link } from "react-router-dom";
+import RHLogo from "assets/images/RHlogo.png";
+import { black } from "ansi-colors";
 
 class CreatorEditForm extends Component {
     constructor(props) {
@@ -80,9 +89,22 @@ class CreatorEditForm extends Component {
             .catch(err => console.log(err));
     };
 
-    render() {
-        return (
+    deleteCreator = id => {
+        API.deleteCreator(id)
+            .then(res => this.loadCreators())
+            .catch(err => console.log(err));
+    };
 
+    onLogout(e) {
+        e.preventDefault();
+        this.props.logoutUser(this.props.history);
+    }
+
+    render() {
+
+        const { isAuthenticated, user } = this.props.auth;
+
+        const authLinks = (
             <form>
                 <div className="homepage">
                     <Link className="homepage-link" to={`/creator/${this.state.id}`}>← Back to Creator Details Page</Link>
@@ -156,9 +178,33 @@ class CreatorEditForm extends Component {
                 >
                     Update Creator
                 </button>
+                <DeleteBtn onClick={() => this.deleteCreator(this.state.id)} />
             </form>
+        )
+
+        const guestLinks = (
+            <Row>
+                <Col size="sm-12">
+                    <BookCard >
+                            NO ACCESS<br />
+                            <div className="homepage">
+                                <Link className="homepage-link" to={`/creator/${this.state.id}`}>← Please go back to the creator's detail page.</Link>
+                            </div>
+                    </BookCard>
+                </Col>
+            </Row>
+        )
+
+        return (
+            <div>
+                {isAuthenticated ? authLinks : guestLinks}
+            </div>
         );
     };
 };
 
-export default CreatorEditForm;
+const mapStateToProps = (state) => ({
+    auth: state.auth
+})
+
+export default connect(mapStateToProps, { logoutUser })(withRouter(CreatorEditForm));
