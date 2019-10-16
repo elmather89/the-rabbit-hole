@@ -59,11 +59,11 @@ class creatorDetails extends Component {
         API.getCreator(this.props.match.params.id)
             .then(res => {
 
-                // let bookArray = res.data._books[0];
                 let bookArray = [...res.data._books];
+                // let bookArray = res.data._books[0];
+                // console.log(bookArray);
                 console.log(bookArray);
-                // console.log(res.data._books);
-
+                
                 this.setState({
                     creator: res.data, book: res.data._books, bookArray: bookArray
                     // creator: res.data, firstName: "", lastName: "", biography: "", birthdate: "", dateOfDeath: "", legacy: "", ownWords: "", tags: "", image: ""
@@ -131,7 +131,9 @@ class creatorDetails extends Component {
                                                         </Link>
                                                     )
                                                 } else {
-                                                    return (<p value={null}>--Please Select a Creator</p>)
+                                                    return (
+                                                        <div className="innerbox">No books associated with this creator.</div>
+                                                    )
                                                 }
                                             })
                                         }</span>) : (<span></span>)}
@@ -220,10 +222,12 @@ class creatorDetails extends Component {
                                                         </Link>
                                                     )
                                                 } else {
-                                                    return (<p value={null}>--Please Select a Creator</p>)
+                                                    return (
+                                                        <div className="inner">No books associated with this creator.</div>
+                                                    )
                                                 }
                                             })
-                                        }</span>) : (<span></span>)}
+                                        }</span>) : (<div className="inner">No books associated with this creator.</div>)}
                                 </div>
 
                             </Col>
