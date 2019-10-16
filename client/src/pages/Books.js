@@ -199,9 +199,9 @@ class Books extends Component {
         const {bookSearch} = this.state;
         if ( bookSearch !== "" && book.title.toLowerCase().indexOf( bookSearch.toLowerCase() ) === -1
         )
-        if (
-            bookSearch !== "" && book._creators[0].lastName.toLowerCase().indexOf( bookSearch.toLowerCase() ) === -1
-        )
+        // if (
+        //     bookSearch !== "" && book._creators[0].lastName.toLowerCase().indexOf( bookSearch.toLowerCase() ) === -1
+        // )
         {
           return null
         }
