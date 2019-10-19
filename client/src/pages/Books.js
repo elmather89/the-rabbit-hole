@@ -46,7 +46,7 @@ class Books extends Component {
         image: "",
         fullName: "",
         _id: "",
-        _books: "",
+        _books: [{}],
         _creators: {},
         bookSearch: "",
         creatorSearch: ""
@@ -165,7 +165,17 @@ class Books extends Component {
         })
             .then(res => {
                 console.log(res);
+
+                API.updateCreator(this.selectedCreator, { 
+                    $push: { _books: this.state._id } 
+                }, 
+                    { new: true });
+
+                // API.updateCreator(this.selectedCreator, {
+                //     _books: this.state._id,
+                // });
                 this.loadBooks();
+                this.loadCreators();
             })
             .catch(err => console.log(err));
         this.setState({ selectedCreator: "" })
