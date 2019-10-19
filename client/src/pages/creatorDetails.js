@@ -116,7 +116,7 @@ class creatorDetails extends Component {
 
                                     <Col size="sm-4">
                                         <div className="imageCol">
-                                            <Image id="imageSize" className="imag" src={this.state.creator.image} alt="Creator Profile" roundedCircle />
+                                            <Image id="imageSize" className="imag" src={this.state.creator.image} alt="Creator Profile" />
                                         </div>
                                     </Col>
                                 </Row>
@@ -207,7 +207,7 @@ class creatorDetails extends Component {
 
                                     <Col size="sm-4">
                                         <div className="imageCol">
-                                            <Image id="imageSize" className="imag" src={this.state.creator.image} alt="Creator Profile" roundedCircle />
+                                            <Image id="imageSize" className="imag" src={this.state.creator.image} alt="Creator Profile" />
                                         </div>
                                     </Col>
                                 </Row>
