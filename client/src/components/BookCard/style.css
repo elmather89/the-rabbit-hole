@@ -14,6 +14,7 @@
 
 a h3 {
     color: black;
+    text-decoration: solid underline rgba(242, 153, 75, 1);
 }
 
 a h3:hover {

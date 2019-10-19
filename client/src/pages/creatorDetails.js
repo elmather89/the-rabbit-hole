@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import { Col, Row, Container } from "../components/Grid";
 import { List, ListItem } from "../components/List";
 import Button from "../components/Button";
+import DeleteBtn from "../components/DeleteBtn";
 import Card from "../components/Card";
 import Image from 'react-bootstrap/Image';
 import "../assets/style/style.css";
@@ -63,7 +64,7 @@ class creatorDetails extends Component {
                 // let bookArray = res.data._books[0];
                 // console.log(bookArray);
                 console.log(bookArray);
-                
+
                 this.setState({
                     creator: res.data, book: res.data._books, bookArray: bookArray
                     // creator: res.data, firstName: "", lastName: "", biography: "", birthdate: "", dateOfDeath: "", legacy: "", ownWords: "", tags: "", image: ""
@@ -74,6 +75,11 @@ class creatorDetails extends Component {
             )
             .catch(err => console.log(err));
     };
+    deleteCreator = id => {
+        API.deleteCreator(id)
+            .then(res => this.loadcreatorDetails())
+            .catch(err => console.log(err));
+    };
 
 
     render() {
@@ -82,7 +88,7 @@ class creatorDetails extends Component {
 
         const authLinks = (
             <div className="contain1">
-                <Container fluid>
+                <Container>
                     <Row>
                         <Col size="sm-12">
                             <CreatorHeader>
@@ -103,6 +109,9 @@ class creatorDetails extends Component {
                                         <Button className="edit-btn">
                                             <Link to={"/creatorEdit/" + this.state.creator._id}>Edit Details</Link>
                                         </Button>
+                                        <DeleteBtn onClick={() => this.deleteCreator(this.state.creator._id)}>
+                                            <Link to={"/"}>Delete this Record</Link>
+                                        </DeleteBtn>
                                     </Col>
 
                                     <Col size="sm-4">
@@ -120,7 +129,7 @@ class creatorDetails extends Component {
                             <Col size="sm-12">
 
                                 <div className="outerbox">
-                                {this.state.book.length ? (
+                                    {this.state.book.length ? (
                                         <span>{
                                             this.state.bookArray.map(creator => {
                                                 console.log(creator);
@@ -176,7 +185,7 @@ class creatorDetails extends Component {
 
         const guestLinks = (
             <div className="contain1">
-                <Container fluid>
+                <Container>
                     <Row>
                         <Col size="sm-12">
                             <CreatorHeader>

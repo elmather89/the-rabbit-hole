@@ -119,12 +119,6 @@ class Books extends Component {
             .catch(err => console.log(err));
     };
 
-    // deleteBook = id => {
-    //     API.deleteBook(id)
-    //         .then(res => this.loadBooks())
-    //         .catch(err => console.log(err));
-    // };
-
     // deleteCreator = id => {
     //     API.deleteCreator(id)
     //         .then(res => this.loadCreators())
@@ -165,15 +159,9 @@ class Books extends Component {
         })
             .then(res => {
                 console.log(res);
-
                 API.updateCreator(this.selectedCreator, { 
                     $push: { _books: this.state._id } 
-                }, 
-                    { new: true });
-
-                // API.updateCreator(this.selectedCreator, {
-                //     _books: this.state._id,
-                // });
+                }, { new: true });
                 this.loadBooks();
                 this.loadCreators();
             })
