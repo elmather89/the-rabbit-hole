@@ -6,7 +6,6 @@ import { Col, Row, Container } from "../components/Grid";
 import API from "../utils/API";
 import headerLogo from "../assets/images/100year.jpg";
 import Button from "../components/Button";
-import DeleteBtn from "../components/DeleteBtn";
 import "../assets/style/style.css";
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
@@ -61,9 +60,6 @@ class bookDetails extends Component {
                   <Button id="book-edit-btn">
                     <Link to={"/edit/" + this.state.book._id}>Edit Details</Link>
                   </Button>
-                  <DeleteBtn onClick={() => this.deleteBook(this.state.book._id)}>
-                    <Link to={"/"}>Delete this Record</Link>
-                  </DeleteBtn>
                 </Col>
                 <Col size="sm-3">
                   <div>

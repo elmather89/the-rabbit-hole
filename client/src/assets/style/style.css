@@ -49,18 +49,10 @@ select.form-control {
 }
 
 #imageSize {
-    max-width: 400px;
-    max-height: 400px;
-    width: auto;
-    height: auto;
+    max-width: 325px;
+    max-height: 325px;
     object-fit: cover;
     border-radius: 50%;
-    /* position: relative;
-    width: 300px; 
-    height: auto;
-    background-position: 50% 50%;
-    background-repeat: no-repeat;
-    background-size: cover; */
 }
 
 .contain1 {
@@ -120,20 +112,21 @@ div.col-sm-2 {
       max-height: 250px;
       background-color: rgb(235, 231, 231);
       overflow: scroll;
-      display: block;
+      display: flex;
 }
 
 .innerbox {
       width: auto;
       max-height: 200px;
       margin: 10px;
-      background-color: red;
+      background-color: lightblue;
       flex: none;
 }
 
 .innerbox:hover {
     /* border: 2px solid rgba(242, 153, 75, 1); */
-    border: 3px solid black;
+    border: 2px solid black;
+    box-shadow: 6px 6px rgba(242, 153, 75, 1), -6px -6px lightblue;
 }
 
 
@@ -148,7 +141,7 @@ div.col-sm-2 {
   }
 
 footer {
-    background-color: rgba(242, 153, 75, 1);;
+    background-color: rgba(242, 153, 75, 1);
     text-align: center;
     margin-top: 50px;
 }

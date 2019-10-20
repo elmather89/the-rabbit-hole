@@ -6,7 +6,6 @@ import { Link } from "react-router-dom";
 import { Col, Row, Container } from "../components/Grid";
 import { List, ListItem } from "../components/List";
 import Button from "../components/Button";
-import DeleteBtn from "../components/DeleteBtn";
 import Card from "../components/Card";
 import Image from 'react-bootstrap/Image';
 import "../assets/style/style.css";
@@ -75,11 +74,6 @@ class creatorDetails extends Component {
             )
             .catch(err => console.log(err));
     };
-    deleteCreator = id => {
-        API.deleteCreator(id)
-            .then(res => this.loadcreatorDetails())
-            .catch(err => console.log(err));
-    };
 
 
     render() {
@@ -109,9 +103,6 @@ class creatorDetails extends Component {
                                         <Button className="edit-btn">
                                             <Link to={"/creatorEdit/" + this.state.creator._id}>Edit Details</Link>
                                         </Button>
-                                        <DeleteBtn onClick={() => this.deleteCreator(this.state.creator._id)}>
-                                            <Link to={"/"}>Delete this Record</Link>
-                                        </DeleteBtn>
                                     </Col>
 
                                     <Col size="sm-4">
@@ -141,11 +132,11 @@ class creatorDetails extends Component {
                                                     )
                                                 } else {
                                                     return (
-                                                        <div className="innerbox">No books associated with this creator.</div>
+                                                        <div className="innerbox"><p>No books associated with this creator. You can add a new book on the home page.</p></div>
                                                     )
                                                 }
                                             })
-                                        }</span>) : (<span></span>)}
+                                        }</span>) : (<div className="inner"><p>No books associated with this creator.<br/>You can add a new book on the home page.</p></div>)}
                                 </div>
 
                             </Col>
@@ -232,11 +223,11 @@ class creatorDetails extends Component {
                                                     )
                                                 } else {
                                                     return (
-                                                        <div className="inner">No books associated with this creator.</div>
+                                                        <div className="inner"><p>No books associated with this creator. You can add a new book on the home page.</p></div>
                                                     )
                                                 }
                                             })
-                                        }</span>) : (<div className="inner">No books associated with this creator.</div>)}
+                                        }</span>) : (<div className="inner"><p>No books associated with this creator. You can add a new book on the home page.</p></div>)}
                                 </div>
 
                             </Col>
