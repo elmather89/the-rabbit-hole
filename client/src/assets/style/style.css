@@ -112,7 +112,7 @@ div.col-sm-2 {
       max-height: 250px;
       background-color: rgb(235, 231, 231);
       overflow: scroll;
-      display: flex;
+      display: inline-flex;
 }
 
 .innerbox {

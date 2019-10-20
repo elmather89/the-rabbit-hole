@@ -195,8 +195,12 @@ class Books extends Component {
                 image: this.state.image
             })
                 .then(res => {
-                    console.log(res.data)
-                    this.loadCreators()
+                    console.log(res.data);
+                    API.updateBook(this.state._books, { 
+                        $push: { _creators: this.state._id } 
+                    }, { new: true });
+                    this.loadBooks();
+                    this.loadCreators();
                 })
                 .catch(err => console.log(JSON.stringify(err, null, 2)));
         }
@@ -217,7 +221,7 @@ class Books extends Component {
             <Link to={"/books/" + book._id}>
                 <img src={book.bookImage} alt="book-cover" style={{ width: 70, height: "auto", marginRight: 10 }}></img>
                 <strong>
-                    {book.title} by {book._creators[0] ? `${book._creators[0].firstName} ${book._creators[0].lastName}` : book.title}
+                    {book.title} by {book._creators[0] ? `${book._creators[0].firstName} ${book._creators[0].lastName}` : '(CREATOR MISSING)'}
                 </strong>
             </Link>
             <DeleteBtn onClick={() => this.deleteBook(book._id)}>X</DeleteBtn>
