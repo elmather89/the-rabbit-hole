@@ -52,7 +52,7 @@ class bookDetails extends Component {
                   <h1 className="bookTitle">{this.state.book.title}</h1>
                   {/* <Link to={`/creator/${this.state.creator._id}`}> */}
                   <Link to={this.state.creator ? `/creator/${this.state.creator._id}` : `/`}>
-                    <h3 className="is-link">{this.state.creator ? `By ` + this.state.creator.firstName + this.state.creator.lastName : `NO CREATOR ASSOCIATED`}</h3>
+                    <h3 className="is-link">{this.state.creator ? `By ` + this.state.creator.firstName + " " + this.state.creator.lastName : `NO CREATOR ASSOCIATED`}</h3>
                   </Link>
                   <p>({this.state.creator ? this.state.creator.birthdate : ``} - {this.state.creator ? this.state.creator.dateOfDeath : ``})</p>
                   <hr></hr>
