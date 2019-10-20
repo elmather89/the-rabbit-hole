@@ -143,9 +143,6 @@ class bookDetails extends Component {
                   <hr></hr>
                   <p>{this.state.creator ? this.state.creator.tags : ``}</p>
                   <p>{this.state.creator ? this.state.creator.biography : ``}</p>
-                  <Button id="book-edit-btn">
-                    <Link to={"/edit/" + this.state.book._id}>Edit Details</Link>
-                  </Button>
                 </Col>
                 <Col size="sm-3">
                   <div>
