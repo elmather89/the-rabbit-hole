@@ -196,9 +196,9 @@ class Books extends Component {
             })
                 .then(res => {
                     console.log(res.data);
-                    API.updateBook(this.state._books, { 
-                        $push: { _creators: this.state._id } 
-                    }, { new: true });
+                    // API.updateBook(this.state._books, { 
+                    //     $push: { _creators: this.state._id } 
+                    // }, { new: true });
                     this.loadBooks();
                     this.loadCreators();
                 })
