@@ -326,13 +326,13 @@ class Books extends Component {
                                         name="_id"
                                         placeholder="Recommend first 3 letters of last name, followed by year of birth (i.e. bem1898)"
                                     />
-                                    {/* <label className="form-label"><small>Book ISBN (Required)</small></label>
+                                    <label className="form-label"><small>Book ISBN (Required)</small></label>
                                     <Input
                                         value={this.state._books}
                                         onChange={this.handleInputChange}
                                         name="_books"
                                         placeholder="i.e. 0439558769"
-                                    /> */}
+                                    />
                                     <label className="form-label"><small>First Name (Required)</small></label>
                                     <Input
                                         value={this.state.firstName}
