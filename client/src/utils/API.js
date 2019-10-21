@@ -34,6 +34,7 @@ export default {
         return axios.delete("/api/creators/" + id);
     },
     updateCreator: function (id, creatorData) {
+        console.log(id, creatorData);
         return axios.put("/api/creators/" + id, creatorData);
     },
     saveCreator: function (creatorData) {

@@ -1,4 +1,11 @@
 .delete-btn {
+    color: red;
+    border-radius: 3px;
+    font-size: 12px;
+    margin: 0 15px 0 15px;
     float: right;
-    color: rgba(242, 153, 75, 1);
+}
+
+.delete-btn:hover {
+    background-color: black;
 }

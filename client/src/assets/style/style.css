@@ -46,16 +46,13 @@ select.form-control {
     /* border: 5px solid rgb(84, 84, 114); */
     display:block;
     margin:auto;
-    
 }
 
 #imageSize {
-    position: relative;
-    width: 300px; 
-    height: auto;
-    background-position: 50% 50%;
-    background-repeat: no-repeat;
-    background-size: cover;
+    max-width: 325px;
+    max-height: 325px;
+    object-fit: cover;
+    border-radius: 50%;
 }
 
 .contain1 {
@@ -73,13 +70,13 @@ select.form-control {
 }
 
 .tags {
-    
+    font-size: 1em;
     position: relative;
     top: 30px;
 }
 
 .bio {
-    font-size: 30px;
+    font-size: 1em;
     position: relative;
     top: 30px;
     padding-bottom: 20px;
@@ -91,7 +88,7 @@ select.form-control {
 }
 
  .birthDeath {
-    font-size: 30px;
+    font-size: 2em;
     text-align: center;
    
 } 
@@ -115,16 +112,22 @@ div.col-sm-2 {
       max-height: 250px;
       background-color: rgb(235, 231, 231);
       overflow: scroll;
-      display: block;
+      display: inline-flex;
 }
 
 .innerbox {
       width: auto;
       max-height: 200px;
       margin: 10px;
-      background-color: red;
+      background-color: lightblue;
       flex: none;
-    }
+}
+
+.innerbox:hover {
+    /* border: 2px solid rgba(242, 153, 75, 1); */
+    border: 2px solid black;
+    box-shadow: 6px 6px rgba(242, 153, 75, 1), -6px -6px lightblue;
+}
 
 
 
@@ -138,7 +141,7 @@ div.col-sm-2 {
   }
 
 footer {
-    background-color: rgba(242, 153, 75, 1);;
+    background-color: rgba(242, 153, 75, 1);
     text-align: center;
     margin-top: 50px;
 }

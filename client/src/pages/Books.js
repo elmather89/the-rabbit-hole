@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-// import DeleteBtn from "../components/DeleteBtn";
 import Jumbotron from "../components/Jumbotron";
 import API from "../utils/API";
 import { Link } from "react-router-dom";
@@ -10,11 +9,15 @@ import CreatorModal from "../components/Modal/creatorModal";
 import BookModal from "../components/Modal/bookModal";
 import Footer from "../components/Footer";
 import Button from "../components/Button";
+import DeleteBtn from "../components/DeleteBtn";
 import "../assets/style/style.css";
 import brand from "../assets/images/brand.svg";
 import creator from "../assets/images/create.jpg";
 import books from "../assets/images/books.jpg";
 import ContainerBoot from 'react-bootstrap/Container';
+import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
+import { logoutUser } from '.../../actions/authentication';
 
 
 class Books extends Component {
@@ -46,7 +49,7 @@ class Books extends Component {
         image: "",
         fullName: "",
         _id: "",
-        _books: "",
+        _books: [{}],
         _creators: {},
         bookSearch: "",
         creatorSearch: ""
@@ -119,17 +122,17 @@ class Books extends Component {
             .catch(err => console.log(err));
     };
 
-    // deleteBook = id => {
-    //     API.deleteBook(id)
-    //         .then(res => this.loadBooks())
-    //         .catch(err => console.log(err));
-    // };
+    deleteCreator = id => {
+        API.deleteCreator(id)
+            .then(res => this.loadCreators())
+            .catch(err => console.log(err));
+    };
 
-    // deleteCreator = id => {
-    //     API.deleteCreator(id)
-    //         .then(res => this.loadCreators())
-    //         .catch(err => console.log(err));
-    // };
+    deleteBook = id => {
+        API.deleteBook(id)
+            .then(res => this.loadBooks())
+            .catch(err => console.log(err));
+    };
 
     handleInputChange = event => {
         const { name, value } = event.target;
@@ -165,7 +168,11 @@ class Books extends Component {
         })
             .then(res => {
                 console.log(res);
+                API.updateCreator(this.selectedCreator, { 
+                    $push: { _books: this.state._id } 
+                }, { new: true });
                 this.loadBooks();
+                this.loadCreators();
             })
             .catch(err => console.log(err));
         this.setState({ selectedCreator: "" })
@@ -188,15 +195,42 @@ class Books extends Component {
                 image: this.state.image
             })
                 .then(res => {
-                    console.log(res.data)
-                    this.loadCreators()
+                    console.log(res.data);
+                    // API.updateBook(this.state._books, { 
+                    //     $push: { _creators: this.state._id } 
+                    // }, { new: true });
+                    this.loadBooks();
+                    this.loadCreators();
                 })
                 .catch(err => console.log(JSON.stringify(err, null, 2)));
         }
     };
 
+    renderBookSearchAuth = book => {
+        const {bookSearch} = this.state;
+
+        if ( bookSearch !== "" && book.title.toLowerCase().indexOf( bookSearch.toLowerCase() ) === -1
+        )
+        // if (
+        //     bookSearch !== "" && book._creators[0].lastName.toLowerCase().indexOf( bookSearch.toLowerCase() ) === -1
+        // )
+        {
+          return null
+        }
+        return <ListItem key={book._id}>
+            <Link to={"/books/" + book._id}>
+                <img src={book.bookImage} alt="book-cover" style={{ width: 70, height: "auto", marginRight: 10 }}></img>
+                <strong>
+                    {book.title} by {book._creators[0] ? `${book._creators[0].firstName} ${book._creators[0].lastName}` : '(CREATOR MISSING)'}
+                </strong>
+            </Link>
+            <DeleteBtn onClick={() => this.deleteBook(book._id)}>X</DeleteBtn>
+        </ListItem>
+    };
+
     renderBookSearch = book => {
         const {bookSearch} = this.state;
+
         if ( bookSearch !== "" && book.title.toLowerCase().indexOf( bookSearch.toLowerCase() ) === -1
         )
         // if (
@@ -212,12 +246,12 @@ class Books extends Component {
                     {book.title} by {book._creators[0] ? `${book._creators[0].firstName} ${book._creators[0].lastName}` : book.title}
                 </strong>
             </Link>
-            {/* <DeleteBtn onClick={() => this.deleteBook(book._id)} /> */}
         </ListItem>
     };
 
-    renderCreatorSearch = creator => {
+    renderCreatorSearchAuth = creator => {
         const {creatorSearch} = this.state;
+
         if ( creatorSearch !== "" && creator.firstName.toLowerCase().indexOf( creatorSearch.toLowerCase() ) === -1
         ) 
         if (
@@ -233,7 +267,28 @@ class Books extends Component {
                     {creator.lastName}, {creator.firstName}
                 </strong>
             </Link>
-            {/* <DeleteBtn onClick={() => this.deleteCreator(creator._id)} /> */}
+            <DeleteBtn onClick={() => this.deleteCreator(creator._id)}>X</DeleteBtn>
+        </ListItem>
+    };
+
+    renderCreatorSearch = creator => {
+        const {creatorSearch} = this.state;
+
+        if ( creatorSearch !== "" && creator.firstName.toLowerCase().indexOf( creatorSearch.toLowerCase() ) === -1
+        ) 
+        if (
+            creatorSearch !== "" && creator.lastName.toLowerCase().indexOf( creatorSearch.toLowerCase() ) === -1
+        )
+        {
+          return null
+        }
+        return <ListItem key={creator._id}>
+            <Link to={"/creator/" + creator._id}>
+                <img src={creator.image} alt="creator-image" style={{ width: 70, height: "auto", marginRight: 10 }}></img>
+                <strong>
+                    {creator.lastName}, {creator.firstName}
+                </strong>
+            </Link>
         </ListItem>
     };
 
@@ -248,7 +303,10 @@ class Books extends Component {
 
 
     render() {
-        return (
+
+        const { isAuthenticated, user } = this.props.auth;
+
+        const authLinks = (
             <Container fluid>
                 <Row>
                     <Col size="lg-12 md-12 sm-12">
@@ -268,13 +326,17 @@ class Books extends Component {
                                         name="_id"
                                         placeholder="Recommend first 3 letters of last name, followed by year of birth (i.e. bem1898)"
                                     />
-                                    <label className="form-label"><small>Book ISBN (Required)</small></label>
+                                    {/* 
+                                    Removing Book ISBN (Required) input b/c it pushes the book to the carousel twice, once you also
+                                    add it via the Add Book button. 
+                                    */}
+                                    {/* <label className="form-label"><small>Book ISBN (Required)</small></label>
                                     <Input
                                         value={this.state._books}
                                         onChange={this.handleInputChange}
                                         name="_books"
                                         placeholder="i.e. 0439558769"
-                                    />
+                                    /> */}
                                     <label className="form-label"><small>First Name (Required)</small></label>
                                     <Input
                                         value={this.state.firstName}
@@ -456,7 +518,7 @@ class Books extends Component {
                         {this.state.creator.length ? (
                             <List className="creator-list">
                                 {this.state.creator.map(creator => {
-                                    return this.renderCreatorSearch(creator)                      
+                                    return this.renderCreatorSearchAuth(creator)                      
                                 })}
                             </List>
                         ) : (
@@ -490,6 +552,252 @@ class Books extends Component {
                         {this.state.books.length ? (
                             <List className="book-list">
                                 {this.state.books.map(book => {
+                                    return this.renderBookSearchAuth(book)                                    
+                                })}
+                            </List>
+                        ) : (
+                                <h3>No Results to Display</h3>
+                
+                            )}
+                    </Col>
+                </Row>
+                </ContainerBoot>
+                <Footer />
+            </Container >
+        )
+
+        const guestLinks = (
+            <Container fluid>
+                <Row>
+                    <Col size="lg-12 md-12 sm-12">
+                        <div class="hero-image">
+                            <img src={brand}></img>
+                        </div>
+                          <div className={!this.state.isShowingCreator ? "hideModalDiv" : 'showModalDiv'}>
+                            <CreatorModal
+                                className="modal"
+                                show={this.state.isShowingCreator}
+                                close={this.closeCreatorModalHandler}>
+                                <form>
+                                    <label className="form-label"><small>Assign Unique Creator ID (Required)</small></label>
+                                    <Input
+                                        value={this.state._id}
+                                        onChange={this.handleInputChange}
+                                        name="_id"
+                                        placeholder="Recommend first 3 letters of last name, followed by year of birth (i.e. bem1898)"
+                                    />
+                                    {/* <label className="form-label"><small>Book ISBN (Required)</small></label>
+                                    <Input
+                                        value={this.state._books}
+                                        onChange={this.handleInputChange}
+                                        name="_books"
+                                        placeholder="i.e. 0439558769"
+                                    /> */}
+                                    <label className="form-label"><small>First Name (Required)</small></label>
+                                    <Input
+                                        value={this.state.firstName}
+                                        onChange={this.handleInputChange}
+                                        name="firstName"
+                                        placeholder="J.K."
+                                    />
+                                    <label className="form-label"><small>Last Name (Required)</small></label>
+                                    <Input
+                                        value={this.state.lastName}
+                                        onChange={this.handleInputChange}
+                                        name="lastName"
+                                        placeholder="Rowling"
+                                    />
+                                    <label className="form-label"><small>Year of Birth</small></label>
+                                    <Input
+                                        value={this.state.birthdate}
+                                        onChange={this.handleInputChange}
+                                        name="birthdate"
+                                        placeholder="YYYY"
+                                    />
+                                    <label className="form-label"><small>Year Passed (if applicable)</small></label>
+                                    <Input
+                                        value={this.state.dateOfDeath}
+                                        onChange={this.handleInputChange}
+                                        name="dateOfDeath"
+                                        placeholder="YYYY"
+                                    />
+                                    <label className="form-label"><small>Biography</small></label>
+                                    <TextArea
+                                        value={this.state.biography}
+                                        onChange={this.handleInputChange}
+                                        name="biography"
+                                    />
+                                    <label className="form-label"><small>Legacy</small></label>
+                                    <TextArea
+                                        value={this.state.legacy}
+                                        onChange={this.handleInputChange}
+                                        name="legacy"
+                                    />
+                                    <label className="form-label"><small>Own Words</small></label>
+                                    <TextArea
+                                        value={this.state.ownWords}
+                                        onChange={this.handleInputChange}
+                                        name="ownWords"
+                                    />
+                                    <label className="form-label"><small>Occupation Tag(s)</small></label>
+                                    <Input
+                                        value={this.state.tags}
+                                        onChange={this.handleInputChange}
+                                        name="tags"
+                                        placeholder="Author / Illustrator / Painter"
+                                    />
+                                    <label className="form-label"><small>Profile Picture</small></label>
+                                    <Input
+                                        value={this.state.image}
+                                        onChange={this.handleInputChange}
+                                        name="image"
+                                        placeholder="Enter creator image URL"
+                                    />
+                                    <FormBtn
+                                        disabled={!(this.state.firstName && this.state.lastName)}
+                                        onClick={this.handleCreatorFormSubmit}>
+                                        SUBMIT
+                                    </FormBtn>
+                                </form>
+                            </CreatorModal>
+                          </div>
+                          <div className={!this.state.isShowingBook ? "hideModalDiv" : 'showModalDiv'}>
+                            <BookModal
+                                className="modal"
+                                show={this.state.isShowingBook}
+                                close={this.closeBookModalHandler}>
+                                <form>
+                                    {this.state.creator.length ? (
+                                        <select value={this.state.selectedCreator} onChange={this.handleSelectedBookCreator} className="form-control">{
+                                            this.state.bookcreators.map(creator => {
+                                                if (creator != null) {
+                                                    return (
+                                                        <option value={creator._id}>{creator.firstName + " " + creator.lastName}</option>
+                                                    )
+                                                } else {
+                                                    return (<option value={null}>--Please Select a Creator</option>)
+                                                }
+                                            })
+                                        }</select>) : (<div></div>)}
+                                    <label className="form-label"><small>Book ISBN (Required)</small></label>
+                                    <Input
+                                        value={this.state._id}
+                                        onChange={this.handleInputChange}
+                                        name="_id"
+                                        placeholder="i.e. 0439558769"
+                                    />
+                                    <label className="form-label"><small>Assign Unique Creator ID (Required)</small></label>
+                                    <Input
+                                        value={this.selectedCreator}
+                                        onChange={this.handleInputChange}
+                                        name="_creators"
+                                        placeholder="Recommend first 3 letters of last name, followed by year of birth (i.e. bem1898)"
+                                    />
+                                    <label className="form-label"><small>Book Title (Required)</small></label>
+                                    <Input
+                                        value={this.state.title}
+                                        onChange={this.handleInputChange}
+                                        name="title"
+                                    />
+                                    <label className="form-label"><small>Book Synopsis</small></label>
+                                    <TextArea
+                                        value={this.state.synopsis}
+                                        onChange={this.handleInputChange}
+                                        name="synopsis"
+                                    />
+                                    <label className="form-label"><small>Original Publisher</small></label>
+                                    <Input
+                                        value={this.state.originalPublisher}
+                                        onChange={this.handleInputChange}
+                                        name="originalPublisher"
+                                    />
+                                    <label className="form-label"><small>Current Publisher</small></label>
+                                    <Input
+                                        value={this.state.currentPublisher}
+                                        onChange={this.handleInputChange}
+                                        name="currentPublisher"
+                                    />
+                                    <label className="form-label"><small>Year Published</small></label>
+                                    <Input
+                                        value={this.state.yearPublished}
+                                        onChange={this.handleInputChange}
+                                        name="yearPublished"
+                                    />
+                                    <label className="form-label"><small>Text of Interest / Quote</small></label>
+                                    <TextArea
+                                        value={this.state.quote}
+                                        onChange={this.handleInputChange}
+                                        name="quote"
+                                    />
+                                    <label className="form-label"><small>Book Cover</small></label>
+                                    <Input
+                                        value={this.state.bookImage}
+                                        onChange={this.handleInputChange}
+                                        name="bookImage"
+                                        placeholder="Enter book image URL"
+                                    />
+                                    <FormBtn
+                                        disabled={!(this.state.selectedCreator && this.state.title)}
+                                        onClick={this.handleBookFormSubmit}>
+                                        SUBMIT
+                                    </FormBtn>
+                                </form>
+                            </BookModal>
+                          </div>
+                    </Col>
+                </Row>
+                <ContainerBoot>
+                <Row>
+                    <Col size="lg-6 md-6 sm-12">
+                        {/* <Jumbotron bgimg={creator} id="creator-jumbo">
+                            <h1>Creators</h1>
+                        </Jumbotron> */}
+                        <Row>
+                            <Col size="sm-12 md-9">
+                                <div className="search">
+                                    <input
+                                        className="search-list"
+                                        type="text"
+                                        placeholder="Search creator by first or last name"
+                                        title="creatorSearch"
+                                        onChange={this.handleCreatorSearch}>
+                                    </input>
+                                </div>
+                            </Col>
+                        </Row>          
+                        <br></br>
+                        {this.state.creator.length ? (
+                            <List className="creator-list">
+                                {this.state.creator.map(creator => {
+                                    return this.renderCreatorSearch(creator)                      
+                                })}
+                            </List>
+                        ) : (
+                                <h3>No Results to Display</h3>
+                            )}
+                    </Col>
+
+                    <Col size="md-6 sm-12">
+                        {/* <Jumbotron bgimg={books} id="book-jumbo">
+                            <h1>Books</h1>
+                        </Jumbotron> */}
+                        <Row>
+                            <Col size="sm-12 md-9">
+                                <div className="search">
+                                    <input
+                                        className="search-list"
+                                        type="text"
+                                        placeholder="Search book by title"
+                                        title="bookSearch"
+                                        onChange={this.handleBookSearch}>
+                                    </input>
+                                </div>
+                            </Col>
+                        </Row>                       
+                        <br></br>
+                        {this.state.books.length ? (
+                            <List className="book-list">
+                                {this.state.books.map(book => {
                                     return this.renderBookSearch(book)                                    
                                 })}
                             </List>
@@ -503,7 +811,17 @@ class Books extends Component {
                 <Footer />
             </Container >
         )
+
+        return (
+            <div>
+                {isAuthenticated ? authLinks : guestLinks}
+            </div>
+        )
     }
 }
 
-export default Books;
+const mapStateToProps = (state) => ({
+    auth: state.auth
+})
+
+export default connect(mapStateToProps, { logoutUser })(withRouter(Books));

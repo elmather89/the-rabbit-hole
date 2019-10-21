@@ -33,27 +33,34 @@ class bookDetails extends Component {
       .catch(err => console.log(err));
   };
 
+  deleteBook = id => {
+    API.deleteBook(id)
+      .then(res => this.loadBookDetails())
+      .catch(err => console.log(err));
+  };
+
   render() {
     const { isAuthenticated, user } = this.props.auth;
 
     const authLinks = (
-      <Container fluid>
+      <Container>
         <Row>
           <Col size="sm-12">
             <BookHeader>
               <Row className="headerRow">
                 <Col size="sm-9">
                   <h1 className="bookTitle">{this.state.book.title}</h1>
-                  <Link to={`/creator/${this.state.creator._id}`}>
-                    <h3>By {this.state.creator.firstName} {this.state.creator.lastName}</h3>
+                  {/* <Link to={`/creator/${this.state.creator._id}`}> */}
+                  <Link to={this.state.creator ? `/creator/${this.state.creator._id}` : `/`}>
+                    <h3 className="is-link">{this.state.creator ? `By ` + this.state.creator.firstName + " " + this.state.creator.lastName : `NO CREATOR ASSOCIATED`}</h3>
                   </Link>
-                  <p>({this.state.creator.birthdate} - {this.state.creator.dateOfDeath})</p>
+                  <p>({this.state.creator ? this.state.creator.birthdate : ``} - {this.state.creator ? this.state.creator.dateOfDeath : ``})</p>
                   <hr></hr>
+                  <p>{this.state.creator ? this.state.creator.tags : ``}</p>
+                  <p>{this.state.creator ? this.state.creator.biography : ``}</p>
                   <Button id="book-edit-btn">
                     <Link to={"/edit/" + this.state.book._id}>Edit Details</Link>
                   </Button>
-                  <p>{this.state.creator.tags}</p>
-                  <p>{this.state.creator.biography}</p>
                 </Col>
                 <Col size="sm-3">
                   <div>
@@ -94,7 +101,7 @@ class bookDetails extends Component {
                 <Col size="sm-5">
                   <div className="card-body">
                     <p className="smallCaption" style={{ textAlign: "center" }}><small>Cover Art</small></p>
-                    <div>
+                    <div className="bookImg-div d-flex justify-content-center clearfix">
                       <img className="card-img" src={this.state.book.bookImage} alt="book-cover"
                         style={{ height: "auto" }}>
                       </img>
@@ -121,20 +128,21 @@ class bookDetails extends Component {
     )
 
     const guestLinks = (
-      <Container fluid>
+      <Container>
         <Row>
           <Col size="sm-12">
             <BookHeader>
               <Row className="headerRow">
-                <Col size="sm-9">
+              <Col size="sm-9">
                   <h1 className="bookTitle">{this.state.book.title}</h1>
-                  <Link to={`/creator/${this.state.creator._id}`}>
-                    <h3>By {this.state.creator.firstName} {this.state.creator.lastName}</h3>
+                  {/* <Link to={`/creator/${this.state.creator._id}`}> */}
+                  <Link to={this.state.creator ? `/creator/${this.state.creator._id}` : `/`}>
+                    <h3 className="is-link">By {this.state.creator ? this.state.creator.firstName + " " + this.state.creator.lastName : `NO CREATOR ASSOCIATED`}</h3>
                   </Link>
-                  <p>({this.state.creator.birthdate} - {this.state.creator.dateOfDeath})</p>
+                  <p>({this.state.creator ? this.state.creator.birthdate : ``} - {this.state.creator ? this.state.creator.dateOfDeath : ``})</p>
                   <hr></hr>
-                  <p>{this.state.creator.tags}</p>
-                  <p>{this.state.creator.biography}</p>
+                  <p>{this.state.creator ? this.state.creator.tags : ``}</p>
+                  <p>{this.state.creator ? this.state.creator.biography : ``}</p>
                 </Col>
                 <Col size="sm-3">
                   <div>

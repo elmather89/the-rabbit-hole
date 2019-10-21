@@ -63,7 +63,7 @@ class creatorDetails extends Component {
                 // let bookArray = res.data._books[0];
                 // console.log(bookArray);
                 console.log(bookArray);
-                
+
                 this.setState({
                     creator: res.data, book: res.data._books, bookArray: bookArray
                     // creator: res.data, firstName: "", lastName: "", biography: "", birthdate: "", dateOfDeath: "", legacy: "", ownWords: "", tags: "", image: ""
@@ -82,7 +82,7 @@ class creatorDetails extends Component {
 
         const authLinks = (
             <div className="contain1">
-                <Container fluid>
+                <Container>
                     <Row>
                         <Col size="sm-12">
                             <CreatorHeader>
@@ -107,7 +107,7 @@ class creatorDetails extends Component {
 
                                     <Col size="sm-4">
                                         <div className="imageCol">
-                                            <Image id="imageSize" className="imag" src={this.state.creator.image} alt="Creator Profile" roundedCircle />
+                                            <Image id="imageSize" className="imag" src={this.state.creator.image} alt="Creator Profile" />
                                         </div>
                                     </Col>
                                 </Row>
@@ -120,7 +120,7 @@ class creatorDetails extends Component {
                             <Col size="sm-12">
 
                                 <div className="outerbox">
-                                {this.state.book.length ? (
+                                    {this.state.book.length ? (
                                         <span>{
                                             this.state.bookArray.map(creator => {
                                                 console.log(creator);
@@ -132,11 +132,11 @@ class creatorDetails extends Component {
                                                     )
                                                 } else {
                                                     return (
-                                                        <div className="innerbox">No books associated with this creator.</div>
+                                                        <div className="innerbox"><p>No books associated with this creator. You can add a new book on the home page.</p></div>
                                                     )
                                                 }
                                             })
-                                        }</span>) : (<span></span>)}
+                                        }</span>) : (<div className="inner"><p>No books associated with this creator.<br/>You can add a new book on the home page.</p></div>)}
                                 </div>
 
                             </Col>
@@ -176,7 +176,7 @@ class creatorDetails extends Component {
 
         const guestLinks = (
             <div className="contain1">
-                <Container fluid>
+                <Container>
                     <Row>
                         <Col size="sm-12">
                             <CreatorHeader>
@@ -198,7 +198,7 @@ class creatorDetails extends Component {
 
                                     <Col size="sm-4">
                                         <div className="imageCol">
-                                            <Image id="imageSize" className="imag" src={this.state.creator.image} alt="Creator Profile" roundedCircle />
+                                            <Image id="imageSize" className="imag" src={this.state.creator.image} alt="Creator Profile" />
                                         </div>
                                     </Col>
                                 </Row>
@@ -223,11 +223,11 @@ class creatorDetails extends Component {
                                                     )
                                                 } else {
                                                     return (
-                                                        <div className="inner">No books associated with this creator.</div>
+                                                        <div className="inner"><p>No books associated with this creator. You can add a new book on the home page.</p></div>
                                                     )
                                                 }
                                             })
-                                        }</span>) : (<div className="inner">No books associated with this creator.</div>)}
+                                        }</span>) : (<div className="inner"><p>No books associated with this creator. You can add a new book on the home page.</p></div>)}
                                 </div>
 
                             </Col>
