@@ -90,6 +90,6 @@
     "redux": "^4.0.4",
     "redux-thunk": "^2.3.0",
     "sequelize": "^5.8.11",
-    "validator": "^11.1.0"
+    "validator": "^13.7.0"
   }
 }
