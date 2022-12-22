@@ -72,7 +72,7 @@
     "gravatar": "^1.8.0",
     "helmet": "^3.18.0",
     "if-env": "^1.0.4",
-    "jsonwebtoken": "^8.5.1",
+    "jsonwebtoken": "^9.0.0",
     "jwt-decode": "^2.2.0",
     "mongoose": "^5.6.5",
     "mongoose-file": "0.0.2",
